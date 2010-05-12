@@ -1,22 +1,38 @@
+/**
+=================================================================================================
+===================================       PBX - VIEWER       ====================================
+=================================================================================================
+
+	Universidad del Valle
+	Escuela de Ingenieria Electrica y Electronica
+	Programa de Ingenieria Electronica
+	
+	Autor: Victor Alberto Romero
+	email: varg04444@gmail.com
+	
+	Fecha de ultima modificacion: 12 Mayo de 2010
+	
+=================================================================================================
+
+	MysqlConection: Brinda las herramientas para el manejo de la base de datos mysql mediante qt
+
+=================================================================================================
+*/
+
 #ifndef MYSQLCONECTION_H
 #define MYSQLCONECTION_H
 
-#include <QApplication>
-#include <QtCore>
-#include <QtGui>
 #include <QtSql>
-#include <QLabel>
 
 class MysqlConection
 {
-	private:
-	
+	//private:
 	
 	public:
-	MysqlConection( );
-	virtual ~MysqlConection( );
-	
-	int consultarAfectoHuevito( );
-	void serBuenaMadre( );
+		
+		MysqlConection();
+		virtual ~MysqlConection();
+		
+		bool hayDriver();
 };
 #endif
