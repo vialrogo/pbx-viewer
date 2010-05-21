@@ -32,17 +32,14 @@ bool MysqlConection::Conectar(QString hostname, QString Database, QString userna
     return ok;
 }
 
-QString** MysqlConection::Consulta(QString consulta, const int columnas)
+QVector<QString*> MysqlConection::Consulta(QString consulta, int columnas)
 {
     bool ok = query.exec(consulta);
     int size = query.size();
 
-    QString** matrix = new QString*[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        matrix[i]=new QString[columnas];
-    }
+    QVector<QString*> vector(0);
+    //vector = new QVector<QString*>();
+    QString* arreglo = new QString[columnas];
 
     if(ok)
     {
@@ -51,12 +48,13 @@ QString** MysqlConection::Consulta(QString consulta, const int columnas)
             query.next();
             for (int j = 0; j < columnas; j++)
             {
-                matrix[i][j] = query.value(j).toString();
+                arreglo[j] = query.value(j).toString();
             }
+            vector.append(arreglo);
         }
     }
     else
         qDebug("Error, no pudo realizar la consulta");
 
-    return matrix;
+    return vector;
 }

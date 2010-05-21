@@ -9,6 +9,7 @@
 #define	_MYSQLCONECTION_H
 
 #include <QtSql>
+#include <QVector>
 
 class MysqlConection
 {
@@ -17,7 +18,7 @@ class MysqlConection
         virtual ~MysqlConection();
         bool hayDriver();
         bool Conectar(QString hostname, QString Database, QString username, QString passwd);
-        QString** Consulta(QString consulta, int columnas);
+        QVector<QString*> Consulta(QString consulta, int columnas);
 
     private:
         QSqlDatabase db;

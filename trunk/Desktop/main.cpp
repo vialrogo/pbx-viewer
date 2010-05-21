@@ -6,12 +6,31 @@
  */
 
 #include <iostream>
+#include <QString>
 
+#include "RS232_Conection.h"
 #include "MysqlConection.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
+
+    RS232_Conection *conection = new RS232_Conection("/dev/ttyS0", BAUD19200, FLOW_OFF, PAR_NONE, DATA_8, STOP_1);
+    conection->openPort();
+
+    char a;
+    cout<<"Esperando cualquier cosa para recibir";
+    cin>>a;
+
+    QString *msg_rec =new QString("cadena recibida: ");
+    conection->receiveMsg();
+    msg_rec->append(*conection->getReceived_msg());
+    cout<<qPrintable(*msg_rec)<<endl;
+
+    cout<<"Esperando cualquier cosa para cerrar";
+    cin>>a;
+
+    conection->closePort();
 
     MysqlConection* mysconect = new MysqlConection();
 
@@ -22,20 +41,7 @@ int main(int argc, char *argv[]) {
     else
         cout<<"No se conecto :("<<endl<<endl;
 
-    QString** salida= mysconect->Consulta("Select id, Origen, Destino from llamada",3);
-
-//    for (int i = 0; i < salida->size(); i++)
-//    {
-//        for (int j = 0; j < 3; j++)
-//        {
-//            //cout<<salida[i][j];
-//        }
-//    }
-
-    int* arr = new int[5];
-
-    cout<<""<<arr->length();
-
+    //QString** salida= mysconect->Consulta("Select id, Origen, Destino from llamada",3);
 
     return 0;
 }
