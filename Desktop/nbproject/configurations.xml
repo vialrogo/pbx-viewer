@@ -20,7 +20,6 @@
       </logicalFolder>
       <itemPath>MysqlConection.cpp</itemPath>
       <itemPath>MysqlConection.h</itemPath>
-      <itemPath>RS232_Conection.cpp</itemPath>
       <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
