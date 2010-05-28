@@ -5,15 +5,17 @@
  * Created on 28 de Maio de 2010, 10:28
  */
 
-#include <QtGui/QApplication>
+#include <iostream>
+
+using namespace std;
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
     // Q_INIT_RESOURCE(resfile);
 
-    QApplication app(argc, argv);
+    cout<<"Hola mundo"<<endl;
 
     // create and show your widgets here
 
-    return app.exec();
+    return 0;
 }
