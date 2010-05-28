@@ -15,17 +15,17 @@
       <logicalFolder name="qextserialport_mod"
                      displayName="qextserialport_mod"
                      projectFiles="true">
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/posix_qextserialport.cpp</itemPath>
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/posix_qextserialport.h</itemPath>
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/qextserialbase.cpp</itemPath>
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/qextserialbase.h</itemPath>
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/qextserialport.cpp</itemPath>
-        <itemPath>/srv/http/pbx-viewer/Desktop/qextserialport_mod/qextserialport.h</itemPath>
+        <itemPath>qextserialport_mod/posix_qextserialport.cpp</itemPath>
+        <itemPath>qextserialport_mod/posix_qextserialport.h</itemPath>
+        <itemPath>qextserialport_mod/qextserialbase.cpp</itemPath>
+        <itemPath>qextserialport_mod/qextserialbase.h</itemPath>
+        <itemPath>qextserialport_mod/qextserialport.cpp</itemPath>
+        <itemPath>qextserialport_mod/qextserialport.h</itemPath>
       </logicalFolder>
       <itemPath>MysqlConection.cpp</itemPath>
       <itemPath>MysqlConection.h</itemPath>
-      <itemPath>/srv/http/pbx-viewer/Desktop/RS232_Conection.cpp</itemPath>
-      <itemPath>/srv/http/pbx-viewer/Desktop/RS232_Conection.h</itemPath>
+      <itemPath>RS232_Conection.cpp</itemPath>
+      <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -35,7 +35,6 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../../Backup Casa/PruebaRS232/prueba4/recibe/qextserialport_mod</Elem>
     <Elem>../../../Backup Casa/PruebaRS232/prueba4/recibe/qextserialport_mod</Elem>
     <Elem>.</Elem>
   </sourceRootList>
