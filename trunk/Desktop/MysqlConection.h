@@ -17,12 +17,13 @@ class MysqlConection
         MysqlConection();
         virtual ~MysqlConection();
         bool hayDriver();
-        bool Conectar(QString hostname, QString Database, QString username, QString passwd);
-        QVector<QString*> Consulta(QString consulta, int columnas);
+        bool conectar(QString hostname, QString Database, QString username, QString passwd);
+        QVector<QString*> consulta(QString consulta, int columnas);
+        bool insercion(QString insertion);
 
     private:
         QSqlDatabase db;
-        QSqlQuery query;
+        QSqlQuery* query;
 };
 
 #endif	/* _MYSQLCONECTION_H */

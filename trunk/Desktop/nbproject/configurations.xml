@@ -8,19 +8,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
                    projectFiles="true">
-      <logicalFolder name="qextserialport_mod"
-                     displayName="qextserialport_mod"
-                     projectFiles="true">
-        <itemPath>qextserialport_mod/posix_qextserialport.cpp</itemPath>
-        <itemPath>qextserialport_mod/posix_qextserialport.h</itemPath>
-        <itemPath>qextserialport_mod/qextserialbase.cpp</itemPath>
-        <itemPath>qextserialport_mod/qextserialbase.h</itemPath>
-        <itemPath>qextserialport_mod/qextserialport.cpp</itemPath>
-        <itemPath>qextserialport_mod/qextserialport.h</itemPath>
-      </logicalFolder>
+      <itemPath>Llamada.cpp</itemPath>
+      <itemPath>Llamada.h</itemPath>
       <itemPath>MysqlConection.cpp</itemPath>
       <itemPath>MysqlConection.h</itemPath>
-      <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -33,9 +24,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>qextserialport_mod</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="4">

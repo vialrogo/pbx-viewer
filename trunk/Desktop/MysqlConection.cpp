@@ -20,7 +20,7 @@ bool MysqlConection::hayDriver()
 	return QSqlDatabase::isDriverAvailable("QMYSQL");
 }
 
-bool MysqlConection::Conectar(QString hostname, QString Database, QString username, QString passwd)
+bool MysqlConection::conectar(QString hostname, QString Database, QString username, QString passwd)
 {
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName(hostname);
@@ -29,26 +29,27 @@ bool MysqlConection::Conectar(QString hostname, QString Database, QString userna
     db.setPassword(passwd);
     bool ok = db.open();
 
+    query = new QSqlQuery(db);
+
     return ok;
 }
 
-QVector<QString*> MysqlConection::Consulta(QString consulta, int columnas)
+QVector<QString*> MysqlConection::consulta(QString consulta, int columnas)
 {
-    bool ok = query.exec(consulta);
-    int size = query.size();
+    bool ok = query->exec(consulta);
+    int size = query->size();
 
     QVector<QString*> vector(0);
-    //vector = new QVector<QString*>();
     QString* arreglo = new QString[columnas];
 
     if(ok)
     {
         for (int i = 0; i < size; i++)
         {
-            query.next();
+            query->next();
             for (int j = 0; j < columnas; j++)
             {
-                arreglo[j] = query.value(j).toString();
+                arreglo[j] = query->value(j).toString();
             }
             vector.append(arreglo);
         }
@@ -57,4 +58,8 @@ QVector<QString*> MysqlConection::Consulta(QString consulta, int columnas)
         qDebug("Error, no pudo realizar la consulta");
 
     return vector;
+}
+bool MysqlConection::insercion(QString insertion)
+{
+    return query->exec(insertion);
 }
