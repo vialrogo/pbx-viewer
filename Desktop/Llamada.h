@@ -28,7 +28,6 @@ private:
     QString tipo;
     int duracion;
     double costo;
-
     MysqlConection* myconection;
 };
 
