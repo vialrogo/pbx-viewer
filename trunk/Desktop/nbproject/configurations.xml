@@ -12,6 +12,8 @@
       <itemPath>Llamada.h</itemPath>
       <itemPath>MysqlConection.cpp</itemPath>
       <itemPath>MysqlConection.h</itemPath>
+      <itemPath>ProcesarLlamada.cpp</itemPath>
+      <itemPath>ProcesarLlamada.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"

@@ -13,12 +13,10 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    //bool conectado = mysconect->Conectar("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
     Llamada* llamadaprueba;
     bool ok;
 
-    int i=1;
-    //for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 10; i++) {
         llamadaprueba = new Llamada( (QDateTime::currentDateTime()).toString("yyyy-MM-dd hh:mm:ss") , "3333333", "4444444", "12345", "4", 10.5+i, 5000*i);
         ok = llamadaprueba->GuardarBD("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
         
@@ -26,8 +24,7 @@ int main(int argc, char *argv[]) {
             cout<<"Guardo la llamada :)"<<endl<<endl;
         else
             cout<<"No guardo la llamada :("<<endl<<endl;
-
-    //}
+    }
 
 //    if(conectado)
 //        cout<<"Se conecto! :)"<<endl<<endl;

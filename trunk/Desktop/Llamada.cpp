@@ -31,22 +31,16 @@ bool Llamada::GuardarBD(QString host, QString database, QString username, QStrin
     bool isConectado = myconection->conectar(host, database, username, password);
     QString duracionS = QString::number(duracion);
     QString costoS = QString::number(costo);
-
-    cout<<"Conectado: "<<isConectado<<endl;
-    QString llamadaS= "INSERT INTO  llamada (lla_hora, lla_origen, lla_destino, lla_codigocuenta, lla_tipo, lla_duracion, lla_costo) VALUES ('"+ hora +"' , '"+ origen + "', '"+ destino +"', '"+ codigocuenta +"', '"+ tipo +"', '"+ duracionS +"', '"+ costoS+ "');";
-//    QString llamadaS= "SELECT * FROM llamada;";
-
-    cout<<endl<<endl<<qPrintable(llamadaS)<<endl<<endl<<endl;
-
     bool ok = false;
-//    QVector<QString*> vector(0);
+
+    QString llamadaS= "INSERT INTO  llamada (lla_hora, lla_origen, lla_destino, lla_codigocuenta, lla_tipo, lla_duracion, lla_costo) VALUES ('"+ hora +"' , '"+ origen + "', '"+ destino +"', '"+ codigocuenta +"', '"+ tipo +"', '"+ duracionS +"', '"+ costoS+ "');";
 
     if(isConectado){
         ok = myconection->insercion(llamadaS);
-//        vector = myconection->consulta(llamadaS, 8);
-        cout<<"Entro al if y ok: "<<ok<<endl;
-//        cout<<"vector.size(): "<<vector.size()<<endl;
     }
+    
+    myconection->desconectar();
+
     return ok;
 }
 

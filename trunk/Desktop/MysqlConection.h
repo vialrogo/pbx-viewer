@@ -18,6 +18,7 @@ class MysqlConection
         virtual ~MysqlConection();
         bool hayDriver();
         bool conectar(QString hostname, QString Database, QString username, QString passwd);
+        void desconectar();
         QVector<QString*> consulta(QString consulta, int columnas);
         bool insercion(QString insertion);
 

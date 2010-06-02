@@ -13,6 +13,7 @@ MysqlConection::MysqlConection()
 
 MysqlConection::~MysqlConection()
 {
+    delete query;
 }
 
 bool MysqlConection::hayDriver()
@@ -28,10 +29,17 @@ bool MysqlConection::conectar(QString hostname, QString Database, QString userna
     db.setUserName(username);
     db.setPassword(passwd);
     bool ok = db.open();
-
     query = new QSqlQuery(db);
 
     return ok;
+}
+
+void MysqlConection::desconectar()
+{
+    QString nombreConeccion = db.connectionName();
+    db.close();
+    db = QSqlDatabase();
+    QSqlDatabase::removeDatabase(nombreConeccion);
 }
 
 QVector<QString*> MysqlConection::consulta(QString consulta, int columnas)
