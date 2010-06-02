@@ -1,0 +1,16 @@
+Para hacer funcionar el RS232 con un usuario normal:
+
+1. Agregar mi usuario al grupo uucp
+	
+	sudo gpasswd -a <usuario> uucp
+
+2. Crear una regla udev en /etc/udev/rules.d/<cualquierNombre>.rules que contenga:
+
+	# serial
+	KERNEL=="ttyS*", GROUP="uucp", MODE="0666"
+	# usb
+	KERNEL=="ttyUSB*", GROUP="uucp", MODE="0666"
+
+3. Reiniciar sesión y listo
+
+
