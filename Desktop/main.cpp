@@ -6,40 +6,36 @@
  */
 
 #include <iostream>
-#include "RS232_Conection.h"
 #include "MysqlConection.h"
+#include "Llamada.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    RS232_Conection *conection = new RS232_Conection("/dev/ttyS0", BAUD19200, FLOW_OFF, PAR_NONE, DATA_8, STOP_1);
-    conection->openPort();
+    //bool conectado = mysconect->Conectar("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
+    Llamada* llamadaprueba;
+    bool ok;
 
-    char a;
-    cout<<"Esperando cualquier cosa para recibir";
-    cin>>a;
+    int i=1;
+    //for (int i = 0; i < 3; i++) {
+        llamadaprueba = new Llamada( (QDateTime::currentDateTime()).toString("yyyy-MM-dd hh:mm:ss") , "3333333", "4444444", "12345", "4", 10.5+i, 5000*i);
+        ok = llamadaprueba->GuardarBD("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
+        
+        if(ok)
+            cout<<"Guardo la llamada :)"<<endl<<endl;
+        else
+            cout<<"No guardo la llamada :("<<endl<<endl;
 
-    QString *msg_rec =new QString("cadena recibida: ");
-    conection->receiveMsg();
-    msg_rec->append(*conection->getReceived_msg());
-    cout<<qPrintable(*msg_rec)<<endl;
+    //}
 
-    cout<<"Esperando cualquier cosa para cerrar";
-    cin>>a;
-
-    conection->closePort();
-
-    MysqlConection* mysconect = new MysqlConection();
-
-    bool conectado = mysconect->Conectar("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
-
-    if(conectado)
-        cout<<"Se conecto! :)"<<endl<<endl;
-    else
-        cout<<"No se conecto :("<<endl<<endl;
-
-    cout<<"Hola mundo"<<endl;
+//    if(conectado)
+//        cout<<"Se conecto! :)"<<endl<<endl;
+//    else
+//        cout<<"No se conecto :("<<endl<<endl;
+//
+//    QString cadena = (QDateTime::currentDateTime() ).toString("yyyy-MM-dd hh:mm:ss");
+//    cout<< qPrintable(cadena) <<endl;
 
     return 0;
 }
