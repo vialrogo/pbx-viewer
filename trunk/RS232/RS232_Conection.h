@@ -19,8 +19,8 @@ class RS232_Conection
 		RS232_Conection();
 		RS232_Conection(const QString &name, BaudRateType brt, FlowType fc, ParityType pt, DataBitsType dbt, StopBitsType sbt);
 		virtual ~RS232_Conection();
-		void closePort();
-		void openPort();
+		bool closePort();
+		bool openPort();
 		void transmitMsg();
 		void receiveMsg();
 		QString* getReceived_msg();

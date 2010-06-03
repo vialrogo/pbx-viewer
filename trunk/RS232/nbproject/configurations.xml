@@ -18,6 +18,11 @@
         <itemPath>qextserialport_mod/qextserialport.cpp</itemPath>
         <itemPath>qextserialport_mod/qextserialport.h</itemPath>
       </logicalFolder>
+      <itemPath>Adaptador.cpp</itemPath>
+      <itemPath>Adaptador.h</itemPath>
+      <itemPath>GUIAdaptador.cpp</itemPath>
+      <itemPath>GUIAdaptador.h</itemPath>
+      <itemPath>GUIAdaptador.ui</itemPath>
       <itemPath>RS232_Conection.cpp</itemPath>
       <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -44,7 +49,7 @@
         <platform>2</platform>
       </toolsSet>
       <qt>
-        <modules>core gui</modules>
+        <modules>core gui network</modules>
       </qt>
       <compileType>
         <linkerTool>
