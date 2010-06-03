@@ -1,14 +1,5 @@
-/*
- * File:   main.cpp
- * Author: vialrogo
- *
- * Created on 28 de Maio de 2010, 13:11
- */
-
 #include <QtGui/QApplication>
-#include "GUIAdaptador.h"
-
-using namespace std;
+#include <QtNetwork>
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -18,7 +9,5 @@ int main(int argc, char *argv[]) {
 
     // create and show your widgets here
 
-    GUIAdaptador* guiAdaptador = new GUIAdaptador();
-    guiAdaptador->show();
     return app.exec();
 }

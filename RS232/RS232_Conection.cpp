@@ -60,22 +60,32 @@ void RS232_Conection::receiveMsg()
 	}
 }
 
-void RS232_Conection::closePort()
+bool RS232_Conection::closePort()
 {
 	port->close();
-	if(port->isOpen())
+	if(port->isOpen()){
 		cout<<"Error al cerrar el puerto"<<endl;
-	else
+                return false;
+        }
+	else{
 		cout<<"Puerto cerrado exitosamente"<<endl;
+                return true;
+        }
+        return false;
 }
 
-void RS232_Conection::openPort()
+bool RS232_Conection::openPort()
 {
 	port->open(QIODevice::ReadWrite);
-	if(port->isOpen())
+	if(port->isOpen()){
 		cout<<"Puerto abierto exitosamente"<<endl;
-	else
+                return true;
+        }
+	else{
 		cout<<"Error al abrir el puerto"<<endl;
+                return false;
+        }
+        return false;
 }
 
 QString* RS232_Conection::getReceived_msg()
