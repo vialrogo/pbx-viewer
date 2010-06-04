@@ -8,16 +8,15 @@
 #ifndef _ADAPTADOR_H
 #define	_ADAPTADOR_H
 
-#include <QDialog>
+
 #include <iostream>
 #include "RS232_Conection.h"
 #include <QtNetwork>
 
-class QTcpServer;
-class QLabel;
-class QPushButton;
 
-class Adaptador : public QDialog{
+class QTcpServer;
+
+class Adaptador: public QObject{
 
     Q_OBJECT
 
@@ -30,17 +29,18 @@ public:
     void parar();
     bool probarR232();
 private:
-    QTcpSocket *tcpSocket;
-    //QTcpServer *tcpServer;
-    QString *msg_rec;
+    QString *mensaje;
+    QTcpServer *tcpServer;
     bool estaCorriendo;
     RS232_Conection *conectionR232;
-    
+    QTimer *timer;
+    quint16 blockSize;
     QString* leerRS232();
-    bool escribirTcp();
+    
 
 private slots:
-    QString* convertir();
+    void convertir();
+    void escribirTcp();
 };
 
 #endif	/* _ADAPTADOR_H */
