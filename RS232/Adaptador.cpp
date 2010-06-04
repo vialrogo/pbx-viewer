@@ -27,23 +27,9 @@ void Adaptador::convertir(){
     qDebug() << ">-<";
 }
 
-void Adaptador::escribirTcp(){
-    
-    QString a = mensaje->left(mensaje->size());
-    QByteArray block;
-    QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_0);
-    out << (quint16)0;
-    out << a;
-    out.device()->seek(0);
-    out << (quint16)(block.size() - sizeof(quint16));
-
-    QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
-    connect(clientConnection, SIGNAL(disconnected()),
-            clientConnection, SLOT(deleteLater()));
-
-    clientConnection->write(block);
-    clientConnection->disconnectFromHost();    
+void Adaptador::escribirTcp(){    
+    QString a = mensaje->left(mensaje->size());    
+    tcpSocket->write(a);    
 }
 
 bool Adaptador::crearConexionRS232(const QString &name, BaudRateType brt, FlowType fc, ParityType pt, DataBitsType dbt, StopBitsType sbt){
@@ -79,6 +65,7 @@ bool Adaptador::probarR232(){
     return conectionR232->openPort() && conectionR232->closePort();
 }
 
+/*
 bool Adaptador::crearSocket(QString direccion, QString puerto){
     tcpServer = new QTcpServer(this);
         if (!tcpServer->listen())
@@ -87,16 +74,16 @@ bool Adaptador::crearSocket(QString direccion, QString puerto){
     qDebug() << "PUERTO:" <<tcpServer->serverPort();
     return true;
 }
+*/
 
-/*
 bool Adaptador::crearSocket(QString direccion, QString puerto){
     tcpSocket = new QTcpSocket(this);
     blockSize = 0;
     tcpSocket->abort();
-    //tcpSocket->connectToHost(direccion,puerto.toInt());
-    tcpSocket->connectToHost("127.0.0.1",QString("47348").toInt());
+    tcpSocket->connectToHost(direccion,puerto.toInt());
+    connect(tcpSocket, SIGNAL(connected()), this, SLOT(escribirTcp()));
+    //tcpSocket->connectToHost("127.0.0.1",QString("47348").toInt());
     //connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readFortune()));
     //connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)));
     return true;
 }
- * */

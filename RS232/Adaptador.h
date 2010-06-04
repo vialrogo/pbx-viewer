@@ -14,7 +14,7 @@
 #include <QtNetwork>
 
 
-class QTcpServer;
+class QTcpSocket;
 
 class Adaptador: public QObject{
 
@@ -30,7 +30,7 @@ public:
     bool probarR232();
 private:
     QString *mensaje;
-    QTcpServer *tcpServer;
+    QTcpSocket *tcpSocket;
     bool estaCorriendo;
     RS232_Conection *conectionR232;
     QTimer *timer;
