@@ -27,9 +27,8 @@ void Adaptador::convertir(){
     qDebug() << ">-<";
 }
 
-void Adaptador::escribirTcp(){    
-    QString a = mensaje->left(mensaje->size());    
-    tcpSocket->write(a);    
+void Adaptador::escribirTcp(){  
+    tcpSocket->write(mensaje->toAscii());
 }
 
 bool Adaptador::crearConexionRS232(const QString &name, BaudRateType brt, FlowType fc, ParityType pt, DataBitsType dbt, StopBitsType sbt){
