@@ -19,6 +19,10 @@ GUIAdaptador::GUIAdaptador() {
     connect(widget.pushButtonIniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
     connect(widget.pushButtonDetener, SIGNAL(clicked()), this, SLOT(clickDetener()));
     widget.statusbar->showMessage(tr("Esperando datos"), 2000);
+
+    QString *abc = new QString("hola");
+    qDebug() << abc->toAscii();
+    
 }
 
 GUIAdaptador::~GUIAdaptador() {
