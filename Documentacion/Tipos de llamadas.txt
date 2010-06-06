@@ -1,0 +1,5 @@
+El número arranca con '  ' -> Tipo 1 -> llamada interna
+El número arranca con '00' -> Tipo 2 -> llamada internacional
+El número arranca con '03' -> Tipo 3 -> llamada celular
+El número arranca con '0x' -> Tipo 4 -> llamada nacional
+El número arranca con 'xx' -> Tipo 5 -> llamada local

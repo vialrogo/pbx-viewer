@@ -11,14 +11,13 @@ Llamada::Llamada() {
      myconection = new MysqlConection();
 }
 
-Llamada::Llamada(QString hora_in, QString origen_in, QString destino_in,  QString codigocuenta_in, QString tipo_in, int duracion_in, double costo_in) {
+Llamada::Llamada(QString hora_in, QString origen_in, QString destino_in,  QString codigocuenta_in, QString tipo_in, int duracion_in) {
     hora = hora_in;
     origen = origen_in;
     destino = destino_in;
     codigocuenta = codigocuenta_in;
     tipo = tipo_in;
     duracion = duracion_in;
-    costo = costo_in;
 
     myconection = new MysqlConection();
 }
@@ -30,10 +29,11 @@ bool Llamada::GuardarBD(QString host, QString database, QString username, QStrin
 
     bool isConectado = myconection->conectar(host, database, username, password);
     QString duracionS = QString::number(duracion);
-    QString costoS = QString::number(costo);
     bool ok = false;
 
-    QString llamadaS= "INSERT INTO  llamada (lla_hora, lla_origen, lla_destino, lla_codigocuenta, lla_tipo, lla_duracion, lla_costo) VALUES ('"+ hora +"' , '"+ origen + "', '"+ destino +"', '"+ codigocuenta +"', '"+ tipo +"', '"+ duracionS +"', '"+ costoS+ "');";
+    QString idTipo=(myconection->consulta("SELECT tip_id FROM `tipo_llamada` WHERE tip_nombre='" + tipo + "';",1).at(0))[0];
+
+    QString llamadaS= "INSERT INTO  llamada (lla_hora, lla_origen, lla_destino, lla_codigocuenta, lla_idTipo, lla_duracion) VALUES ('"+ hora +"' , '"+ origen + "', '"+ destino +"', '"+ codigocuenta +"', '"+ idTipo +"', '"+ duracionS +"');";
 
     if(isConectado){
         ok = myconection->insercion(llamadaS);

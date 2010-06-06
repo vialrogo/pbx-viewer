@@ -69,5 +69,6 @@ QVector<QString*> MysqlConection::consulta(QString consulta, int columnas)
 }
 bool MysqlConection::insercion(QString insertion)
 {
+    insertion.replace(QString("''"), QString("NULL"));
     return query->exec(insertion);
 }
