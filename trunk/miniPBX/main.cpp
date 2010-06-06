@@ -19,14 +19,22 @@ int main() {
     RS232_Conection *conection = new RS232_Conection("/dev/ttyUSB0", BAUD19200, FLOW_OFF, PAR_NONE, DATA_8, STOP_1);
     conection->openPort();
 
-    QString *msg =new QString("154100219                   1166 926658429                        1031   0   602 1      000         ");
+//    QString *msg =new QString("154100219                   1166 926658429                        1031   0   602 1      000         ");
+     QString * msg;
 //    cout<<qPrintable(*msg)<<endl;
-    conection->setMessage(msg);
+     while(true)
+     {
+        for (int i = 0; i <5; i++)
+        {
+            msg =new QString(" -- mensaje numero "+QString::number(i));
+            conection->setMessage(msg);
+            conection->transmitMsg();
+            cout<<qPrintable(*msg)<<endl;
+        }
 
-    for (int i = 0; i <100; i++)
-    {
-        conection->transmitMsg();
-    }
+        cout<<"Esperando cualquier cosa";
+        cin>>a;
+     }
 
 //    char a;
 //    cout<<"Esperando cualquier cosa";
