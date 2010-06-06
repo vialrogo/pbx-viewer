@@ -9,14 +9,15 @@
 #define	_PROCESARLLAMADA_H
 
 #include <QString>
+#include "Llamada.h"
 
 class ProcesarLlamada {
 public:
     ProcesarLlamada();
     virtual ~ProcesarLlamada();
-    QString* procesallamada(QString flujollamadaS);
+    bool procesallamada(QString flujollamadaS);
 private:
-
+    Llamada* llamadita;
 };
 
 #endif	/* _PROCESARLLAMADA_H */

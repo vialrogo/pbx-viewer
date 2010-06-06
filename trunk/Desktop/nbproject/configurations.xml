@@ -8,6 +8,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
                    projectFiles="true">
+      <itemPath>GUIDesktop.cpp</itemPath>
+      <itemPath>GUIDesktop.h</itemPath>
+      <itemPath>GUIDesktop.ui</itemPath>
       <itemPath>Llamada.cpp</itemPath>
       <itemPath>Llamada.h</itemPath>
       <itemPath>MysqlConection.cpp</itemPath>
@@ -35,7 +38,7 @@
         <platform>2</platform>
       </toolsSet>
       <qt>
-        <modules>core gui sql</modules>
+        <modules>core gui network sql</modules>
       </qt>
       <compileType>
         <linkerTool>

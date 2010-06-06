@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-06-2010 a las 17:44:44
+-- Tiempo de generación: 06-06-2010 a las 15:08:36
 -- Versión del servidor: 5.1.47
 -- Versión de PHP: 5.3.2
 
@@ -52,13 +52,20 @@ CREATE TABLE IF NOT EXISTS `llamada` (
 CREATE TABLE IF NOT EXISTS `tipo_llamada` (
   `tip_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `tip_tarifa` int(4) NOT NULL,
+  `tip_Nombre` varchar(15) NOT NULL,
   PRIMARY KEY (`tip_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcar la base de datos para la tabla `tipo_llamada`
 --
 
+INSERT INTO `tipo_llamada` (`tip_id`, `tip_tarifa`, `tip_Nombre`) VALUES
+(1, 0, 'Interna'),
+(2, 1000, 'Internacional'),
+(3, 300, 'Celular'),
+(4, 200, 'Nacional'),
+(5, 100, 'Local');
 
 --
 -- Filtros para las tablas descargadas (dump)
