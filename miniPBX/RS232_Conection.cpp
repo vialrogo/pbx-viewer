@@ -41,23 +41,25 @@ void RS232_Conection::transmitMsg()
 
 void RS232_Conection::receiveMsg()
 {
-	char buff[1024];
+	char buff[10240];
   	int numBytes;
 
 	numBytes = port->bytesAvailable();
 	if(numBytes > 0)
 	{
-	    if(numBytes > 1024)
-			numBytes = 1024;
+	    if(numBytes > 10240)
+			numBytes = 10240;
 
-	    int i = port->read(buff, numBytes);
+	    int i = port->read(buff, 10240);
 		buff[i] = '\0';
-	    QString msg = buff;
+	    //QString msg = buff;
 
-	   	received_msg->append(msg);
-		cout<<"Bytes disponibles: "<<numBytes<<endl;
-		cout<<"Bytes recibidos: "<<i<<endl;
+	   	received_msg = new QString(buff);                
+		qDebug(qPrintable("Bytes disponibles: "+QString::number(numBytes)));
+                qDebug(qPrintable("Bytes recibidos:  "+QString::number(i)));
 	}
+        else
+            received_msg = new QString("");
 }
 
 bool RS232_Conection::closePort()
