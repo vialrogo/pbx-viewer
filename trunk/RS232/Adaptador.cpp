@@ -12,7 +12,8 @@ using namespace std;
 Adaptador::Adaptador() {
     estaCorriendo = false;    
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(convertir()));    
+    connect(timer, SIGNAL(timeout()), this, SLOT(convertir()));
+    mensaje = new QString("");
 }
 
 Adaptador::~Adaptador() {
@@ -21,13 +22,17 @@ Adaptador::~Adaptador() {
 
 
 void Adaptador::convertir(){
-    qDebug() << "<->";
     mensaje = leerRS232();
-    cout<<">>>"<<qPrintable(*mensaje)<<endl;
-    qDebug() << ">-<";
+    if(mensaje->compare("")!=0){
+        qDebug() << "<->";
+        cout<<">leerRS232()>"<<qPrintable(*mensaje)<<endl;
+        qDebug() << ">-<";
+        escribirTcp();
+    }
 }
 
-void Adaptador::escribirTcp(){  
+void Adaptador::escribirTcp(){
+    
     tcpSocket->write(mensaje->toAscii());
 }
 
@@ -37,9 +42,10 @@ bool Adaptador::crearConexionRS232(const QString &name, BaudRateType brt, FlowTy
 }
 
 QString* Adaptador::leerRS232(){
-    QString *msg_rec =new QString("");
+    
     conectionR232->receiveMsg();
-    msg_rec->append(*conectionR232->getReceived_msg());
+    QString *msg_rec = conectionR232->getReceived_msg();
+    //msg_rec->append(*);
     return msg_rec;
 }
 
@@ -47,7 +53,7 @@ void Adaptador::correr(){
     if(!estaCorriendo){
         conectionR232->openPort();        
         estaCorriendo = true;
-        timer->start(1000);
+        timer->start(10);
     }
 }
 
@@ -80,7 +86,7 @@ bool Adaptador::crearSocket(QString direccion, QString puerto){
     blockSize = 0;
     tcpSocket->abort();
     tcpSocket->connectToHost(direccion,puerto.toInt());
-    connect(tcpSocket, SIGNAL(connected()), this, SLOT(escribirTcp()));
+    //connect(tcpSocket, SIGNAL(connected()), this, SLOT(escribirTcp()));
     //tcpSocket->connectToHost("127.0.0.1",QString("47348").toInt());
     //connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readFortune()));
     //connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)));
