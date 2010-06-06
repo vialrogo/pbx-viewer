@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIAdaptador.ui'
 **
-** Created: Wed Jun 2 16:47:28 2010
+** Created: Sun Jun 6 15:37:53 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,9 @@ public:
     QAction *actionCerrar;
     QAction *actionAyuda;
     QAction *actionAcerca_de;
+    QAction *actionEspanol;
+    QAction *actionIngles;
+    QAction *actionPortugues;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -68,6 +71,7 @@ public:
     QMenuBar *menubar;
     QMenu *menuArchivo;
     QMenu *menuEdici_n;
+    QMenu *menuIdioma;
     QMenu *menuAyuda;
     QStatusBar *statusbar;
 
@@ -91,6 +95,12 @@ public:
         actionAyuda->setObjectName(QString::fromUtf8("actionAyuda"));
         actionAcerca_de = new QAction(GUIAdaptador);
         actionAcerca_de->setObjectName(QString::fromUtf8("actionAcerca_de"));
+        actionEspanol = new QAction(GUIAdaptador);
+        actionEspanol->setObjectName(QString::fromUtf8("actionEspanol"));
+        actionIngles = new QAction(GUIAdaptador);
+        actionIngles->setObjectName(QString::fromUtf8("actionIngles"));
+        actionPortugues = new QAction(GUIAdaptador);
+        actionPortugues->setObjectName(QString::fromUtf8("actionPortugues"));
         centralwidget = new QWidget(GUIAdaptador);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -227,6 +237,8 @@ public:
         menuArchivo->setObjectName(QString::fromUtf8("menuArchivo"));
         menuEdici_n = new QMenu(menubar);
         menuEdici_n->setObjectName(QString::fromUtf8("menuEdici_n"));
+        menuIdioma = new QMenu(menuEdici_n);
+        menuIdioma->setObjectName(QString::fromUtf8("menuIdioma"));
         menuAyuda = new QMenu(menubar);
         menuAyuda->setObjectName(QString::fromUtf8("menuAyuda"));
         GUIAdaptador->setMenuBar(menubar);
@@ -242,6 +254,10 @@ public:
         menuArchivo->addSeparator();
         menuArchivo->addAction(actionCerrar);
         menuEdici_n->addSeparator();
+        menuEdici_n->addAction(menuIdioma->menuAction());
+        menuIdioma->addAction(actionEspanol);
+        menuIdioma->addAction(actionIngles);
+        menuIdioma->addAction(actionPortugues);
         menuAyuda->addAction(actionAyuda);
         menuAyuda->addSeparator();
         menuAyuda->addAction(actionAcerca_de);
@@ -259,6 +275,9 @@ public:
         actionCerrar->setText(QApplication::translate("GUIAdaptador", "Cerrar", 0, QApplication::UnicodeUTF8));
         actionAyuda->setText(QApplication::translate("GUIAdaptador", "Ayuda", 0, QApplication::UnicodeUTF8));
         actionAcerca_de->setText(QApplication::translate("GUIAdaptador", "Acerca de", 0, QApplication::UnicodeUTF8));
+        actionEspanol->setText(QApplication::translate("GUIAdaptador", "Espa\303\261ol", 0, QApplication::UnicodeUTF8));
+        actionIngles->setText(QApplication::translate("GUIAdaptador", "Ingles", 0, QApplication::UnicodeUTF8));
+        actionPortugues->setText(QApplication::translate("GUIAdaptador", "Portugues", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("GUIAdaptador", "Velocidad : ", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("GUIAdaptador", "Tipo de Flujo : ", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("GUIAdaptador", "Paridad : ", 0, QApplication::UnicodeUTF8));
@@ -319,6 +338,7 @@ public:
         label->setText(QApplication::translate("GUIAdaptador", "RS232", 0, QApplication::UnicodeUTF8));
         menuArchivo->setTitle(QApplication::translate("GUIAdaptador", "Archivo", 0, QApplication::UnicodeUTF8));
         menuEdici_n->setTitle(QApplication::translate("GUIAdaptador", "Edici\303\263n", 0, QApplication::UnicodeUTF8));
+        menuIdioma->setTitle(QApplication::translate("GUIAdaptador", "Idioma", 0, QApplication::UnicodeUTF8));
         menuAyuda->setTitle(QApplication::translate("GUIAdaptador", "Ayuda", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

@@ -20,6 +20,8 @@
       </logicalFolder>
       <itemPath>Adaptador.cpp</itemPath>
       <itemPath>Adaptador.h</itemPath>
+      <itemPath>Adaptador_en.ts</itemPath>
+      <itemPath>Adaptador_pt.ts</itemPath>
       <itemPath>GUIAdaptador.cpp</itemPath>
       <itemPath>GUIAdaptador.h</itemPath>
       <itemPath>GUIAdaptador.ui</itemPath>
