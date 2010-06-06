@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GUIAdaptador.h'
 **
-** Created: Sat Jun 5 16:20:44 2010
+** Created: Sun Jun 6 15:54:46 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_GUIAdaptador[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,13 +33,17 @@ static const uint qt_meta_data_GUIAdaptador[] = {
  // slots: signature, parameters, type, tag, flags
       14,   13,   13,   13, 0x08,
       29,   13,   13,   13, 0x08,
+      44,   13,   13,   13, 0x08,
+      59,   13,   13,   13, 0x08,
+      75,   13,   13,   13, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_GUIAdaptador[] = {
     "GUIAdaptador\0\0clickIniciar()\0"
-    "clickDetener()\0"
+    "clickDetener()\0idiomaIngles()\0"
+    "idiomaEspanol()\0idiomaPortugues()\0"
 };
 
 const QMetaObject GUIAdaptador::staticMetaObject = {
@@ -73,9 +77,12 @@ int GUIAdaptador::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: clickIniciar(); break;
         case 1: clickDetener(); break;
+        case 2: idiomaIngles(); break;
+        case 3: idiomaEspanol(); break;
+        case 4: idiomaPortugues(); break;
         default: ;
         }
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
 }

@@ -19,10 +19,15 @@ public:
 private:
     Ui::GUIAdaptador widget;
     Adaptador *objAdaptador;
-    
+    void actualizarInterfaz();
+    QTranslator *traductorEN;
+    QTranslator *traductorPT;
 private slots:
     void clickIniciar();
     void clickDetener();
+    void idiomaIngles();
+    void idiomaEspanol();
+    void idiomaPortugues();
 };
 
 #endif	/* _GUIADAPTADOR_H */

@@ -12,17 +12,18 @@
 
 
 GUIAdaptador::GUIAdaptador() {
-    widget.setupUi(this);
+    
     objAdaptador = new Adaptador();
-
+    traductorEN = new QTranslator(this);
+    traductorPT = new QTranslator(this);
+    widget.setupUi(this);
     connect(widget.pushButtonSalir, SIGNAL(clicked()), this, SLOT(close()));
     connect(widget.pushButtonIniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
     connect(widget.pushButtonDetener, SIGNAL(clicked()), this, SLOT(clickDetener()));
-    widget.statusbar->showMessage(tr("Esperando datos"), 2000);
-
-    QString *abc = new QString("hola");
-    qDebug() << abc->toAscii();
-    
+    connect(widget.actionEspanol, SIGNAL(triggered()), this, SLOT(idiomaEspanol()));
+    connect(widget.actionIngles, SIGNAL(triggered()), this, SLOT(idiomaIngles()));
+    connect(widget.actionPortugues, SIGNAL(triggered()), this, SLOT(idiomaPortugues()));
+    widget.statusbar->showMessage(tr("Esperando datos"), 2000);    
 }
 
 GUIAdaptador::~GUIAdaptador() {
@@ -30,6 +31,7 @@ GUIAdaptador::~GUIAdaptador() {
 
 
 void GUIAdaptador::clickIniciar(){
+    
     bool estaValidado = false;
     bool estaListoRS232 = false;
     bool estaListoSocket = false;
@@ -147,3 +149,25 @@ void GUIAdaptador::clickDetener(){
     widget.pushButtonDetener->setDisabled(true);
     objAdaptador->parar();
 }
+
+ void GUIAdaptador::actualizarInterfaz(){
+     widget.retranslateUi(this);     
+ }
+
+ void GUIAdaptador::idiomaIngles(){     
+     traductorEN->load("Adaptador_en");
+     qApp->installTranslator(traductorEN);
+     actualizarInterfaz();
+ }
+
+ void GUIAdaptador::idiomaEspanol(){
+     qApp->removeTranslator(traductorEN);
+     qApp->removeTranslator(traductorPT);
+     actualizarInterfaz();
+ }
+
+ void GUIAdaptador::idiomaPortugues(){
+     traductorPT->load("Adaptador_pt");
+     qApp->installTranslator(traductorPT);
+     actualizarInterfaz();
+ }
