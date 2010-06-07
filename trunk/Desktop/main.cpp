@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 //            cout<<"No guardo la llamada :("<<endl<<endl;
 //    }
     
-//    ProcesarLlamada* procesador = new ProcesarLlamada();
+//    ProcesarLlamada* procesador = new ProcesarLlamada("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
 //    bool ok;
 //
 //    for (int i = 0; i < 3; i++) {

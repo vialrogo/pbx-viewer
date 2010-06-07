@@ -1,19 +1,54 @@
 /* 
- * File:   ProcesarLlamada.cpp
+ * File:   Desktop.cpp
  * Author: vialrogo
  * 
  * Created on 2 de Junho de 2010, 12:23
  */
 
-#include "ProcesarLlamada.h"
+#include "Desktop.h"
 
-ProcesarLlamada::ProcesarLlamada() {
+Desktop::Desktop() {
 }
 
-ProcesarLlamada::~ProcesarLlamada() {
+Desktop::Desktop(QString host_in, QString database_in, QString username_in, QString password_in) {
+    host = host_in;
+    database = database_in;
+    username = username_in;
+    password = password_in;
 }
 
-bool ProcesarLlamada::procesallamada(QString flujollamadaS){
+Desktop::~Desktop() {
+}
+
+bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
+
+    myconection = new MysqlConection();
+    bool isConectado = myconection->conectar(host, database, username, password);
+    QString idPBX="";
+
+    if(isConectado)
+        idPBX=(myconection->consulta("SELECT pbx_id FROM `pbx` WHERE pbx_nombre='" + pbxSelected + "';").at(0))[0];
+    else
+    {
+        qDebug("Error al conectar a la base de datos");
+        return false;
+    }
+
+    QString* arrayNombreConceptos;
+    int* arrayValorConceptos;
+
+    QVector<QString*> vector = myconection->consulta("SELECT con_nombre, con_con_valor FROM configuraciones, concepto WHERE con_pbx_id=" + pbxSelected + " and con_con_id=con_id;");
+    int numeroConceptos = vector.size();
+
+    arrayNombreConceptos = new QString[numeroConceptos];
+    arrayValorConceptos = new int[numeroConceptos];
+
+    for (int i = 0; i < numeroConceptos; i++)
+    {
+        arrayNombreConceptos[i] = (vector.at(i))[0];
+        arrayValorConceptos[i] = ((QString)(vector.at(i))[1]).toInt();
+    }
+
     // Estos enteros tienen que cambiar dependiendo de los registros de la BD
 //    int ano_inicio=4;
 //    int ano_largo=2;
@@ -110,4 +145,44 @@ bool ProcesarLlamada::procesallamada(QString flujollamadaS){
     bool ok = llamadita->GuardarBD("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
 
     return ok;
+}
+
+void Desktop::setHost(QString h)
+{
+    host=h;
+}
+
+void Desktop::setDatabase(QString d)
+{
+    database=d;
+}
+
+void Desktop::setUsername(QString u)
+{
+    username=u;
+}
+
+void Desktop::setPassword(QString p)
+{
+    password=p;
+}
+
+QString Desktop::getHost()
+{
+    return host;
+}
+
+QString Desktop::getDatabase()
+{
+    return database;
+}
+
+QString Desktop::getUsername()
+{
+    return username;
+}
+
+QString Desktop::getPassword()
+{
+    return password;
 }

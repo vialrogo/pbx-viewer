@@ -42,10 +42,11 @@ void MysqlConection::desconectar()
     QSqlDatabase::removeDatabase(nombreConeccion);
 }
 
-QVector<QString*> MysqlConection::consulta(QString consulta, int columnas)
+QVector<QString*> MysqlConection::consulta(QString consulta)
 {
     bool ok = query->exec(consulta);
     int size = query->size();
+    int columnas = query->record().count();
 
     QVector<QString*> vector(0);
     QString* arreglo = new QString[columnas];
