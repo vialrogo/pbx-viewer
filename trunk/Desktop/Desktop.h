@@ -14,19 +14,10 @@
 
 class Desktop {
 public:
-    Desktop();
     Desktop(QString host_in, QString database_in, QString username_in, QString password_in);
     virtual ~Desktop();
     bool procesarLlamada(QString flujollamadaS, QString pbxSelected);
-
-    void setHost(QString h);
-    void setDatabase(QString d);
-    void setUsername(QString u);
-    void setPassword(QString p);
-    QString getHost();
-    QString getDatabase();
-    QString getUsername();
-    QString getPassword();
+    int procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected);
 
 private:
     Llamada* llamadita;
