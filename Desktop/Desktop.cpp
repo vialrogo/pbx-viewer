@@ -7,22 +7,47 @@
 
 #include "Desktop.h"
 
-Desktop::Desktop() {
-}
-
 Desktop::Desktop(QString host_in, QString database_in, QString username_in, QString password_in) {
     host = host_in;
     database = database_in;
     username = username_in;
     password = password_in;
+
+    myconection = new MysqlConection();
 }
 
 Desktop::~Desktop() {
 }
 
+int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
+{
+    bool isConectado = myconection->conectar(host, database, username, password);
+    int longitud_Trama=0;
+
+    if(isConectado)
+        longitud_Trama=((QString)(myconection->consulta("SELECT con_con_valor FROM pbx,configuraciones,concepto WHERE pbx_nombre='" + pbxSelected + "' and pbx_id=con_pbx_id and con_nombre='longitud_trama' and con_id=con_con_id;").at(0))[0]).toInt();
+    else
+    {
+        qDebug("Error al conectar a la base de datos");
+        return false;
+    }
+
+    int numerollamadas = (int)(flujollamadaS.length()/longitud_Trama);
+    int cantidadProcesadas=0;
+
+    for (int i = 0; i < numerollamadas; i++)
+    {
+        if(procesarLlamada(flujollamadaS.left(longitud_Trama),pbxSelected))
+            cantidadProcesadas++;
+        flujollamadaS = flujollamadaS.right(longitud_Trama+1);
+    }
+
+    return cantidadProcesadas;
+}
+
 bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
 
-    myconection = new MysqlConection();
+    
     bool isConectado = myconection->conectar(host, database, username, password);
     QString idPBX="";
 
@@ -34,40 +59,16 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
         return false;
     }
 
-//    QString* arrayNombreConceptos;
-//    int* arrayValorConceptos;
-
     QVector<QString*> vector = myconection->consulta("SELECT con_nombre, con_con_valor FROM configuraciones, concepto WHERE con_pbx_id=" + pbxSelected + " and con_con_id=con_id;");
-    int numeroConceptos = vector.size();
+    myconection->desconectar();
 
-//    arrayNombreConceptos = new QString[numeroConceptos];
-//    arrayValorConceptos = new int[numeroConceptos];
+    int numeroConceptos = vector.size();
     QMap<QString, int> mapeador;
 
     for (int i = 0; i < numeroConceptos; i++)
     {
-//        arrayNombreConceptos[i] = (vector.at(i))[0];
-//        arrayValorConceptos[i] = ((QString)(vector.at(i))[1]).toInt();
         mapeador[(vector.at(i))[0]]=((QString)(vector.at(i))[1]).toInt();
     }
-
-//    QString arrayNomVariables [22] = {"ano_inicio", "ano_largo", "mes_inicio", "mes_largo", "dia_inicio", "dia_largo", "hora_inicio",
-//                                    "hora_largo", "minutos_inicio", "minutos_largo", "segundos_inicio", "segundos_largo", "duracionS_inicio",
-//                                    "duracionS_largo", "origen_inicio", "origen_largo", "destino_inicio", "destino_largo", "codigocuenta_inicio",
-//                                    "codigocuenta_largo", "prefijo_inicio", "prefijo_largo"};
-//    int* arrayValoresVariables;
-//
-//    for (int i = 0; i < numeroConceptos; i++)
-//    {
-//        for (int j = 0; j < 22; j++)
-//        {
-//            if(arrayNombreConceptos[i]==arrayNomVariables[j])
-//            {
-//
-//            }
-//        }
-//
-//    }
     
     // Estos enteros tienen que cambiar dependiendo de los registros de la BD
     int ano_inicio=mapeador.value("ano_inicio",-1);
@@ -90,8 +91,7 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
     int destino_largo=mapeador.value("destino_largo",-1);
     int codigocuenta_inicio=mapeador.value("codigocuenta_inicio",-1);
     int codigocuenta_largo=mapeador.value("codigocuenta_largo",-1);
-    int prefijo_inicio=mapeador.value("prefijo_inicio",-1);
-    int prefijo_largo=mapeador.value("prefijo_largo",-1);
+    int longitud_lla_interna=mapeador.value("longitud_lla_interna",-1);
 
     //Parametros del metodo:
     QString ano="";
@@ -104,7 +104,6 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
     QString origen="";
     QString destino="";
     QString codigocuenta="";
-    QString prefijo="";
     QString tipo="";
     int duracion=0;
 
@@ -166,8 +165,10 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
         if (segundos.length()<2)
             segundos.prepend("0");
     }
+
     qDebug(qPrintable("dia: "+dia+" mes: "+mes+" año: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
 
+    //Dueracion, Origen, Destino
     if(duracionS_inicio==-1 || duracionS_largo==-1 || origen_inicio==-1 || origen_largo==-1 || destino_inicio==-1 || destino_largo==-1 )
     {
         qDebug("Error de procesamiento de llamada: Origen, Destino y Duración son esenciales en cualquier formato");
@@ -180,11 +181,21 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
         destino=flujollamadaS.mid(destino_inicio, destino_largo).trimmed();
     }
 
-    codigocuenta=flujollamadaS.mid(codigocuenta_inicio, codigocuenta_largo).trimmed();
-    
-    prefijo=flujollamadaS.mid(prefijo_inicio, prefijo_largo).trimmed();
+    //Código cuenta
+    if(codigocuenta_inicio==-1 || codigocuenta_largo==-1)
+        codigocuenta="";
+    else
+        codigocuenta=flujollamadaS.mid(codigocuenta_inicio, codigocuenta_largo).trimmed();
 
-    if(prefijo=="") // si es igual a dos espacios
+    //Longitud de llamada interna
+    if(longitud_lla_interna==-1)
+    {
+        qDebug("Error de procesamiento de llamada: Se necesita especificar el largo del un número interno (extensión)");
+        return false;
+    }
+
+    //Tipo de llamada
+    if(destino.length()==longitud_lla_interna)
         tipo="Interna";
     else
     {
@@ -211,44 +222,4 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
     bool ok = llamadita->GuardarBD("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
 
     return ok;
-}
-
-void Desktop::setHost(QString h)
-{
-    host=h;
-}
-
-void Desktop::setDatabase(QString d)
-{
-    database=d;
-}
-
-void Desktop::setUsername(QString u)
-{
-    username=u;
-}
-
-void Desktop::setPassword(QString p)
-{
-    password=p;
-}
-
-QString Desktop::getHost()
-{
-    return host;
-}
-
-QString Desktop::getDatabase()
-{
-    return database;
-}
-
-QString Desktop::getUsername()
-{
-    return username;
-}
-
-QString Desktop::getPassword()
-{
-    return password;
 }
