@@ -31,7 +31,7 @@ bool Llamada::GuardarBD(QString host, QString database, QString username, QStrin
     QString duracionS = QString::number(duracion);
     bool ok = false;
 
-    QString idTipo=(myconection->consulta("SELECT tip_id FROM `tipo_llamada` WHERE tip_nombre='" + tipo + "';",1).at(0))[0];
+    QString idTipo=(myconection->consulta("SELECT tip_id FROM `tipo_llamada` WHERE tip_nombre='" + tipo + "';").at(0))[0];
 
     QString llamadaS= "INSERT INTO  llamada (lla_hora, lla_origen, lla_destino, lla_codigocuenta, lla_idTipo, lla_duracion) VALUES ('"+ hora +"' , '"+ origen + "', '"+ destino +"', '"+ codigocuenta +"', '"+ idTipo +"', '"+ duracionS +"');";
 

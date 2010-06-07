@@ -1,0 +1,7 @@
+1- Hola, soy nuevo en Qt, y cuano intento ejecutar el proyecto me sale la consola, pero con error relacionado con dorun.sh, que hago?
+
+R// Quite el chulo de propiedades de proyecto, perfil, "mostrar los indicadores de perfil durante la ejecucion".
+
+2 - Sale un error al intentar ejecutar el cual dice que "no se puede crear el proceso hijo"
+
+R// Darle permisos de ejecucion al archivo ~/.netbeans/6.8/bin/dorun.sh

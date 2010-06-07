@@ -8,6 +8,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
                    projectFiles="true">
+      <itemPath>Desktop.cpp</itemPath>
+      <itemPath>Desktop.h</itemPath>
       <itemPath>GUIDesktop.cpp</itemPath>
       <itemPath>GUIDesktop.h</itemPath>
       <itemPath>GUIDesktop.ui</itemPath>
@@ -15,8 +17,6 @@
       <itemPath>Llamada.h</itemPath>
       <itemPath>MysqlConection.cpp</itemPath>
       <itemPath>MysqlConection.h</itemPath>
-      <itemPath>ProcesarLlamada.cpp</itemPath>
-      <itemPath>ProcesarLlamada.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
