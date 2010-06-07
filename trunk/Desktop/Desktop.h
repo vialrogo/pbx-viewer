@@ -18,7 +18,7 @@ public:
     virtual ~Desktop();
     bool procesarLlamada(QString flujollamadaS, QString pbxSelected);
     int procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected);
-
+    QVector<QString*> listarPBXs();
 private:
     Llamada* llamadita;
     MysqlConection* myconection;
