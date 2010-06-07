@@ -11,7 +11,7 @@
 #include "ui_GUIDesktop.h"
 #include <QtNetwork>
 #include <QMessageBox>
-#include "ProcesarLlamada.h"
+#include "Desktop.h"
 class QTcpServer;
 class QTcpSocket;
 
@@ -27,9 +27,10 @@ private:
     QTranslator *traductorEN;
     QTranslator *traductorPT;
     QIntValidator *validadorPuerto;
-    ProcesarLlamada* procesador;
+    Desktop* objDesktop;
     void actualizarInterfaz();
     void activarInterfaz(bool activar);
+    void cargarListaPBX();
 
 private slots:
     void clickIniciar();

@@ -13,8 +13,7 @@ GUIDesktop::GUIDesktop() {
     traductorEN = new QTranslator(this);
     traductorPT = new QTranslator(this);
     validadorPuerto = new QIntValidator(5000,65536,this);
-    //procesador = new ProcesarLlamada("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
-    procesador = new ProcesarLlamada();
+    objDesktop = new Desktop("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
     widget.lineEdit_puerto->setValidator(validadorPuerto);
     connect(widget.boton_iniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
     connect(widget.boton_parar, SIGNAL(clicked()), this, SLOT(clickDetener()));
@@ -25,7 +24,7 @@ GUIDesktop::GUIDesktop() {
     connect(widget.menuAcercadeQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(widget.menuAcercade, SIGNAL(triggered()), this, SLOT(acercaDe()));
     connect(widget.actionAyuda, SIGNAL(triggered()), this, SLOT(ayuda()));
-
+    cargarListaPBX();
 }
 
 GUIDesktop::~GUIDesktop() {
@@ -114,4 +113,14 @@ void GUIDesktop::clickDetener(){
 void GUIDesktop::escucharClienteTcp(){
     QByteArray tcpData = tcpClient->readAll();
     QString *mensaje = new QString(tcpData);
+}
+
+void GUIDesktop::cargarListaPBX(){
+    widget.comboB_pbxs->clear();
+   // QString* pbxs = objDesktop->listarPBXs();
+    QString pbxs[] = {QString("hola"),QString("como"),QString("estas")};
+    for (int i = 1; i < pbxs->length(); i++) {
+        widget.comboB_pbxs->addItem((QString)pbxs[i-1]);
+        qDebug() << i;
+    }
 }
