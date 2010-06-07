@@ -44,17 +44,18 @@ void MysqlConection::desconectar()
 
 QVector<QString*> MysqlConection::consulta(QString consulta)
 {
+//    qDebug(qPrintable(consulta));
     bool ok = query->exec(consulta);
     int size = query->size();
     int columnas = query->record().count();
 
     QVector<QString*> vector(0);
-    QString* arreglo = new QString[columnas];
 
     if(ok)
     {
         for (int i = 0; i < size; i++)
         {
+            QString* arreglo = new QString[columnas];
             query->next();
             for (int j = 0; j < columnas; j++)
             {
@@ -71,5 +72,6 @@ QVector<QString*> MysqlConection::consulta(QString consulta)
 bool MysqlConection::insercion(QString insertion)
 {
     insertion.replace(QString("''"), QString("NULL"));
+//    qDebug(qPrintable(insertion));
     return query->exec(insertion);
 }
