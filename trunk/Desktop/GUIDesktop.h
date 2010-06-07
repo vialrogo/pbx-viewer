@@ -9,6 +9,11 @@
 #define	_GUIDESKTOP_H
 
 #include "ui_GUIDesktop.h"
+#include <QtNetwork>
+#include <QMessageBox>
+#include "ProcesarLlamada.h"
+class QTcpServer;
+class QTcpSocket;
 
 class GUIDesktop : public QMainWindow {
     Q_OBJECT
@@ -17,6 +22,25 @@ public:
     virtual ~GUIDesktop();
 private:
     Ui::GUIDesktop widget;
+    QTcpServer *tcpServer;
+    QTcpSocket *tcpClient;
+    QTranslator *traductorEN;
+    QTranslator *traductorPT;
+    QIntValidator *validadorPuerto;
+    ProcesarLlamada* procesador;
+    void actualizarInterfaz();
+    void activarInterfaz(bool activar);
+
+private slots:
+    void clickIniciar();
+    void clickDetener();
+    void idiomaIngles();
+    void idiomaEspanol();
+    void idiomaPortugues();
+    void acercaDe();
+    void ayuda();
+    void crearConexion();
+    void escucharClienteTcp();
 };
 
 #endif	/* _GUIDESKTOP_H */
