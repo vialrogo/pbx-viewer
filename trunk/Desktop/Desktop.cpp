@@ -34,44 +34,64 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
         return false;
     }
 
-    QString* arrayNombreConceptos;
-    int* arrayValorConceptos;
+//    QString* arrayNombreConceptos;
+//    int* arrayValorConceptos;
 
     QVector<QString*> vector = myconection->consulta("SELECT con_nombre, con_con_valor FROM configuraciones, concepto WHERE con_pbx_id=" + pbxSelected + " and con_con_id=con_id;");
     int numeroConceptos = vector.size();
 
-    arrayNombreConceptos = new QString[numeroConceptos];
-    arrayValorConceptos = new int[numeroConceptos];
+//    arrayNombreConceptos = new QString[numeroConceptos];
+//    arrayValorConceptos = new int[numeroConceptos];
+    QMap<QString, int> mapeador;
 
     for (int i = 0; i < numeroConceptos; i++)
     {
-        arrayNombreConceptos[i] = (vector.at(i))[0];
-        arrayValorConceptos[i] = ((QString)(vector.at(i))[1]).toInt();
+//        arrayNombreConceptos[i] = (vector.at(i))[0];
+//        arrayValorConceptos[i] = ((QString)(vector.at(i))[1]).toInt();
+        mapeador[(vector.at(i))[0]]=((QString)(vector.at(i))[1]).toInt();
     }
 
+//    QString arrayNomVariables [22] = {"ano_inicio", "ano_largo", "mes_inicio", "mes_largo", "dia_inicio", "dia_largo", "hora_inicio",
+//                                    "hora_largo", "minutos_inicio", "minutos_largo", "segundos_inicio", "segundos_largo", "duracionS_inicio",
+//                                    "duracionS_largo", "origen_inicio", "origen_largo", "destino_inicio", "destino_largo", "codigocuenta_inicio",
+//                                    "codigocuenta_largo", "prefijo_inicio", "prefijo_largo"};
+//    int* arrayValoresVariables;
+//
+//    for (int i = 0; i < numeroConceptos; i++)
+//    {
+//        for (int j = 0; j < 22; j++)
+//        {
+//            if(arrayNombreConceptos[i]==arrayNomVariables[j])
+//            {
+//
+//            }
+//        }
+//
+//    }
+    
     // Estos enteros tienen que cambiar dependiendo de los registros de la BD
-//    int ano_inicio=4;
-//    int ano_largo=2;
-//    int mes_inicio=0;
-//    int mes_largo=2;
-//    int dia_inicio=2;
-//    int dia_largo=2;
-    int hora_inicio=0;
-    int hora_largo=2;
-    int minutos_inicio=2;
-    int minutos_largo=2;
-//    int segundos_inicio=4;
-//    int segundos_largo=4;
-    int duracionS_inicio=4;
-    int duracionS_largo=4;
-    int origen_inicio=32;
-    int origen_largo=10;
-    int destino_inicio=17;
-    int destino_largo=15;
-    int codigocuenta_inicio=59;
-    int codigocuenta_largo=5;
-    int prefijo_inicio=11; //Es una secuencia de teclas antes de la llamda
-    int prefijo_largo=2;  //ej: 9+<numero extension>
+    int ano_inicio=mapeador.value("ano_inicio",-1);
+    int ano_largo=mapeador.value("ano_largo",-1);
+    int mes_inicio=mapeador.value("mes_inicio",-1);
+    int mes_largo=mapeador.value("mes_largo",-1);
+    int dia_inicio=mapeador.value("dia_inicio",-1);
+    int dia_largo=mapeador.value("dia_largo",-1);
+    int hora_inicio=mapeador.value("hora_inicio",-1);
+    int hora_largo=mapeador.value("hora_largo",-1);
+    int minutos_inicio=mapeador.value("minutos_inicio",-1);
+    int minutos_largo=mapeador.value("minutos_largo",-1);
+    int segundos_inicio=mapeador.value("segundos_inicio",-1);
+    int segundos_largo=mapeador.value("segundos_largo",-1);
+    int duracionS_inicio=mapeador.value("duracionS_inicio",-1);
+    int duracionS_largo=mapeador.value("duracionS_largo",-1);
+    int origen_inicio=mapeador.value("origen_inicio",-1);
+    int origen_largo=mapeador.value("origen_largo",-1);
+    int destino_inicio=mapeador.value("destino_inicio",-1);
+    int destino_largo=mapeador.value("destino_largo",-1);
+    int codigocuenta_inicio=mapeador.value("codigocuenta_inicio",-1);
+    int codigocuenta_largo=mapeador.value("codigocuenta_largo",-1);
+    int prefijo_inicio=mapeador.value("prefijo_inicio",-1);
+    int prefijo_largo=mapeador.value("prefijo_largo",-1);
 
     //Parametros del metodo:
     QString ano="";
@@ -90,32 +110,78 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
 
     //Llenada de parámetros:
     QDate fecha = (QDateTime::currentDateTime()).date();
-    int i_dia=fecha.day();
-    int i_mes=fecha.month();
-    int i_ano=fecha.year();
 
-//    qDebug(qPrintable("dia: "+QString::number(i_dia)+" mes: "+QString::number(i_mes)+" año: "+QString::number(i_ano)));
+    //Año
+    if(ano_inicio==-1 || ano_largo==-1)
+        ano=QString::number(fecha.year());
+    else
+        ano=flujollamadaS.mid(ano_inicio, ano_largo);
 
-    dia=QString::number(i_dia);
-    mes=QString::number(i_mes);
-    ano=QString::number(i_ano);
+    //Mes
+    if(mes_inicio==-1 || mes_largo==-1)
+        mes=QString::number(fecha.month());
+    else
+    {
+        mes=flujollamadaS.mid(mes_inicio, mes_largo);
+        if (mes.length()<2)
+            mes.prepend("0");
+    }
 
-//    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" año: "+ano));
+    //Dia
+    if(dia_inicio==-1 || dia_largo==-1)
+        dia=QString::number(fecha.day());
+    else
+    {
+        dia=flujollamadaS.mid(dia_inicio, dia_largo);
+        if (dia.length()<2)
+            dia.prepend("0");
+    }
 
-    if (i_dia<10)
-        dia.prepend("0");
-    if (i_mes<10)
-        mes.prepend("0");
+    //Hora
+    if(hora_inicio==-1 || hora_largo==-1)
+        hora=QString::number(QTime::currentTime().hour());
+    else
+    {
+        hora=flujollamadaS.mid(hora_inicio, hora_largo);
+        if (hora.length()<2)
+            hora.prepend("0");
+    }
 
-    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" año: "+ano));
+    //Minutos
+    if(minutos_inicio==-1 || minutos_largo==-1)
+        minutos=QString::number(QTime::currentTime().minute());
+    else
+    {
+        minutos=flujollamadaS.mid(minutos_inicio, minutos_largo);
+        if (minutos.length()<2)
+            minutos.prepend("0");
+    }
 
-    hora=flujollamadaS.mid(hora_inicio, hora_largo);
-    minutos=flujollamadaS.mid(minutos_inicio, minutos_largo);
-    segundos="00";
-    duracionS=flujollamadaS.mid(duracionS_inicio, duracionS_largo);
-    origen=flujollamadaS.mid(origen_inicio, origen_largo).trimmed();
-    destino=flujollamadaS.mid(destino_inicio, destino_largo).trimmed();
+    //Segundos
+    if(segundos_inicio==-1 || segundos_largo==-1)
+        segundos=QString::number(QTime::currentTime().second());
+    else
+    {
+        segundos=flujollamadaS.mid(segundos_inicio, segundos_largo);
+        if (segundos.length()<2)
+            segundos.prepend("0");
+    }
+    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" año: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
+
+    if(duracionS_inicio==-1 || duracionS_largo==-1 || origen_inicio==-1 || origen_largo==-1 || destino_inicio==-1 || destino_largo==-1 )
+    {
+        qDebug("Error de procesamiento de llamada: Origen, Destino y Duración son esenciales en cualquier formato");
+        return false;
+    }
+    else
+    {
+        duracionS=flujollamadaS.mid(duracionS_inicio, duracionS_largo);
+        origen=flujollamadaS.mid(origen_inicio, origen_largo).trimmed();
+        destino=flujollamadaS.mid(destino_inicio, destino_largo).trimmed();
+    }
+
     codigocuenta=flujollamadaS.mid(codigocuenta_inicio, codigocuenta_largo).trimmed();
+    
     prefijo=flujollamadaS.mid(prefijo_inicio, prefijo_largo).trimmed();
 
     if(prefijo=="") // si es igual a dos espacios
