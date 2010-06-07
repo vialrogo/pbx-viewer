@@ -136,6 +136,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="boton_parar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>133</x>
@@ -260,6 +263,9 @@
       </rect>
      </property>
      <widget class="QPlainTextEdit" name="texarea">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -278,7 +284,7 @@
      <x>0</x>
      <y>0</y>
      <width>370</width>
-     <height>27</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -295,9 +301,9 @@
      <property name="title">
       <string>Idioma</string>
      </property>
-     <addaction name="actionEspa_ol"/>
+     <addaction name="actionEspanol"/>
      <addaction name="actionIngles"/>
-     <addaction name="actionPortugu_s"/>
+     <addaction name="actionPortugues"/>
     </widget>
     <addaction name="menuIdioma_2"/>
    </widget>
@@ -313,6 +319,7 @@
     <property name="title">
      <string>Ayuda</string>
     </property>
+    <addaction name="actionAyuda"/>
     <addaction name="menuAcercade"/>
     <addaction name="menuAcercadeQt"/>
    </widget>
@@ -362,7 +369,7 @@
     <string>Acerca de Qt</string>
    </property>
   </action>
-  <action name="actionEspa_ol">
+  <action name="actionEspanol">
    <property name="text">
     <string>Español</string>
    </property>
@@ -372,9 +379,14 @@
     <string>Inglés</string>
    </property>
   </action>
-  <action name="actionPortugu_s">
+  <action name="actionPortugues">
    <property name="text">
     <string>Portugués</string>
+   </property>
+  </action>
+  <action name="actionAyuda">
+   <property name="text">
+    <string>Ayuda</string>
    </property>
   </action>
  </widget>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIDesktop.ui'
 **
-** Created: Sun Jun 6 18:22:32 2010
+** Created: Mon Jun 7 09:59:52 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -39,9 +39,10 @@ public:
     QAction *menuEliminarPerfil;
     QAction *menuAcercade;
     QAction *menuAcercadeQt;
-    QAction *actionEspa_ol;
+    QAction *actionEspanol;
     QAction *actionIngles;
-    QAction *actionPortugu_s;
+    QAction *actionPortugues;
+    QAction *actionAyuda;
     QWidget *centralwidget;
     QLabel *label_Socket;
     QLabel *label_PBX;
@@ -95,12 +96,14 @@ public:
         menuAcercade->setObjectName(QString::fromUtf8("menuAcercade"));
         menuAcercadeQt = new QAction(GUIDesktop);
         menuAcercadeQt->setObjectName(QString::fromUtf8("menuAcercadeQt"));
-        actionEspa_ol = new QAction(GUIDesktop);
-        actionEspa_ol->setObjectName(QString::fromUtf8("actionEspa_ol"));
+        actionEspanol = new QAction(GUIDesktop);
+        actionEspanol->setObjectName(QString::fromUtf8("actionEspanol"));
         actionIngles = new QAction(GUIDesktop);
         actionIngles->setObjectName(QString::fromUtf8("actionIngles"));
-        actionPortugu_s = new QAction(GUIDesktop);
-        actionPortugu_s->setObjectName(QString::fromUtf8("actionPortugu_s"));
+        actionPortugues = new QAction(GUIDesktop);
+        actionPortugues->setObjectName(QString::fromUtf8("actionPortugues"));
+        actionAyuda = new QAction(GUIDesktop);
+        actionAyuda->setObjectName(QString::fromUtf8("actionAyuda"));
         centralwidget = new QWidget(GUIDesktop);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_Socket = new QLabel(centralwidget);
@@ -138,6 +141,7 @@ public:
         boton_iniciar->setFont(font3);
         boton_parar = new QPushButton(centralwidget);
         boton_parar->setObjectName(QString::fromUtf8("boton_parar"));
+        boton_parar->setEnabled(false);
         boton_parar->setGeometry(QRect(133, 420, 113, 31));
         boton_parar->setFont(font3);
         boton_salir = new QPushButton(centralwidget);
@@ -172,12 +176,13 @@ public:
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 349, 139));
         texarea = new QPlainTextEdit(scrollAreaWidgetContents);
         texarea->setObjectName(QString::fromUtf8("texarea"));
+        texarea->setEnabled(false);
         texarea->setGeometry(QRect(0, 0, 351, 141));
         scrollArea->setWidget(scrollAreaWidgetContents);
         GUIDesktop->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GUIDesktop);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 370, 27));
+        menubar->setGeometry(QRect(0, 0, 370, 24));
         menuArchivo = new QMenu(menubar);
         menuArchivo->setObjectName(QString::fromUtf8("menuArchivo"));
         menuEdici_n = new QMenu(menubar);
@@ -199,12 +204,13 @@ public:
         menubar->addAction(menuAyuda->menuAction());
         menuArchivo->addAction(menuSalir);
         menuEdici_n->addAction(menuIdioma_2->menuAction());
-        menuIdioma_2->addAction(actionEspa_ol);
+        menuIdioma_2->addAction(actionEspanol);
         menuIdioma_2->addAction(actionIngles);
-        menuIdioma_2->addAction(actionPortugu_s);
+        menuIdioma_2->addAction(actionPortugues);
         menuPBX->addAction(menuNuevoPerfil);
         menuPBX->addAction(menuModificarPerfil);
         menuPBX->addAction(menuEliminarPerfil);
+        menuAyuda->addAction(actionAyuda);
         menuAyuda->addAction(menuAcercade);
         menuAyuda->addAction(menuAcercadeQt);
 
@@ -224,9 +230,10 @@ public:
         menuEliminarPerfil->setText(QApplication::translate("GUIDesktop", "Eliminar Perfil", 0, QApplication::UnicodeUTF8));
         menuAcercade->setText(QApplication::translate("GUIDesktop", "Acerca de", 0, QApplication::UnicodeUTF8));
         menuAcercadeQt->setText(QApplication::translate("GUIDesktop", "Acerca de Qt", 0, QApplication::UnicodeUTF8));
-        actionEspa_ol->setText(QApplication::translate("GUIDesktop", "Espa\303\261ol", 0, QApplication::UnicodeUTF8));
+        actionEspanol->setText(QApplication::translate("GUIDesktop", "Espa\303\261ol", 0, QApplication::UnicodeUTF8));
         actionIngles->setText(QApplication::translate("GUIDesktop", "Ingl\303\251s", 0, QApplication::UnicodeUTF8));
-        actionPortugu_s->setText(QApplication::translate("GUIDesktop", "Portugu\303\251s", 0, QApplication::UnicodeUTF8));
+        actionPortugues->setText(QApplication::translate("GUIDesktop", "Portugu\303\251s", 0, QApplication::UnicodeUTF8));
+        actionAyuda->setText(QApplication::translate("GUIDesktop", "Ayuda", 0, QApplication::UnicodeUTF8));
         label_Socket->setText(QApplication::translate("GUIDesktop", "SOCKET", 0, QApplication::UnicodeUTF8));
         label_PBX->setText(QApplication::translate("GUIDesktop", "PBX", 0, QApplication::UnicodeUTF8));
         label_puerto->setText(QApplication::translate("GUIDesktop", "Puerto: ", 0, QApplication::UnicodeUTF8));
