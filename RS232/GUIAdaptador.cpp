@@ -5,25 +5,25 @@
  * Created on 1 de Junho de 2010, 20:34
  */
 
-#include <qt4/QtCore/qdebug.h>
-
 #include "GUIAdaptador.h"
 
-
-
 GUIAdaptador::GUIAdaptador() {
-    
+    widget.setupUi(this);
     objAdaptador = new Adaptador();
     traductorEN = new QTranslator(this);
     traductorPT = new QTranslator(this);
-    widget.setupUi(this);
+    validadorPuerto = new QIntValidator(5000,65536,this);
+    widget.lineEditPuerto->setValidator(validadorPuerto);
     connect(widget.pushButtonSalir, SIGNAL(clicked()), this, SLOT(close()));
+    connect(widget.actionCerrar, SIGNAL(triggered()), this, SLOT(close()));
     connect(widget.pushButtonIniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
     connect(widget.pushButtonDetener, SIGNAL(clicked()), this, SLOT(clickDetener()));
     connect(widget.actionEspanol, SIGNAL(triggered()), this, SLOT(idiomaEspanol()));
     connect(widget.actionIngles, SIGNAL(triggered()), this, SLOT(idiomaIngles()));
     connect(widget.actionPortugues, SIGNAL(triggered()), this, SLOT(idiomaPortugues()));
-    widget.statusbar->showMessage(tr("Esperando datos"), 2000);    
+    connect(widget.actionAcerca_de_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    connect(widget.actionAcerca_de, SIGNAL(triggered()), this, SLOT(acercaDe()));
+    connect(widget.actionAyuda, SIGNAL(triggered()), this, SLOT(ayuda()));
 }
 
 GUIAdaptador::~GUIAdaptador() {
@@ -38,10 +38,15 @@ void GUIAdaptador::clickIniciar(){
     QString puertoSocket = widget.lineEditPuerto->text();
     QString direccionSocket = widget.lineEditServidor->text();
 
-    if(direccionSocket.compare("") != 0 && puertoSocket.compare("") != 0)
-        estaValidado = true;
+    if(direccionSocket.compare("") != 0 && puertoSocket.compare("") != 0){
+        
+        if(puertoSocket.toInt()<5000)
+            widget.statusbar->showMessage(tr("El puerto debe ser mayor a ")+"5000");
+        else
+            estaValidado = true;
+    }
     else
-        widget.statusbar->showMessage(tr("Ingrese los datos para el Socket"), 2000);
+        widget.statusbar->showMessage(tr("Ingrese correctamente los datos"));
 
 
     if(estaValidado){      
@@ -119,11 +124,13 @@ void GUIAdaptador::clickIniciar(){
           }
           else{
             qDebug() << "RS232 Prueba fallo";
+            widget.statusbar->showMessage(tr("Error probando Conexion RS232"));
           }
       }
       else{
         // No se pudo crear RS232
           qDebug() << "RS232 NO Creado";
+          widget.statusbar->showMessage(tr("Error creando Conexion RS232"));
       }
 
       /// Crear y probar Socket
@@ -133,6 +140,7 @@ void GUIAdaptador::clickIniciar(){
       }
       else{
         qDebug() << "Socket NO Creado";
+        widget.statusbar->showMessage(tr("Error probando comunicacion con Socket"));
       }
 
       /// Iniciar proceso
@@ -140,18 +148,23 @@ void GUIAdaptador::clickIniciar(){
         widget.pushButtonIniciar->setDisabled(true);
         widget.pushButtonDetener->setDisabled(false);
         objAdaptador->correr();
+        activarInterfaz(false);
+        widget.statusbar->showMessage(tr("Adaptador corriendo"));
       }
     }
 }
 
-void GUIAdaptador::clickDetener(){    
+void GUIAdaptador::clickDetener(){
     widget.pushButtonIniciar->setDisabled(false);
     widget.pushButtonDetener->setDisabled(true);
+    activarInterfaz(true);
     objAdaptador->parar();
+    widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
 }
 
  void GUIAdaptador::actualizarInterfaz(){
-     widget.retranslateUi(this);     
+     widget.retranslateUi(this);
+     widget.statusbar->showMessage(tr("Idioma cambiado"));
  }
 
  void GUIAdaptador::idiomaIngles(){     
@@ -170,4 +183,23 @@ void GUIAdaptador::clickDetener(){
      traductorPT->load("Adaptador_pt");
      qApp->installTranslator(traductorPT);
      actualizarInterfaz();
+ }
+
+ void GUIAdaptador::acercaDe(){
+    QMessageBox::about(this,"Acerca de","texto Acerca de");
+ }
+
+ void GUIAdaptador::ayuda(){
+    QMessageBox::about(this,"Ayuda","texto de Ayuda");
+ }
+
+ void GUIAdaptador::activarInterfaz(bool activar){
+     widget.lineEditPuerto->setEnabled(activar);
+     widget.lineEditServidor->setEnabled(activar);
+     widget.comboData->setEnabled(activar);
+     widget.comboParidad->setEnabled(activar);
+     widget.comboPuerto->setEnabled(activar);
+     widget.comboStop->setEnabled(activar);
+     widget.comboTipo->setEnabled(activar);
+     widget.comboVelocidad->setEnabled(activar);
  }

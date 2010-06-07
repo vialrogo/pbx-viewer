@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIAdaptador.ui'
 **
-** Created: Sun Jun 6 15:37:53 2010
+** Created: Sun Jun 6 18:57:58 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
+#include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -40,6 +41,7 @@ public:
     QAction *actionEspanol;
     QAction *actionIngles;
     QAction *actionPortugues;
+    QAction *actionAcerca_de_Qt;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -68,6 +70,8 @@ public:
     QPushButton *pushButtonDetener;
     QPushButton *pushButtonSalir;
     QLabel *label;
+    QFrame *line;
+    QFrame *line_2;
     QMenuBar *menubar;
     QMenu *menuArchivo;
     QMenu *menuEdici_n;
@@ -87,6 +91,7 @@ public:
         GUIAdaptador->setLocale(QLocale(QLocale::Spanish, QLocale::Colombia));
         actionAbrir = new QAction(GUIAdaptador);
         actionAbrir->setObjectName(QString::fromUtf8("actionAbrir"));
+        actionAbrir->setCheckable(true);
         actionGuardar = new QAction(GUIAdaptador);
         actionGuardar->setObjectName(QString::fromUtf8("actionGuardar"));
         actionCerrar = new QAction(GUIAdaptador);
@@ -101,6 +106,8 @@ public:
         actionIngles->setObjectName(QString::fromUtf8("actionIngles"));
         actionPortugues = new QAction(GUIAdaptador);
         actionPortugues->setObjectName(QString::fromUtf8("actionPortugues"));
+        actionAcerca_de_Qt = new QAction(GUIAdaptador);
+        actionAcerca_de_Qt->setObjectName(QString::fromUtf8("actionAcerca_de_Qt"));
         centralwidget = new QWidget(GUIAdaptador);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -130,11 +137,26 @@ public:
         gridLayout->addWidget(label_6, 5, 0, 1, 1);
 
         comboVelocidad = new QComboBox(gridLayoutWidget);
+        comboVelocidad->insertItems(0, QStringList()
+         << QString::fromUtf8("300")
+         << QString::fromUtf8("600")
+         << QString::fromUtf8("1200")
+         << QString::fromUtf8("2400")
+         << QString::fromUtf8("4800")
+         << QString::fromUtf8("9600")
+         << QString::fromUtf8("19200")
+         << QString::fromUtf8("38400")
+         << QString::fromUtf8("57600")
+         << QString::fromUtf8("115200")
+        );
         comboVelocidad->setObjectName(QString::fromUtf8("comboVelocidad"));
 
         gridLayout->addWidget(comboVelocidad, 2, 1, 1, 1);
 
         comboTipo = new QComboBox(gridLayoutWidget);
+        comboTipo->addItem(QString());
+        comboTipo->addItem(QString::fromUtf8("RTS/CTS"));
+        comboTipo->addItem(QString::fromUtf8("Xon/Xoff"));
         comboTipo->setObjectName(QString::fromUtf8("comboTipo"));
 
         gridLayout->addWidget(comboTipo, 3, 1, 1, 1);
@@ -145,11 +167,21 @@ public:
         gridLayout->addWidget(comboParidad, 4, 1, 1, 1);
 
         comboData = new QComboBox(gridLayoutWidget);
+        comboData->insertItems(0, QStringList()
+         << QString::fromUtf8("5")
+         << QString::fromUtf8("6")
+         << QString::fromUtf8("7")
+         << QString::fromUtf8("8")
+        );
         comboData->setObjectName(QString::fromUtf8("comboData"));
 
         gridLayout->addWidget(comboData, 5, 1, 1, 1);
 
         comboStop = new QComboBox(gridLayoutWidget);
+        comboStop->insertItems(0, QStringList()
+         << QString::fromUtf8("1")
+         << QString::fromUtf8("2")
+        );
         comboStop->setObjectName(QString::fromUtf8("comboStop"));
 
         gridLayout->addWidget(comboStop, 6, 1, 1, 1);
@@ -160,6 +192,13 @@ public:
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
         comboPuerto = new QComboBox(gridLayoutWidget);
+        comboPuerto->insertItems(0, QStringList()
+         << QString::fromUtf8("/dev/ttyUSB0")
+         << QString::fromUtf8("/dev/ttyS0")
+         << QString::fromUtf8("/dev/ttyS1")
+         << QString::fromUtf8("/dev/ttyS2")
+         << QString::fromUtf8("/dev/ttyS3")
+        );
         comboPuerto->setObjectName(QString::fromUtf8("comboPuerto"));
 
         gridLayout->addWidget(comboPuerto, 1, 1, 1, 1);
@@ -229,6 +268,16 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(130, 10, 41, 20));
+        line = new QFrame(centralwidget);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(10, 260, 281, 20));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line_2 = new QFrame(centralwidget);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setGeometry(QRect(11, 390, 280, 20));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
         GUIAdaptador->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GUIAdaptador);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -249,8 +298,6 @@ public:
         menubar->addAction(menuArchivo->menuAction());
         menubar->addAction(menuEdici_n->menuAction());
         menubar->addAction(menuAyuda->menuAction());
-        menuArchivo->addAction(actionAbrir);
-        menuArchivo->addAction(actionGuardar);
         menuArchivo->addSeparator();
         menuArchivo->addAction(actionCerrar);
         menuEdici_n->addSeparator();
@@ -261,6 +308,7 @@ public:
         menuAyuda->addAction(actionAyuda);
         menuAyuda->addSeparator();
         menuAyuda->addAction(actionAcerca_de);
+        menuAyuda->addAction(actionAcerca_de_Qt);
 
         retranslateUi(GUIAdaptador);
 
@@ -272,62 +320,26 @@ public:
         GUIAdaptador->setWindowTitle(QApplication::translate("GUIAdaptador", "Adaptador R232 - Socket", 0, QApplication::UnicodeUTF8));
         actionAbrir->setText(QApplication::translate("GUIAdaptador", "Abrir", 0, QApplication::UnicodeUTF8));
         actionGuardar->setText(QApplication::translate("GUIAdaptador", "Guardar", 0, QApplication::UnicodeUTF8));
-        actionCerrar->setText(QApplication::translate("GUIAdaptador", "Cerrar", 0, QApplication::UnicodeUTF8));
+        actionCerrar->setText(QApplication::translate("GUIAdaptador", "Salir", 0, QApplication::UnicodeUTF8));
         actionAyuda->setText(QApplication::translate("GUIAdaptador", "Ayuda", 0, QApplication::UnicodeUTF8));
         actionAcerca_de->setText(QApplication::translate("GUIAdaptador", "Acerca de", 0, QApplication::UnicodeUTF8));
         actionEspanol->setText(QApplication::translate("GUIAdaptador", "Espa\303\261ol", 0, QApplication::UnicodeUTF8));
         actionIngles->setText(QApplication::translate("GUIAdaptador", "Ingles", 0, QApplication::UnicodeUTF8));
         actionPortugues->setText(QApplication::translate("GUIAdaptador", "Portugues", 0, QApplication::UnicodeUTF8));
+        actionAcerca_de_Qt->setText(QApplication::translate("GUIAdaptador", "Acerca de Qt", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("GUIAdaptador", "Velocidad : ", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("GUIAdaptador", "Tipo de Flujo : ", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("GUIAdaptador", "Paridad : ", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("GUIAdaptador", "Bits : ", 0, QApplication::UnicodeUTF8));
-        comboVelocidad->clear();
-        comboVelocidad->insertItems(0, QStringList()
-         << QApplication::translate("GUIAdaptador", "300", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "600", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "1200", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "2400", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "4800", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "9600", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "19200", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "38400", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "57600", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "115200", 0, QApplication::UnicodeUTF8)
-        );
-        comboTipo->clear();
-        comboTipo->insertItems(0, QStringList()
-         << QApplication::translate("GUIAdaptador", "Ninguno", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "RTS/CTS", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "Xon/Xoff", 0, QApplication::UnicodeUTF8)
-        );
+        comboTipo->setItemText(0, QApplication::translate("GUIAdaptador", "Ninguno", 0, QApplication::UnicodeUTF8));
+
         comboParidad->clear();
         comboParidad->insertItems(0, QStringList()
          << QApplication::translate("GUIAdaptador", "Ninguna", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("GUIAdaptador", "Par", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("GUIAdaptador", "Impar", 0, QApplication::UnicodeUTF8)
         );
-        comboData->clear();
-        comboData->insertItems(0, QStringList()
-         << QApplication::translate("GUIAdaptador", "5", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "6", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "7", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "8", 0, QApplication::UnicodeUTF8)
-        );
-        comboStop->clear();
-        comboStop->insertItems(0, QStringList()
-         << QApplication::translate("GUIAdaptador", "1", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "2", 0, QApplication::UnicodeUTF8)
-        );
         label_2->setText(QApplication::translate("GUIAdaptador", "Puerto : ", 0, QApplication::UnicodeUTF8));
-        comboPuerto->clear();
-        comboPuerto->insertItems(0, QStringList()
-         << QApplication::translate("GUIAdaptador", "/dev/ttyUSB0", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "/dev/ttyS0", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "/dev/ttyS1", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "/dev/ttyS2", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("GUIAdaptador", "/dev/ttyS3", 0, QApplication::UnicodeUTF8)
-        );
         label_7->setText(QApplication::translate("GUIAdaptador", "Bit de Parada : ", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("GUIAdaptador", "SOCKET", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("GUIAdaptador", "Puerto", 0, QApplication::UnicodeUTF8));

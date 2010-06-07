@@ -7,10 +7,9 @@
 
 #ifndef _GUIADAPTADOR_H
 #define	_GUIADAPTADOR_H
-
+#include <QMessageBox>
 #include "ui_GUIAdaptador.h"
 #include "Adaptador.h"
-#include <iostream>
 class GUIAdaptador : public QMainWindow {
     Q_OBJECT
 public:
@@ -19,15 +18,20 @@ public:
 private:
     Ui::GUIAdaptador widget;
     Adaptador *objAdaptador;
-    void actualizarInterfaz();
     QTranslator *traductorEN;
     QTranslator *traductorPT;
+    QIntValidator *validadorPuerto;
+    void actualizarInterfaz();
+    void activarInterfaz(bool activar);
+
 private slots:
     void clickIniciar();
     void clickDetener();
     void idiomaIngles();
     void idiomaEspanol();
     void idiomaPortugues();
+    void acercaDe();
+    void ayuda();
 };
 
 #endif	/* _GUIADAPTADOR_H */

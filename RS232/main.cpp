@@ -6,19 +6,13 @@
  */
 
 #include <QtGui/QApplication>
-#include <QTranslator>
 #include "GUIAdaptador.h"
-
-using namespace std;
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
     // Q_INIT_RESOURCE(resfile);
 
-    QApplication app(argc, argv);
-    QTranslator translator;
-    translator.load("Adaptador_es");
-    app.installTranslator(&translator);
+    QApplication app(argc, argv);    
     // create and show your widgets here
 
     GUIAdaptador* guiAdaptador = new GUIAdaptador();
