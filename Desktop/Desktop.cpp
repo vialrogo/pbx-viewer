@@ -31,7 +31,7 @@ int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
         qDebug("Error al conectar a la base de datos");
         return false;
     }
-
+    myconection->desconectar();
     int numerollamadas = (int)(flujollamadaS.length()/longitud_Trama);
     int cantidadProcesadas=0;
 
@@ -222,4 +222,11 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
     bool ok = llamadita->GuardarBD("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
 
     return ok;
+}
+
+QVector<QString*> Desktop::listarPBXs(){
+    bool isConectado = myconection->conectar(host, database, username, password);
+    QVector<QString*> vector = myconection->consulta("SELECT nombre FROM pbx;");
+    myconection->desconectar();
+    return vector;
 }

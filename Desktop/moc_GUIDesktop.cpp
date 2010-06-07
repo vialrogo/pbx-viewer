@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GUIDesktop.h'
 **
-** Created: Sun Jun 6 18:22:34 2010
+** Created: Mon Jun 7 13:23:11 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,18 +23,32 @@ static const uint qt_meta_data_GUIDesktop[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      12,   11,   11,   11, 0x08,
+      27,   11,   11,   11, 0x08,
+      42,   11,   11,   11, 0x08,
+      57,   11,   11,   11, 0x08,
+      73,   11,   11,   11, 0x08,
+      91,   11,   11,   11, 0x08,
+     102,   11,   11,   11, 0x08,
+     110,   11,   11,   11, 0x08,
+     126,   11,   11,   11, 0x08,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_GUIDesktop[] = {
-    "GUIDesktop\0"
+    "GUIDesktop\0\0clickIniciar()\0clickDetener()\0"
+    "idiomaIngles()\0idiomaEspanol()\0"
+    "idiomaPortugues()\0acercaDe()\0ayuda()\0"
+    "crearConexion()\0escucharClienteTcp()\0"
 };
 
 const QMetaObject GUIDesktop::staticMetaObject = {
@@ -64,6 +78,21 @@ int GUIDesktop::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: clickIniciar(); break;
+        case 1: clickDetener(); break;
+        case 2: idiomaIngles(); break;
+        case 3: idiomaEspanol(); break;
+        case 4: idiomaPortugues(); break;
+        case 5: acercaDe(); break;
+        case 6: ayuda(); break;
+        case 7: crearConexion(); break;
+        case 8: escucharClienteTcp(); break;
+        default: ;
+        }
+        _id -= 9;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

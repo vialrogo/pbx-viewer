@@ -112,15 +112,15 @@ void GUIDesktop::clickDetener(){
 
 void GUIDesktop::escucharClienteTcp(){
     QByteArray tcpData = tcpClient->readAll();
-    QString *mensaje = new QString(tcpData);
+    int cantidadTramas = objDesktop->procesarLlamada(QString(tcpData),widget.comboB_pbxs->currentText());
+    widget.statusbar->showMessage(tr("Se han guardado ")+QString(cantidadTramas));
 }
 
 void GUIDesktop::cargarListaPBX(){
     widget.comboB_pbxs->clear();
-   // QString* pbxs = objDesktop->listarPBXs();
-    QString pbxs[] = {QString("hola"),QString("como"),QString("estas")};
-    for (int i = 1; i < pbxs->length(); i++) {
-        widget.comboB_pbxs->addItem((QString)pbxs[i-1]);
-        qDebug() << i;
+    QVector<QString*> pbxs = objDesktop->listarPBXs();
+   
+    for (int i = 0; i < pbxs.size(); i++) {
+        widget.comboB_pbxs->addItem((QString)pbxs.at(i)[0]);
     }
 }
