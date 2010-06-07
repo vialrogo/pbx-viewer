@@ -29,17 +29,19 @@ int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
     else
     {
         qDebug("Error al conectar a la base de datos");
-        return false;
+        return 0;
     }
     myconection->desconectar();
     int numerollamadas = (int)(flujollamadaS.length()/longitud_Trama);
+    qDebug()<<"numerollamadas: "<<numerollamadas;
     int cantidadProcesadas=0;
+//    qDebug()<<"Longitud flujollamadaS: "<<flujollamadaS.length();
 
     for (int i = 0; i < numerollamadas; i++)
     {
-        if(procesarLlamada(flujollamadaS.left(longitud_Trama),pbxSelected))
+        if(procesarLlamada(flujollamadaS.mid(longitud_Trama*i, longitud_Trama),pbxSelected))
             cantidadProcesadas++;
-        flujollamadaS = flujollamadaS.right(longitud_Trama+1);
+        qDebug(qPrintable(flujollamadaS.left(5)));
     }
 
     return cantidadProcesadas;
@@ -47,19 +49,19 @@ int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
 
 bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
 
-    
+//    qDebug()<<"Longitud flujollamadaS: "<<flujollamadaS.length();
     bool isConectado = myconection->conectar(host, database, username, password);
     QString idPBX="";
 
     if(isConectado)
-        idPBX=(myconection->consulta("SELECT pbx_id FROM `pbx` WHERE pbx_nombre='" + pbxSelected + "';").at(0))[0];
+        idPBX=(myconection->consulta("SELECT pbx_id FROM pbx WHERE pbx_nombre='" + pbxSelected + "';").at(0))[0];
     else
     {
         qDebug("Error al conectar a la base de datos");
         return false;
     }
 
-    QVector<QString*> vector = myconection->consulta("SELECT con_nombre, con_con_valor FROM configuraciones, concepto WHERE con_pbx_id=" + pbxSelected + " and con_con_id=con_id;");
+    QVector<QString*> vector = myconection->consulta("SELECT con_nombre, con_con_valor FROM configuraciones, concepto WHERE con_pbx_id=" + idPBX + " and con_con_id=con_id;");
     myconection->desconectar();
 
     int numeroConceptos = vector.size();
@@ -68,8 +70,12 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
     for (int i = 0; i < numeroConceptos; i++)
     {
         mapeador[(vector.at(i))[0]]=((QString)(vector.at(i))[1]).toInt();
+//        qDebug()<< "71" << (vector.at(i))[0] <<" =>"<<((QString)(vector.at(i))[1]).toInt();
     }
-    
+
+//    foreach (int value, mapeador)
+//        cout << value << endl;
+
     // Estos enteros tienen que cambiar dependiendo de los registros de la BD
     int ano_inicio=mapeador.value("ano_inicio",-1);
     int ano_largo=mapeador.value("ano_largo",-1);
@@ -166,7 +172,7 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
             segundos.prepend("0");
     }
 
-    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" año: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
+    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" ano: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
 
     //Dueracion, Origen, Destino
     if(duracionS_inicio==-1 || duracionS_largo==-1 || origen_inicio==-1 || origen_largo==-1 || destino_inicio==-1 || destino_largo==-1 )
@@ -226,7 +232,7 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
 
 QVector<QString*> Desktop::listarPBXs(){
     bool isConectado = myconection->conectar(host, database, username, password);
-    QVector<QString*> vector = myconection->consulta("SELECT nombre FROM pbx;");
+    QVector<QString*> vector = myconection->consulta("SELECT pbx_nombre FROM pbx;");
     myconection->desconectar();
     return vector;
 }

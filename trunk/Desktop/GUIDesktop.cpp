@@ -112,8 +112,8 @@ void GUIDesktop::clickDetener(){
 
 void GUIDesktop::escucharClienteTcp(){
     QByteArray tcpData = tcpClient->readAll();
-    int cantidadTramas = objDesktop->procesarLlamada(QString(tcpData),widget.comboB_pbxs->currentText());
-    widget.statusbar->showMessage(tr("Se han guardado ")+QString(cantidadTramas));
+    int cantidadTramas = objDesktop->procesarFlujoLlamada(QString(tcpData),widget.comboB_pbxs->currentText());
+    widget.statusbar->showMessage(tr("Se han guardado ")+QString::number(cantidadTramas));
 }
 
 void GUIDesktop::cargarListaPBX(){
