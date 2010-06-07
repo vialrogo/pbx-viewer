@@ -77,52 +77,52 @@
       <widget class="QComboBox" name="comboVelocidad">
        <item>
         <property name="text">
-         <string>300</string>
+         <string notr="true">300</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>600</string>
+         <string notr="true">600</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>1200</string>
+         <string notr="true">1200</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>2400</string>
+         <string notr="true">2400</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>4800</string>
+         <string notr="true">4800</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>9600</string>
+         <string notr="true">9600</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>19200</string>
+         <string notr="true">19200</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>38400</string>
+         <string notr="true">38400</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>57600</string>
+         <string notr="true">57600</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>115200</string>
+         <string notr="true">115200</string>
         </property>
        </item>
       </widget>
@@ -136,12 +136,12 @@
        </item>
        <item>
         <property name="text">
-         <string>RTS/CTS</string>
+         <string notr="true">RTS/CTS</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Xon/Xoff</string>
+         <string notr="true">Xon/Xoff</string>
         </property>
        </item>
       </widget>
@@ -169,22 +169,22 @@
       <widget class="QComboBox" name="comboData">
        <item>
         <property name="text">
-         <string>5</string>
+         <string notr="true">5</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>6</string>
+         <string notr="true">6</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>7</string>
+         <string notr="true">7</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>8</string>
+         <string notr="true">8</string>
         </property>
        </item>
       </widget>
@@ -193,12 +193,12 @@
       <widget class="QComboBox" name="comboStop">
        <item>
         <property name="text">
-         <string>1</string>
+         <string notr="true">1</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>2</string>
+         <string notr="true">2</string>
         </property>
        </item>
       </widget>
@@ -214,27 +214,27 @@
       <widget class="QComboBox" name="comboPuerto">
        <item>
         <property name="text">
-         <string>/dev/ttyUSB0</string>
+         <string notr="true">/dev/ttyUSB0</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>/dev/ttyS0</string>
+         <string notr="true">/dev/ttyS0</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>/dev/ttyS1</string>
+         <string notr="true">/dev/ttyS1</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>/dev/ttyS2</string>
+         <string notr="true">/dev/ttyS2</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>/dev/ttyS3</string>
+         <string notr="true">/dev/ttyS3</string>
         </property>
        </item>
       </widget>
@@ -377,6 +377,32 @@
      <string>RS232</string>
     </property>
    </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>390</y>
+      <width>280</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -391,8 +417,6 @@
     <property name="title">
      <string>Archivo</string>
     </property>
-    <addaction name="actionAbrir"/>
-    <addaction name="actionGuardar"/>
     <addaction name="separator"/>
     <addaction name="actionCerrar"/>
    </widget>
@@ -418,6 +442,7 @@
     <addaction name="actionAyuda"/>
     <addaction name="separator"/>
     <addaction name="actionAcerca_de"/>
+    <addaction name="actionAcerca_de_Qt"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuEdici_n"/>
@@ -425,6 +450,9 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbrir">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Abrir</string>
    </property>
@@ -436,7 +464,7 @@
   </action>
   <action name="actionCerrar">
    <property name="text">
-    <string>Cerrar</string>
+    <string>Salir</string>
    </property>
   </action>
   <action name="actionAyuda">
@@ -462,6 +490,11 @@
   <action name="actionPortugues">
    <property name="text">
     <string>Portugues</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de_Qt">
+   <property name="text">
+    <string>Acerca de Qt</string>
    </property>
   </action>
  </widget>
