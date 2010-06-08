@@ -418,6 +418,9 @@
      <string>Archivo</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionIniciar"/>
+    <addaction name="actionDetener"/>
+    <addaction name="separator"/>
     <addaction name="actionCerrar"/>
    </widget>
    <widget class="QMenu" name="menuEdici_n">
@@ -495,6 +498,16 @@
   <action name="actionAcerca_de_Qt">
    <property name="text">
     <string>Acerca de Qt</string>
+   </property>
+  </action>
+  <action name="actionIniciar">
+   <property name="text">
+    <string>Iniciar</string>
+   </property>
+  </action>
+  <action name="actionDetener">
+   <property name="text">
+    <string>Detener</string>
    </property>
   </action>
  </widget>
