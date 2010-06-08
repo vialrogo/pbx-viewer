@@ -17,7 +17,9 @@ GUIAdaptador::GUIAdaptador() {
     connect(widget.pushButtonSalir, SIGNAL(clicked()), this, SLOT(close()));
     connect(widget.actionCerrar, SIGNAL(triggered()), this, SLOT(close()));
     connect(widget.pushButtonIniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
+    connect(widget.actionIniciar, SIGNAL(triggered()), this, SLOT(clickIniciar()));
     connect(widget.pushButtonDetener, SIGNAL(clicked()), this, SLOT(clickDetener()));
+    connect(widget.actionDetener, SIGNAL(triggered()), this, SLOT(clickDetener()));
     connect(widget.actionEspanol, SIGNAL(triggered()), this, SLOT(idiomaEspanol()));
     connect(widget.actionIngles, SIGNAL(triggered()), this, SLOT(idiomaIngles()));
     connect(widget.actionPortugues, SIGNAL(triggered()), this, SLOT(idiomaPortugues()));

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIAdaptador.ui'
 **
-** Created: Sun Jun 6 18:57:58 2010
+** Created: Mon Jun 7 16:02:36 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -42,6 +42,8 @@ public:
     QAction *actionIngles;
     QAction *actionPortugues;
     QAction *actionAcerca_de_Qt;
+    QAction *actionIniciar;
+    QAction *actionDetener;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -108,6 +110,10 @@ public:
         actionPortugues->setObjectName(QString::fromUtf8("actionPortugues"));
         actionAcerca_de_Qt = new QAction(GUIAdaptador);
         actionAcerca_de_Qt->setObjectName(QString::fromUtf8("actionAcerca_de_Qt"));
+        actionIniciar = new QAction(GUIAdaptador);
+        actionIniciar->setObjectName(QString::fromUtf8("actionIniciar"));
+        actionDetener = new QAction(GUIAdaptador);
+        actionDetener->setObjectName(QString::fromUtf8("actionDetener"));
         centralwidget = new QWidget(GUIAdaptador);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -299,6 +305,9 @@ public:
         menubar->addAction(menuEdici_n->menuAction());
         menubar->addAction(menuAyuda->menuAction());
         menuArchivo->addSeparator();
+        menuArchivo->addAction(actionIniciar);
+        menuArchivo->addAction(actionDetener);
+        menuArchivo->addSeparator();
         menuArchivo->addAction(actionCerrar);
         menuEdici_n->addSeparator();
         menuEdici_n->addAction(menuIdioma->menuAction());
@@ -327,6 +336,8 @@ public:
         actionIngles->setText(QApplication::translate("GUIAdaptador", "Ingles", 0, QApplication::UnicodeUTF8));
         actionPortugues->setText(QApplication::translate("GUIAdaptador", "Portugues", 0, QApplication::UnicodeUTF8));
         actionAcerca_de_Qt->setText(QApplication::translate("GUIAdaptador", "Acerca de Qt", 0, QApplication::UnicodeUTF8));
+        actionIniciar->setText(QApplication::translate("GUIAdaptador", "Iniciar", 0, QApplication::UnicodeUTF8));
+        actionDetener->setText(QApplication::translate("GUIAdaptador", "Detener", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("GUIAdaptador", "Velocidad : ", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("GUIAdaptador", "Tipo de Flujo : ", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("GUIAdaptador", "Paridad : ", 0, QApplication::UnicodeUTF8));
