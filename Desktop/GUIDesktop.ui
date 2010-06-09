@@ -19,7 +19,7 @@
    <bool>false</bool>
   </property>
   <property name="windowTitle">
-   <string>GUIDesktop</string>
+   <string notr="true">PBX-Viewer: Desktop</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_Socket">
@@ -370,16 +370,28 @@
    </property>
   </action>
   <action name="actionEspanol">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Español</string>
    </property>
   </action>
   <action name="actionIngles">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Inglés</string>
    </property>
   </action>
   <action name="actionPortugues">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Portugués</string>
    </property>

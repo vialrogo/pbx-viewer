@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIDesktop.ui'
 **
-** Created: Mon Jun 7 09:59:52 2010
+** Created: Tue Jun 8 19:06:43 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -78,6 +78,7 @@ public:
         font.setPointSize(11);
         GUIDesktop->setFont(font);
         GUIDesktop->setAcceptDrops(false);
+        GUIDesktop->setWindowTitle(QString::fromUtf8("PBX-Viewer: Desktop"));
         menuSalir = new QAction(GUIDesktop);
         menuSalir->setObjectName(QString::fromUtf8("menuSalir"));
         menuNuevoPerfil = new QAction(GUIDesktop);
@@ -98,10 +99,14 @@ public:
         menuAcercadeQt->setObjectName(QString::fromUtf8("menuAcercadeQt"));
         actionEspanol = new QAction(GUIDesktop);
         actionEspanol->setObjectName(QString::fromUtf8("actionEspanol"));
+        actionEspanol->setCheckable(true);
+        actionEspanol->setChecked(true);
         actionIngles = new QAction(GUIDesktop);
         actionIngles->setObjectName(QString::fromUtf8("actionIngles"));
+        actionIngles->setCheckable(true);
         actionPortugues = new QAction(GUIDesktop);
         actionPortugues->setObjectName(QString::fromUtf8("actionPortugues"));
+        actionPortugues->setCheckable(true);
         actionAyuda = new QAction(GUIDesktop);
         actionAyuda->setObjectName(QString::fromUtf8("actionAyuda"));
         centralwidget = new QWidget(GUIDesktop);
@@ -223,7 +228,6 @@ public:
 
     void retranslateUi(QMainWindow *GUIDesktop)
     {
-        GUIDesktop->setWindowTitle(QApplication::translate("GUIDesktop", "GUIDesktop", 0, QApplication::UnicodeUTF8));
         menuSalir->setText(QApplication::translate("GUIDesktop", "Salir", 0, QApplication::UnicodeUTF8));
         menuNuevoPerfil->setText(QApplication::translate("GUIDesktop", "Nuevo Perfil", 0, QApplication::UnicodeUTF8));
         menuModificarPerfil->setText(QApplication::translate("GUIDesktop", "Modificar Perfil", 0, QApplication::UnicodeUTF8));
@@ -249,6 +253,7 @@ public:
         menuIdioma_2->setTitle(QApplication::translate("GUIDesktop", "Idioma", 0, QApplication::UnicodeUTF8));
         menuPBX->setTitle(QApplication::translate("GUIDesktop", "PBX", 0, QApplication::UnicodeUTF8));
         menuAyuda->setTitle(QApplication::translate("GUIDesktop", "Ayuda", 0, QApplication::UnicodeUTF8));
+        Q_UNUSED(GUIDesktop);
     } // retranslateUi
 
 };

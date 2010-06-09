@@ -55,7 +55,7 @@ void GUIDesktop::clickIniciar(){
         }
 
         activarInterfaz(false);
-        widget.statusbar->showMessage(tr(" corriendo"));
+        widget.statusbar->showMessage(tr("corriendo"));
     }
 }
 
@@ -90,11 +90,11 @@ void GUIDesktop::clickDetener(){
  }
 
  void GUIDesktop::acercaDe(){
-    QMessageBox::about(this,"Acerca de","texto Acerca de");
+    QMessageBox::about(this,tr("Acerca de"),tr(""));
  }
 
  void GUIDesktop::ayuda(){
-    QMessageBox::about(this,"Ayuda","texto de Ayuda");
+    QMessageBox::about(this,tr("Ayuda"),tr("texto de Ayuda"));
  }
 
  void GUIDesktop::activarInterfaz(bool activar){
