@@ -10,7 +10,7 @@
 
 #include "GUIAdaptador.h"
 
-GUIAdaptador::GUIAdaptador() {
+GUIAdaptador::GUIAdaptador() {    
     widget.setupUi(this);
     objAdaptador = new Adaptador();
     traductorEN = new QTranslator(this);
@@ -198,13 +198,25 @@ void GUIAdaptador::clickDetener(){
      actualizarInterfaz();
  }
 
- void GUIAdaptador::acercaDe(){
-    QMessageBox::about(this,"Acerca de","texto Acerca de");
+ void GUIAdaptador::acercaDe(){    
+     QMessageBox *acercaDe = new QMessageBox();
+     QImage logo("logo.png");
+     acercaDe->setIconPixmap(QPixmap::fromImage(logo));
+     acercaDe->setText(tr("<h3>PBX Viewer: Adaptador RS232 a Socket 1.0</h3><br>Un adaptador de RS232 a Socket escrito en Qt.<br><br>GNU Lesser General Public License<br><a href=\"http://www.gnu.org/licenses/lgpl.html\">http://www.gnu.org/licenses/lgpl.html</a><br><br>Creado por :<br>Victor Alberto Romero Gonzalez<br><br>Escuela de Ingeniería Eléctrica Y Electrónica<br>Universidad del Valle<br>2010"));
+     acercaDe->setWindowTitle(tr("Acerca de"));
+     acercaDe->show();
+     
  }
 
  void GUIAdaptador::ayuda(){
-    QMessageBox::about(this,"Ayuda","texto de Ayuda");
+    QMessageBox *ayuda = new QMessageBox();
+    QImage logo("logo.png");
+    ayuda->setIconPixmap(QPixmap::fromImage(logo));
+    ayuda->setText(tr("<h3>Bienvenido a la ayuda de PBX Viewer: Adaptador RS232 a Socket</h3><h4>Ayuda</h4><p>Esta aplicación permite recibir tramas a través del puerto RS232 y retransmitirlas a un puerto de red.La aplicación consta de 2 secciones,RS232 y Socket,las cuales contienen las configuraciones de cada una respectivamente.</p><p>Si presenta problemas de conexion con el puerto y/o socket,por favor consulte al administrador del sistema.</p><h4>Contribuye al proyecto</h4><p>El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.</p><h4>Contacto</h4><p>Victor Alberto Romero Gonzalez<br>varg04444@gmail.com</p>"));
+    ayuda->setWindowTitle(tr("Ayuda"));
+    ayuda->show();
  }
+
 
  void GUIAdaptador::activarInterfaz(bool activar){
      widget.lineEditPuerto->setEnabled(activar);

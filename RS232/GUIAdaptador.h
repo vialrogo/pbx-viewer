@@ -21,7 +21,7 @@ private:
     QTranslator *traductorEN;
     QTranslator *traductorPT;
     QIntValidator *validadorPuerto;
-    QActionGroup* actionGroup;
+    QActionGroup* actionGroup;    
     void actualizarInterfaz();
     void activarInterfaz(bool activar);
 

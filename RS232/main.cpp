@@ -14,7 +14,8 @@ int main(int argc, char *argv[]) {
 
     QApplication app(argc, argv);    
     // create and show your widgets here
-
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     GUIAdaptador* guiAdaptador = new GUIAdaptador();
     guiAdaptador->show();
     return app.exec();
