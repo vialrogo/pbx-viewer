@@ -10,6 +10,8 @@
                    projectFiles="true">
       <itemPath>Desktop.cpp</itemPath>
       <itemPath>Desktop.h</itemPath>
+      <itemPath>/var/www/pbx-viewer/Desktop/Desktop_en.ts</itemPath>
+      <itemPath>/var/www/pbx-viewer/Desktop/Desktop_pt.ts</itemPath>
       <itemPath>GUIDesktop.cpp</itemPath>
       <itemPath>GUIDesktop.h</itemPath>
       <itemPath>GUIDesktop.ui</itemPath>
