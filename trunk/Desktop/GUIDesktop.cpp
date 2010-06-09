@@ -16,7 +16,9 @@ GUIDesktop::GUIDesktop() {
     objDesktop = new Desktop("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
     widget.lineEdit_puerto->setValidator(validadorPuerto);
     connect(widget.boton_iniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
+    connect(widget.menuIniciar, SIGNAL(triggered()), this, SLOT(clickIniciar()));
     connect(widget.boton_parar, SIGNAL(clicked()), this, SLOT(clickDetener()));
+    connect(widget.menuParar, SIGNAL(triggered()), this, SLOT(clickDetener()));
     connect(tcpServer, SIGNAL(newConnection()), this, SLOT(crearConexion()));
     connect(widget.actionEspanol, SIGNAL(triggered()), this, SLOT(idiomaEspanol()));
     connect(widget.actionIngles, SIGNAL(triggered()), this, SLOT(idiomaIngles()));
@@ -48,7 +50,9 @@ void GUIDesktop::clickIniciar(){
 
     if(estaValidado){
         widget.boton_iniciar->setDisabled(true);
+        widget.menuIniciar->setDisabled(true);
         widget.boton_parar->setDisabled(false);
+        widget.menuParar->setDisabled(false);
 
         if (!tcpServer->listen(QHostAddress::Any,quint16(puertoSocket.toInt()))) {
             widget.statusbar->showMessage(tr("Error, iniciando el servidor"));
@@ -61,7 +65,9 @@ void GUIDesktop::clickIniciar(){
 
 void GUIDesktop::clickDetener(){
     widget.boton_iniciar->setDisabled(false);
+    widget.menuIniciar->setDisabled(false);
     widget.boton_parar->setDisabled(true);
+    widget.menuParar->setDisabled(true);
     activarInterfaz(true);
     widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
 }
