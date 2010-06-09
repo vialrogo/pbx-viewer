@@ -4,275 +4,205 @@
 <context>
     <name>GUIAdaptador</name>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="272"/>
+        <location filename="GUIAdaptador.ui" line="32"/>
         <source>Adaptador R232 - Socket</source>
-        <translation type="unfinished"></translation>
+        <translation>Adaptador R232 - Soquete</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="273"/>
-        <source>Abrir</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="274"/>
-        <source>Guardar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="275"/>
-        <source>Cerrar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="276"/>
-        <location filename="ui_GUIAdaptador.h" line="342"/>
-        <source>Ayuda</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="277"/>
-        <source>Acerca de</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="ui_GUIAdaptador.h" line="278"/>
-        <source>Español</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="279"/>
-        <source>Ingles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="280"/>
-        <source>Portugues</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="281"/>
+        <location filename="GUIAdaptador.ui" line="51"/>
         <source>Velocidad : </source>
-        <translation type="unfinished"></translation>
+        <translation>Baud Taxa : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="282"/>
+        <location filename="GUIAdaptador.ui" line="58"/>
         <source>Tipo de Flujo : </source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de Fluxo : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="283"/>
+        <location filename="GUIAdaptador.ui" line="65"/>
         <source>Paridad : </source>
-        <translation type="unfinished"></translation>
+        <translation>Paridade : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="284"/>
+        <location filename="GUIAdaptador.ui" line="72"/>
         <source>Bits : </source>
-        <translation type="unfinished"></translation>
+        <translation>Bits : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="287"/>
-        <source>300</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="288"/>
-        <source>600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="289"/>
-        <source>1200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="290"/>
-        <source>2400</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="291"/>
-        <source>4800</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="292"/>
-        <source>9600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="293"/>
-        <source>19200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="294"/>
-        <source>38400</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="295"/>
-        <source>57600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="296"/>
-        <source>115200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="300"/>
+        <location filename="GUIAdaptador.ui" line="134"/>
         <source>Ninguno</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="301"/>
-        <source>RTS/CTS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="302"/>
-        <source>Xon/Xoff</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="306"/>
+        <location filename="GUIAdaptador.ui" line="153"/>
         <source>Ninguna</source>
-        <translation type="unfinished"></translation>
+        <translation>Nula</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="307"/>
+        <location filename="GUIAdaptador.ui" line="158"/>
         <source>Par</source>
-        <translation type="unfinished"></translation>
+        <translation>Par</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="308"/>
+        <location filename="GUIAdaptador.ui" line="163"/>
         <source>Impar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ímpar</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="312"/>
-        <source>5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="313"/>
-        <source>6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="314"/>
-        <source>7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="315"/>
-        <source>8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="319"/>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="320"/>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="322"/>
+        <location filename="GUIAdaptador.ui" line="209"/>
         <source>Puerto : </source>
-        <translation type="unfinished"></translation>
+        <translation>Porta : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="325"/>
-        <source>/dev/ttyUSB0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="326"/>
-        <source>/dev/ttyS0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="327"/>
-        <source>/dev/ttyS1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="328"/>
-        <source>/dev/ttyS2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="329"/>
-        <source>/dev/ttyS3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ui_GUIAdaptador.h" line="331"/>
+        <location filename="GUIAdaptador.ui" line="245"/>
         <source>Bit de Parada : </source>
-        <translation type="unfinished"></translation>
+        <translation>Bit de Parada : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="332"/>
+        <location filename="GUIAdaptador.ui" line="261"/>
         <source>SOCKET</source>
-        <translation type="unfinished"></translation>
+        <translation>SOQUETE</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="333"/>
+        <location filename="GUIAdaptador.ui" line="286"/>
         <source>Puerto</source>
-        <translation type="unfinished"></translation>
+        <translation>Porta</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="334"/>
+        <location filename="GUIAdaptador.ui" line="325"/>
         <source>Servidor : </source>
-        <translation type="unfinished"></translation>
+        <translation>Servidor : </translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="335"/>
+        <location filename="GUIAdaptador.ui" line="344"/>
+        <location filename="GUIAdaptador.ui" line="517"/>
         <source>Iniciar</source>
         <translation>Iniciar</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="336"/>
+        <location filename="GUIAdaptador.ui" line="354"/>
+        <location filename="GUIAdaptador.ui" line="525"/>
         <source>Detener</source>
-        <translation>Parar</translation>
+        <translation>Detener</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="337"/>
+        <location filename="GUIAdaptador.ui" line="361"/>
+        <location filename="GUIAdaptador.ui" line="470"/>
         <source>Salir</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="338"/>
+        <location filename="GUIAdaptador.ui" line="377"/>
         <source>RS232</source>
-        <translation type="unfinished"></translation>
+        <translation>RS232</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="339"/>
+        <location filename="GUIAdaptador.ui" line="418"/>
         <source>Archivo</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivo</translation>
     </message>
     <message utf8="true">
-        <location filename="ui_GUIAdaptador.h" line="340"/>
+        <location filename="GUIAdaptador.ui" line="428"/>
         <source>Edición</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar</translation>
     </message>
     <message>
-        <location filename="ui_GUIAdaptador.h" line="341"/>
+        <location filename="GUIAdaptador.ui" line="432"/>
         <source>Idioma</source>
-        <translation type="unfinished"></translation>
+        <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="GUIAdaptador.cpp" line="25"/>
-        <source>Esperando datos</source>
-        <translation type="unfinished"></translation>
+        <location filename="GUIAdaptador.ui" line="443"/>
+        <location filename="GUIAdaptador.ui" line="475"/>
+        <location filename="GUIAdaptador.cpp" line="216"/>
+        <source>Ayuda</source>
+        <translation>Ajuda</translation>
     </message>
     <message>
-        <location filename="GUIAdaptador.cpp" line="43"/>
-        <source>Ingrese los datos para el Socket</source>
-        <translation type="unfinished"></translation>
+        <location filename="GUIAdaptador.ui" line="460"/>
+        <source>Abrir</source>
+        <translation>Abrir</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.ui" line="465"/>
+        <source>Guardar</source>
+        <translation>Salvar</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.ui" line="480"/>
+        <location filename="GUIAdaptador.cpp" line="206"/>
+        <source>Acerca de</source>
+        <translation>Sobre</translation>
+    </message>
+    <message utf8="true">
+        <location filename="GUIAdaptador.ui" line="491"/>
+        <source>Español</source>
+        <translation>Espanhol</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.ui" line="499"/>
+        <source>Ingles</source>
+        <translation>Inglês</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.ui" line="507"/>
+        <source>Portugues</source>
+        <translation>Português</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.ui" line="512"/>
+        <source>Acerca de Qt</source>
+        <translation>Sobre Qt</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="53"/>
+        <source>El puerto debe ser mayor a </source>
+        <translation>A porta deve ser maior a </translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="58"/>
+        <source>Ingrese correctamente los datos</source>
+        <translation>Ingresse corretamente os dados</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="136"/>
+        <source>Error probando Conexion RS232</source>
+        <translation>Erro provando a conexão RS232</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="142"/>
+        <source>Error creando Conexion RS232</source>
+        <translation>Erro criando conexão RS232</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="152"/>
+        <source>Error probando comunicacion con Socket</source>
+        <translation>Error provando comunicação com soquete</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="163"/>
+        <source>Adaptador corriendo</source>
+        <translation>Adaptador correndo</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="175"/>
+        <source>Se ha detenido exitosamente</source>
+        <translation>Deteve-se com sucesso</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="180"/>
+        <source>Idioma cambiado</source>
+        <translation>Idioma mudado</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="205"/>
+        <source>&lt;h3&gt;PBX Viewer: Adaptador RS232 a Socket 1.0&lt;/h3&gt;&lt;br&gt;Un adaptador de RS232 a Socket escrito en Qt.&lt;br&gt;&lt;br&gt;GNU Lesser General Public License&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;http://www.gnu.org/licenses/lgpl.html&lt;/a&gt;&lt;br&gt;&lt;br&gt;Creado por :&lt;br&gt;Victor Alberto Romero Gonzalez&lt;br&gt;&lt;br&gt;Escuela de IngenierÃ­a ElÃ©ctrica Y ElectrÃ³nica&lt;br&gt;Universidad del Valle&lt;br&gt;2010</source>
+        <translation>&lt;h3&gt;PBX Viewer: Adaptador RS232 a Soquete 1.0&lt;/h3&gt;&lt;br&gt;Um adaptador de RS232 a Socket escrito em Qt.&lt;br&gt;&lt;br&gt;GNU Lesser General Public License&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;http://www.gnu.org/licenses/lgpl.html&lt;/a&gt;&lt;br&gt;&lt;br&gt;Criado por :&lt;br&gt;Victor Alberto Romero Gonzalez&lt;br&gt;&lt;br&gt;Escuela de Ingenierí­a Eléctrica Y Electrónica&lt;br&gt;Universidad del Valle&lt;br&gt;2010</translation>
+    </message>
+    <message>
+        <location filename="GUIAdaptador.cpp" line="215"/>
+        <source>&lt;h3&gt;Bienvenido a la ayuda de PBX Viewer: Adaptador RS232 a Socket&lt;/h3&gt;&lt;h4&gt;Ayuda&lt;/h4&gt;&lt;p&gt;Esta aplicaciÃ³n permite recibir tramas a travÃ©s del puerto RS232 y retransmitirlas a un puerto de red.La aplicaciÃ³n consta de 2 secciones,RS232 y Socket,las cuales contienen las configuraciones de cada una respectivamente.&lt;/p&gt;&lt;p&gt;Si presenta problemas de conexion con el puerto y/o socket,por favor consulte al administrador del sistema.&lt;/p&gt;&lt;h4&gt;Contribuye al proyecto&lt;/h4&gt;&lt;p&gt;El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.&lt;/p&gt;&lt;h4&gt;Contacto&lt;/h4&gt;&lt;p&gt;Victor Alberto Romero Gonzalez&lt;br&gt;varg04444@gmail.com&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Bem-vindo á ajuda de PBX Viewer: Adaptador RS232 a Soquete&lt;/h3&gt;&lt;h4&gt;Ajuda&lt;/h4&gt;&lt;p&gt;Esta aplicação permite receber pela puerta RS232 e retransmitir a uma puerta de rede.A aplicação consta de 2 seções,RS232 e Soquete,as quais contêm as configurações da cada qual um respectivamente..&lt;/p&gt;&lt;p&gt;Se apresenta problemas de conexão com à porta e / ou soquete, consulte o seu administrador do sistema.&lt;/p&gt;&lt;h4&gt;Contribui ao projeto&lt;/h4&gt;&lt;p&gt;O projeto encontra-se baixo licença LGPL. Para saber como contribuir a este projeto, faz favor contate o autor.&lt;/p&gt;&lt;h4&gt;Contato&lt;/h4&gt;&lt;p&gt;Victor Alberto Romero Gonzalez&lt;br&gt;varg04444@gmail.com&lt;/p&gt;</translation>
     </message>
 </context>
 </TS>

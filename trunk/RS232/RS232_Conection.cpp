@@ -55,8 +55,8 @@ void RS232_Conection::receiveMsg()
 	    //QString msg = buff;
 
 	   	received_msg = new QString(buff);                
-		qDebug(qPrintable("Bytes disponibles: "+QString::number(numBytes)));
-                qDebug(qPrintable("Bytes recibidos:  "+QString::number(i)));
+		//qDebug(qPrintable("Bytes disponibles: "+QString::number(numBytes)));
+                //qDebug(qPrintable("Bytes recibidos:  "+QString::number(i)));
 	}
         else
             received_msg = new QString("");
