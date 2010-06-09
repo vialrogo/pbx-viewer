@@ -410,7 +410,7 @@
      <x>0</x>
      <y>0</y>
      <width>300</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -481,16 +481,28 @@
    </property>
   </action>
   <action name="actionEspanol">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Español</string>
    </property>
   </action>
   <action name="actionIngles">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Ingles</string>
    </property>
   </action>
   <action name="actionPortugues">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Portugues</string>
    </property>
@@ -506,6 +518,9 @@
    </property>
   </action>
   <action name="actionDetener">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Detener</string>
    </property>

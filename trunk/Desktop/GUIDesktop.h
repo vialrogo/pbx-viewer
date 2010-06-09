@@ -28,6 +28,7 @@ private:
     QTranslator *traductorPT;
     QIntValidator *validadorPuerto;
     Desktop* objDesktop;
+    QActionGroup* actionGroup;
     void actualizarInterfaz();
     void activarInterfaz(bool activar);
     void cargarListaPBX();

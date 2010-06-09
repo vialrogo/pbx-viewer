@@ -10,6 +10,18 @@
     <height>522</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>370</width>
+    <height>522</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>370</width>
+    <height>522</height>
+   </size>
+  </property>
   <property name="font">
    <font>
     <pointsize>11</pointsize>
@@ -110,9 +122,9 @@
    <widget class="QComboBox" name="comboB_pbxs">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>170</x>
       <y>160</y>
-      <width>92</width>
+      <width>161</width>
       <height>29</height>
      </rect>
     </property>
@@ -284,7 +296,7 @@
      <x>0</x>
      <y>0</y>
      <width>370</width>
-     <height>27</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -355,7 +367,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>11</pointsize>
+     <pointsize>10</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>

@@ -121,7 +121,7 @@
     <message>
         <location filename="GUIDesktop.cpp" line="42"/>
         <source>El puerto debe ser mayor a </source>
-        <translation>A porta deve ser maior que</translation>
+        <translation>A porta deve ser maior que </translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="47"/>
@@ -156,7 +156,7 @@
     <message>
         <location filename="GUIDesktop.cpp" line="116"/>
         <source>Se han guardado </source>
-        <translation>Salvadas</translation>
+        <translation>Salvadas </translation>
     </message>
 </context>
 </TS>
