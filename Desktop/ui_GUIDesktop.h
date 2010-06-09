@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIDesktop.ui'
 **
-** Created: Tue Jun 8 19:06:43 2010
+** Created: Tue Jun 8 20:50:32 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -76,6 +76,8 @@ public:
         if (GUIDesktop->objectName().isEmpty())
             GUIDesktop->setObjectName(QString::fromUtf8("GUIDesktop"));
         GUIDesktop->resize(370, 522);
+        GUIDesktop->setMinimumSize(QSize(370, 522));
+        GUIDesktop->setMaximumSize(QSize(370, 522));
         QFont font;
         font.setPointSize(11);
         GUIDesktop->setFont(font);
@@ -91,7 +93,7 @@ public:
         menuEliminarPerfil->setObjectName(QString::fromUtf8("menuEliminarPerfil"));
         menuEliminarPerfil->setCheckable(false);
         QFont font1;
-        font1.setPointSize(11);
+        font1.setPointSize(10);
         font1.setBold(false);
         font1.setWeight(50);
         menuEliminarPerfil->setFont(font1);
@@ -144,7 +146,7 @@ public:
         label_tipoPBX->setGeometry(QRect(80, 170, 91, 21));
         comboB_pbxs = new QComboBox(centralwidget);
         comboB_pbxs->setObjectName(QString::fromUtf8("comboB_pbxs"));
-        comboB_pbxs->setGeometry(QRect(210, 160, 92, 29));
+        comboB_pbxs->setGeometry(QRect(170, 160, 161, 29));
         boton_iniciar = new QPushButton(centralwidget);
         boton_iniciar->setObjectName(QString::fromUtf8("boton_iniciar"));
         boton_iniciar->setGeometry(QRect(13, 420, 113, 31));
@@ -194,7 +196,7 @@ public:
         GUIDesktop->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GUIDesktop);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 370, 27));
+        menubar->setGeometry(QRect(0, 0, 370, 23));
         menuArchivo = new QMenu(menubar);
         menuArchivo->setObjectName(QString::fromUtf8("menuArchivo"));
         menuEdici_n = new QMenu(menubar);

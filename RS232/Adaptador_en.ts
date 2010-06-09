@@ -6,48 +6,48 @@
     <message>
         <location filename="GUIAdaptador.cpp" line="21"/>
         <source>Esperando datos</source>
-        <translation type="unfinished"></translation>
+        <translation>Waiting for data</translation>
     </message>
     <message>
         <location filename="GUIAdaptador.cpp" line="42"/>
         <source>Ingrese los datos para el Socket</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert the socket data</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="256"/>
         <source>Adaptador R232 - Socket</source>
-        <translation type="unfinished"></translation>
+        <translation>Adapter R232 - Socket</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="257"/>
         <source>Abrir</source>
-        <translation type="unfinished"></translation>
+        <translation>Open</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="258"/>
         <source>Guardar</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="259"/>
         <source>Cerrar</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="260"/>
         <location filename="ui_GUIAdaptador.h" line="322"/>
         <source>Ayuda</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="261"/>
         <source>Acerca de</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="262"/>
         <source>Velocidad : </source>
-        <translation type="unfinished"></translation>
+        <translation>Baudio rate : </translation>
     </message>
     <message>
         <location filename="ui_GUIAdaptador.h" line="263"/>

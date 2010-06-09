@@ -5,6 +5,9 @@
  * Created on 1 de Junho de 2010, 20:34
  */
 
+#include <QtGui/qvalidator.h>
+#include <QtGui/qfontmetrics.h>
+
 #include "GUIAdaptador.h"
 
 GUIAdaptador::GUIAdaptador() {
@@ -14,6 +17,10 @@ GUIAdaptador::GUIAdaptador() {
     traductorPT = new QTranslator(this);
     validadorPuerto = new QIntValidator(5000,65536,this);
     widget.lineEditPuerto->setValidator(validadorPuerto);
+    actionGroup = new QActionGroup(this);
+    actionGroup->addAction(widget.actionEspanol);
+    actionGroup->addAction(widget.actionIngles);
+    actionGroup->addAction(widget.actionPortugues);
     connect(widget.pushButtonSalir, SIGNAL(clicked()), this, SLOT(close()));
     connect(widget.actionCerrar, SIGNAL(triggered()), this, SLOT(close()));
     connect(widget.pushButtonIniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
@@ -148,7 +155,9 @@ void GUIAdaptador::clickIniciar(){
       /// Iniciar proceso
       if(estaListoRS232 && estaListoSocket){
         widget.pushButtonIniciar->setDisabled(true);
+        widget.actionIniciar->setDisabled(true);
         widget.pushButtonDetener->setDisabled(false);
+        widget.actionDetener->setDisabled(false);
         objAdaptador->correr();
         activarInterfaz(false);
         widget.statusbar->showMessage(tr("Adaptador corriendo"));
@@ -158,7 +167,9 @@ void GUIAdaptador::clickIniciar(){
 
 void GUIAdaptador::clickDetener(){
     widget.pushButtonIniciar->setDisabled(false);
+    widget.actionIniciar->setDisabled(false);
     widget.pushButtonDetener->setDisabled(true);
+    widget.actionDetener->setDisabled(true);
     activarInterfaz(true);
     objAdaptador->parar();
     widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));

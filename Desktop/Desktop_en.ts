@@ -6,7 +6,7 @@
     <message>
         <location filename="GUIDesktop.cpp" line="42"/>
         <source>El puerto debe ser mayor a </source>
-        <translation>The port must be greater than</translation>
+        <translation>The port must be greater than </translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="47"/>
@@ -40,39 +40,39 @@
     <message>
         <location filename="GUIDesktop.ui" line="40"/>
         <source>SOCKET</source>
-        <translation type="unfinished"></translation>
+        <translation>SOCKET</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="58"/>
         <location filename="GUIDesktop.ui" line="312"/>
         <source>PBX</source>
-        <translation type="unfinished"></translation>
+        <translation>PBX</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="84"/>
         <source>Puerto: </source>
-        <translation type="unfinished"></translation>
+        <translation>Port: </translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="107"/>
         <source>Tipo PBX: </source>
-        <translation type="unfinished"></translation>
+        <translation>PBX Name: </translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="135"/>
         <source>Iniciar</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="156"/>
         <source>Parar</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="174"/>
         <location filename="GUIDesktop.ui" line="334"/>
         <source>Salir</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="205"/>
@@ -112,38 +112,38 @@
     <message>
         <location filename="GUIDesktop.ui" line="344"/>
         <source>Modificar Perfil</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Profile</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="352"/>
         <source>Eliminar Perfil</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Profile</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="364"/>
         <location filename="GUIDesktop.cpp" line="93"/>
         <source>Acerca de</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="369"/>
         <source>Acerca de Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>About Qt</translation>
     </message>
     <message utf8="true">
         <location filename="GUIDesktop.ui" line="374"/>
         <source>Español</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanish</translation>
     </message>
     <message utf8="true">
         <location filename="GUIDesktop.ui" line="379"/>
         <source>Inglés</source>
-        <translation type="unfinished"></translation>
+        <translation>English</translation>
     </message>
     <message utf8="true">
         <location filename="GUIDesktop.ui" line="384"/>
         <source>Portugués</source>
-        <translation type="unfinished"></translation>
+        <translation>Portuguese</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="320"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="GUIDesktop.cpp" line="116"/>
         <source>Se han guardado </source>
-        <translation type="unfinished"></translation>
+        <translation>Saved</translation>
     </message>
 </context>
 </TS>

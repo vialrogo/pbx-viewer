@@ -15,6 +15,10 @@ GUIDesktop::GUIDesktop() {
     validadorPuerto = new QIntValidator(5000,65536,this);
     objDesktop = new Desktop("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
     widget.lineEdit_puerto->setValidator(validadorPuerto);
+    actionGroup = new QActionGroup(this);
+    actionGroup->addAction(widget.actionEspanol);
+    actionGroup->addAction(widget.actionIngles);
+    actionGroup->addAction(widget.actionPortugues);
     connect(widget.boton_iniciar, SIGNAL(clicked()), this, SLOT(clickIniciar()));
     connect(widget.menuIniciar, SIGNAL(triggered()), this, SLOT(clickIniciar()));
     connect(widget.boton_parar, SIGNAL(clicked()), this, SLOT(clickDetener()));
@@ -74,7 +78,7 @@ void GUIDesktop::clickDetener(){
 
  void GUIDesktop::actualizarInterfaz(){
      widget.retranslateUi(this);
-     widget.statusbar->showMessage(tr("Idioma cambiado"));
+     widget.statusbar->showMessage(tr("Idioma cambiado"),2000);
  }
 
  void GUIDesktop::idiomaIngles(){

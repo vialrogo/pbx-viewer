@@ -8,10 +8,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
                    projectFiles="true">
+      <itemPath>CRUD_PBX.cpp</itemPath>
+      <itemPath>CRUD_PBX.h</itemPath>
+      <itemPath>CRUD_PBX.ui</itemPath>
       <itemPath>Desktop.cpp</itemPath>
       <itemPath>Desktop.h</itemPath>
-      <itemPath>/var/www/pbx-viewer/Desktop/Desktop_en.ts</itemPath>
-      <itemPath>/var/www/pbx-viewer/Desktop/Desktop_pt.ts</itemPath>
       <itemPath>GUIDesktop.cpp</itemPath>
       <itemPath>GUIDesktop.h</itemPath>
       <itemPath>GUIDesktop.ui</itemPath>
