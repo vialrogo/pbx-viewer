@@ -43,6 +43,8 @@ public:
     QAction *actionIngles;
     QAction *actionPortugues;
     QAction *actionAyuda;
+    QAction *menuIniciar;
+    QAction *menuParar;
     QWidget *centralwidget;
     QLabel *label_Socket;
     QLabel *label_PBX;
@@ -109,6 +111,11 @@ public:
         actionPortugues->setCheckable(true);
         actionAyuda = new QAction(GUIDesktop);
         actionAyuda->setObjectName(QString::fromUtf8("actionAyuda"));
+        menuIniciar = new QAction(GUIDesktop);
+        menuIniciar->setObjectName(QString::fromUtf8("menuIniciar"));
+        menuParar = new QAction(GUIDesktop);
+        menuParar->setObjectName(QString::fromUtf8("menuParar"));
+        menuParar->setEnabled(false);
         centralwidget = new QWidget(GUIDesktop);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_Socket = new QLabel(centralwidget);
@@ -187,7 +194,7 @@ public:
         GUIDesktop->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GUIDesktop);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 370, 24));
+        menubar->setGeometry(QRect(0, 0, 370, 27));
         menuArchivo = new QMenu(menubar);
         menuArchivo->setObjectName(QString::fromUtf8("menuArchivo"));
         menuEdici_n = new QMenu(menubar);
@@ -207,6 +214,8 @@ public:
         menubar->addAction(menuEdici_n->menuAction());
         menubar->addAction(menuPBX->menuAction());
         menubar->addAction(menuAyuda->menuAction());
+        menuArchivo->addAction(menuIniciar);
+        menuArchivo->addAction(menuParar);
         menuArchivo->addAction(menuSalir);
         menuEdici_n->addAction(menuIdioma_2->menuAction());
         menuIdioma_2->addAction(actionEspanol);
@@ -238,6 +247,8 @@ public:
         actionIngles->setText(QApplication::translate("GUIDesktop", "Ingl\303\251s", 0, QApplication::UnicodeUTF8));
         actionPortugues->setText(QApplication::translate("GUIDesktop", "Portugu\303\251s", 0, QApplication::UnicodeUTF8));
         actionAyuda->setText(QApplication::translate("GUIDesktop", "Ayuda", 0, QApplication::UnicodeUTF8));
+        menuIniciar->setText(QApplication::translate("GUIDesktop", "Iniciar", 0, QApplication::UnicodeUTF8));
+        menuParar->setText(QApplication::translate("GUIDesktop", "Parar", 0, QApplication::UnicodeUTF8));
         label_Socket->setText(QApplication::translate("GUIDesktop", "SOCKET", 0, QApplication::UnicodeUTF8));
         label_PBX->setText(QApplication::translate("GUIDesktop", "PBX", 0, QApplication::UnicodeUTF8));
         label_puerto->setText(QApplication::translate("GUIDesktop", "Puerto: ", 0, QApplication::UnicodeUTF8));

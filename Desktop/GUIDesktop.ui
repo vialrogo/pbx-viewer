@@ -284,13 +284,15 @@
      <x>0</x>
      <y>0</y>
      <width>370</width>
-     <height>24</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
     <property name="title">
      <string>Archivo</string>
     </property>
+    <addaction name="menuIniciar"/>
+    <addaction name="menuParar"/>
     <addaction name="menuSalir"/>
    </widget>
    <widget class="QMenu" name="menuEdici_n">
@@ -399,6 +401,19 @@
   <action name="actionAyuda">
    <property name="text">
     <string>Ayuda</string>
+   </property>
+  </action>
+  <action name="menuIniciar">
+   <property name="text">
+    <string>Iniciar</string>
+   </property>
+  </action>
+  <action name="menuParar">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Parar</string>
    </property>
   </action>
  </widget>
