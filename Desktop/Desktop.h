@@ -19,6 +19,10 @@ public:
     bool procesarLlamada(QString flujollamadaS, QString pbxSelected);
     int procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected);
     QVector<QString*> listarPBXs();
+    bool insertarPBX(QMap<QString,QString> mapa);
+    bool actualizarPBX(QMap<QString,QString> mapa);
+    bool eliminarPBX(QString pbx_nombre);
+    QMap<QString,QString> obtenerPBX(QString pbx_nombre);
 private:
     Llamada* llamadita;
     MysqlConection* myconection;
