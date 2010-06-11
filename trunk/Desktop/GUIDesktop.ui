@@ -218,6 +218,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="boton_editar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -236,6 +239,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="boton_eliminar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -296,7 +302,7 @@
      <x>0</x>
      <y>0</y>
      <width>370</width>
-     <height>23</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -354,6 +360,9 @@
    </property>
   </action>
   <action name="menuModificarPerfil">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Modificar Perfil</string>
    </property>
@@ -362,15 +371,14 @@
    <property name="checkable">
     <bool>false</bool>
    </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Eliminar Perfil</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="menuAcercade">

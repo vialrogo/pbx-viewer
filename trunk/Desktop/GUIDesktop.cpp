@@ -9,6 +9,9 @@
 
 GUIDesktop::GUIDesktop() {
     widget.setupUi(this);
+    estadoCrud = 0;
+    estaCorriendo = false;
+    objCrud = new CRUD_PBX();
     tcpServer = new QTcpServer(this);
     traductorEN = new QTranslator(this);
     traductorPT = new QTranslator(this);
@@ -30,6 +33,12 @@ GUIDesktop::GUIDesktop() {
     connect(widget.menuAcercadeQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(widget.menuAcercade, SIGNAL(triggered()), this, SLOT(acercaDe()));
     connect(widget.actionAyuda, SIGNAL(triggered()), this, SLOT(ayuda()));
+    connect(widget.menuNuevoPerfil, SIGNAL(triggered()), this, SLOT(nuevoPerfil()));
+    connect(widget.boton_nuevo, SIGNAL(clicked()), this, SLOT(nuevoPerfil()));
+    connect(widget.boton_editar, SIGNAL(clicked()), this, SLOT(clickEditar()));
+    connect(widget.boton_eliminar, SIGNAL(clicked()), this, SLOT(clickEliminar()));
+    connect(objCrud->widget.pushButtonAceptar, SIGNAL(clicked()), this, SLOT(botonAceptar()));
+    connect(objCrud->widget.pushButtonCancelar, SIGNAL(clicked()), this, SLOT(botonCancelar()));
     cargarListaPBX();
 }
 
@@ -64,16 +73,19 @@ void GUIDesktop::clickIniciar(){
 
         activarInterfaz(false);
         widget.statusbar->showMessage(tr("corriendo"));
+        estaCorriendo = true;
     }
 }
 
 void GUIDesktop::clickDetener(){
-    widget.boton_iniciar->setDisabled(false);
-    widget.menuIniciar->setDisabled(false);
-    widget.boton_parar->setDisabled(true);
-    widget.menuParar->setDisabled(true);
-    activarInterfaz(true);
-    widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
+    if(estaCorriendo){
+        widget.boton_iniciar->setDisabled(false);
+        widget.menuIniciar->setDisabled(false);
+        widget.boton_parar->setDisabled(true);
+        widget.menuParar->setDisabled(true);
+        activarInterfaz(true);
+        widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
+    }
 }
 
  void GUIDesktop::actualizarInterfaz(){
@@ -107,12 +119,19 @@ void GUIDesktop::clickDetener(){
     QMessageBox::about(this,tr("Ayuda"),tr("texto de Ayuda"));
  }
 
- void GUIDesktop::activarInterfaz(bool activar){
+ void GUIDesktop::activarInterfaz(bool activar,bool completa){
      widget.lineEdit_puerto->setEnabled(activar);
      widget.comboB_pbxs->setEnabled(activar);
      widget.boton_nuevo->setEnabled(activar);
      widget.boton_editar->setEnabled(activar);
      widget.boton_eliminar->setEnabled(activar);
+     if(completa){
+        widget.comboB_pbxs->setEnabled(activar);
+        widget.boton_iniciar->setEnabled(activar);
+        widget.menuIniciar->setEnabled(activar);
+        widget.boton_parar->setEnabled(activar);
+        widget.menuParar->setEnabled(activar);
+     }
  }
 
  void GUIDesktop::crearConexion(){
@@ -133,4 +152,72 @@ void GUIDesktop::cargarListaPBX(){
     for (int i = 0; i < pbxs.size(); i++) {
         widget.comboB_pbxs->addItem((QString)pbxs.at(i)[0]);
     }
+    if(pbxs.size()>0){
+        widget.boton_editar->setEnabled(true);
+        widget.boton_eliminar->setEnabled(true);
+    }
+    else{
+        widget.boton_editar->setEnabled(false);
+        widget.boton_eliminar->setEnabled(false);
+    }
+
+}
+
+void GUIDesktop::clickEliminar(){
+    int x = QMessageBox::question(this,tr("Confirmacion"),tr("Esta seguro de eliminar el perfil ")+widget.comboB_pbxs->currentText()+ " ?",QMessageBox::Yes|QMessageBox::Default,QMessageBox::No|QMessageBox::Escape);
+    bool opcion = false;
+
+    if(x == QMessageBox::Yes)
+        opcion = true;
+    if(opcion){
+        if(objDesktop->eliminarPBX(widget.comboB_pbxs->currentText()))
+            widget.statusbar->showMessage(tr("erase ok"));
+        else
+            widget.statusbar->showMessage(tr("erase fail"));
+    }
+    cargarListaPBX();
+}
+
+void GUIDesktop::actionEliminar(){
+    
+}
+
+void GUIDesktop::clickEditar(){
+    estadoCrud = 2;
+    objCrud->inicializar(objDesktop->obtenerPBX(widget.comboB_pbxs->currentText()));
+    objCrud->show();
+}
+
+void GUIDesktop::actionEditar(){
+
+}
+
+void GUIDesktop::insertarPerfil(){
+
+}
+
+void GUIDesktop::nuevoPerfil(){
+    estadoCrud = 1;
+    QMap<QString,QString> mapaVacio;
+    objCrud->inicializar(mapaVacio);
+    objCrud->setModal(true);
+    objCrud->show();
+}
+
+void GUIDesktop::botonAceptar(){    
+    switch (estadoCrud){
+        case 1:            
+            objDesktop->insertarPBX(objCrud->obtenerDatos());
+        break;
+        case 2:
+            objDesktop->actualizarPBX(objCrud->obtenerDatos());
+        break;
+    }
+    cargarListaPBX();
+    objCrud->hide();
+}
+
+void GUIDesktop::botonCancelar(){
+    estadoCrud = 0;
+    objCrud->hide();
 }

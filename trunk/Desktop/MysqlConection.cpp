@@ -5,6 +5,9 @@
  * Created on 12 de mayo de 2010, 04:42 PM
  */
 
+#include <qt4/QtNetwork/qnetworkreply.h>
+#include <qt4/QtCore/qdebug.h>
+
 #include "MysqlConection.h"
 
 MysqlConection::MysqlConection()
@@ -42,9 +45,12 @@ void MysqlConection::desconectar()
     QSqlDatabase::removeDatabase(nombreConeccion);
 }
 
-QVector<QString*> MysqlConection::consulta(QString consulta)
+QVector<QString*> MysqlConection::consulta(QString consulta,bool debug)
 {
 //    qDebug(qPrintable(consulta));
+
+    if(debug)
+        qDebug() << "SQL > " << consulta;
     bool ok = query->exec(consulta);
     int size = query->size();
     int columnas = query->record().count();
@@ -67,11 +73,27 @@ QVector<QString*> MysqlConection::consulta(QString consulta)
     else
         qDebug("Error, no pudo realizar la consulta");
 
+    
     return vector;
 }
 bool MysqlConection::insercion(QString insertion)
 {
     insertion.replace(QString("''"), QString("NULL"));
 //    qDebug(qPrintable(insertion));
+   
     return query->exec(insertion);
+}
+
+QString MysqlConection::ultimoId(){
+    QVariant v = query->lastInsertId();
+    if(!v.isNull())
+        return v.toString();
+    return 0;
+}
+
+bool MysqlConection::eliminacion(QString deletion,bool debug)
+{
+    if(debug)
+        qDebug() << "SQL=>" << deletion;
+    return query->exec(deletion);
 }

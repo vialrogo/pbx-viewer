@@ -5,6 +5,9 @@
  * Created on 2 de Junho de 2010, 12:23
  */
 
+#include <qt4/QtCore/qdebug.h>
+#include <qt4/QtNetwork/qnetworkcookie.h>
+
 #include "Desktop.h"
 
 Desktop::Desktop(QString host_in, QString database_in, QString username_in, QString password_in) {
@@ -41,7 +44,7 @@ int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
     {
         if(procesarLlamada(flujollamadaS.mid(longitud_Trama*i, longitud_Trama),pbxSelected))
             cantidadProcesadas++;
-        qDebug(qPrintable(flujollamadaS.left(5)));
+        //qDebug(qPrintable(flujollamadaS.left(5)));
     }
 
     return cantidadProcesadas;
@@ -172,7 +175,7 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
             segundos.prepend("0");
     }
 
-    qDebug(qPrintable("dia: "+dia+" mes: "+mes+" ano: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
+    //qDebug(qPrintable("dia: "+dia+" mes: "+mes+" ano: "+ano+" hora: "+hora+" minutos: "+minutos+" segundos: "+segundos));
 
     //Dueracion, Origen, Destino
     if(duracionS_inicio==-1 || duracionS_largo==-1 || origen_inicio==-1 || origen_largo==-1 || destino_inicio==-1 || destino_largo==-1 )
@@ -231,8 +234,65 @@ bool Desktop::procesarLlamada(QString flujollamadaS, QString pbxSelected){
 }
 
 QVector<QString*> Desktop::listarPBXs(){
-    bool isConectado = myconection->conectar(host, database, username, password);
+    myconection->conectar(host, database, username, password);    
     QVector<QString*> vector = myconection->consulta("SELECT pbx_nombre FROM pbx;");
     myconection->desconectar();
     return vector;
+}
+
+bool Desktop::insertarPBX(QMap<QString,QString> mapa){
+    /// TODO: ver que no este repetido, unicos
+    myconection->conectar(host, database, username, password);
+
+    QString pbx_nombre=mapa.value("pbx_nombre",QString(""));
+    QString sql = "INSERT INTO pbx (pbx_nombre) VALUES ('"+pbx_nombre+"');";
+    qDebug() << "SQL => "<<sql;
+    bool ok = myconection->insercion(sql);
+    QString id = myconection->ultimoId();
+    qDebug() << "ID= " << id;
+    QList<QString> list = mapa.keys();
+    QString llave = "";
+    QString valor = "";
+    for (int i = 0; i < list.size(); ++i) {
+        llave = list.at(i);
+        valor = mapa.value(llave,"");
+
+        if(valor.compare("")!=0)
+            ok = ok && myconection->insercion("INSERT INTO configuraciones(con_pbx_id ,con_con_id ,con_con_valor) VALUES ("+id+",(SELECT con_id FROM  `concepto` WHERE  `con_nombre` =  '"+llave+"'),  "+valor+")");
+    }
+
+
+    myconection->desconectar();
+    return ok;
+}
+
+bool Desktop::eliminarPBX(QString pbx_nombre){
+    myconection->conectar(host, database, username, password);
+    bool ok = myconection->eliminacion("DELETE FROM pbx WHERE pbx_nombre = '"+pbx_nombre+"'",true);
+    myconection->desconectar();
+    return ok;
+}
+
+QMap<QString,QString> Desktop::obtenerPBX(QString pbx_nombre) {
+    myconection->conectar(host, database, username, password);
+    QMap<QString, QString> mapeador;
+    QVector<QString*> vector = myconection->consulta("SELECT con_nombre,con_con_valor FROM pbx,configuraciones,concepto WHERE pbx_nombre='" + pbx_nombre + "' and pbx_id=con_pbx_id and con_id=con_con_id;",true);
+    mapeador["pbx_nombre"]=pbx_nombre;
+    for (int i = 0; i < vector.size(); i++)
+        mapeador[(vector.at(i))[0]]=(vector.at(i))[1];
+    myconection->desconectar();
+    return mapeador;
+}
+
+bool Desktop::actualizarPBX(QMap<QString,QString> mapa){
+    /// TODO: ver que no este repetido, unicos
+    myconection->conectar(host, database, username, password);
+    QString pbx_nombre=mapa.value("pbx_nombre",QString(""));
+    QString sql = "INSERT INTO pbx (pbx_nombre) VALUES ('"+pbx_nombre+"');";
+    qDebug() << "SQL => "<<sql;
+    myconection->insercion(sql);
+    QString id = myconection->ultimoId();
+    qDebug() << "ID= " << id;
+    myconection->desconectar();
+    return true;
 }

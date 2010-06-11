@@ -12,6 +12,8 @@
 #include <QtNetwork>
 #include <QMessageBox>
 #include "Desktop.h"
+#include "CRUD_PBX.h"
+
 class QTcpServer;
 class QTcpSocket;
 
@@ -29,10 +31,13 @@ private:
     QIntValidator *validadorPuerto;
     Desktop* objDesktop;
     QActionGroup* actionGroup;
+    CRUD_PBX *objCrud;
+    int estadoCrud;
+    bool estaCorriendo;
     void actualizarInterfaz();
-    void activarInterfaz(bool activar);
+    void activarInterfaz(bool activar,bool completa = false);
     void cargarListaPBX();
-
+    
 private slots:
     void clickIniciar();
     void clickDetener();
@@ -43,6 +48,14 @@ private slots:
     void ayuda();
     void crearConexion();
     void escucharClienteTcp();
+    void clickEliminar();
+    void actionEliminar();
+    void clickEditar();
+    void actionEditar();
+    void insertarPerfil();
+    void nuevoPerfil();
+    void botonAceptar();
+    void botonCancelar();
 };
 
 #endif	/* _GUIDESKTOP_H */
