@@ -21,6 +21,7 @@ class MysqlConection
         void desconectar();
         QVector<QString*> consulta(QString consulta,bool debug=false);
         bool insercion(QString insertion);
+        bool actualizacion(QString insertion);
         bool eliminacion(QString deletion,bool debug=false);
         QString ultimoId();
     private:

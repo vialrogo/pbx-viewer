@@ -245,6 +245,7 @@ bool Desktop::insertarPBX(QMap<QString,QString> mapa){
     myconection->conectar(host, database, username, password);
 
     QString pbx_nombre=mapa.value("pbx_nombre",QString(""));
+    mapa.remove("pbx_nombre");
     QString sql = "INSERT INTO pbx (pbx_nombre) VALUES ('"+pbx_nombre+"');";
     qDebug() << "SQL => "<<sql;
     bool ok = myconection->insercion(sql);
@@ -268,7 +269,9 @@ bool Desktop::insertarPBX(QMap<QString,QString> mapa){
 
 bool Desktop::eliminarPBX(QString pbx_nombre){
     myconection->conectar(host, database, username, password);
-    bool ok = myconection->eliminacion("DELETE FROM pbx WHERE pbx_nombre = '"+pbx_nombre+"'",true);
+    QString id = (myconection->consulta("SELECT pbx_id FROM pbx WHERE pbx_nombre = '"+pbx_nombre+"'").at(0))[0];
+    bool ok = myconection->eliminacion("DELETE FROM pbx WHERE pbx_id = "+id);
+    ok = ok && myconection->eliminacion("DELETE FROM configuraciones WHERE con_pbx_id = "+id);
     myconection->desconectar();
     return ok;
 }
@@ -285,14 +288,25 @@ QMap<QString,QString> Desktop::obtenerPBX(QString pbx_nombre) {
 }
 
 bool Desktop::actualizarPBX(QMap<QString,QString> mapa){
-    /// TODO: ver que no este repetido, unicos
     myconection->conectar(host, database, username, password);
     QString pbx_nombre=mapa.value("pbx_nombre",QString(""));
-    QString sql = "INSERT INTO pbx (pbx_nombre) VALUES ('"+pbx_nombre+"');";
-    qDebug() << "SQL => "<<sql;
-    myconection->insercion(sql);
-    QString id = myconection->ultimoId();
-    qDebug() << "ID= " << id;
+    mapa.remove("pbx_nombre");
+    QString id = (myconection->consulta("SELECT pbx_id FROM pbx WHERE pbx_nombre = '"+pbx_nombre+"'",true).at(0))[0];
+    QList<QString> list = mapa.keys();
+    QString llave = "";
+    QString valor = "";
+    
+    bool ok = true;
+    for (int i = 0; i < list.size(); ++i) {
+        llave = list.at(i);
+        valor = mapa.value(llave,"");
+        QVector<QString*> vector = myconection->consulta("SELECT true FROM `configuraciones` WHERE con_pbx_id = 1 AND con_con_id = (SELECT con_id FROM concepto WHERE con_nombre =  '"+llave+"')");
+        if(vector.size()>0)
+           ok = ok && myconection->actualizacion("UPDATE configuraciones SET con_con_valor = "+valor+" WHERE con_pbx_id = "+id+" AND con_con_id = (SELECT con_id FROM  `concepto` WHERE  `con_nombre` =  '"+llave+"')");
+        else if(valor.compare("")!=0)
+            ok = ok && myconection->insercion("INSERT INTO configuraciones(con_pbx_id ,con_con_id ,con_con_valor) VALUES ("+id+",(SELECT con_id FROM  `concepto` WHERE  `con_nombre` =  '"+llave+"'),  "+valor+")");
+    }
+
     myconection->desconectar();
-    return true;
+    return ok;
 }

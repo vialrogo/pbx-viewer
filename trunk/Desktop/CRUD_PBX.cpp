@@ -21,9 +21,13 @@ void CRUD_PBX::nuevoPerfil() {
     this->show();
 }
 
-void CRUD_PBX::inicializar(QMap<QString,QString> mapa) {
-    qDebug() << "inicializar";
-    widget.lineEditNombrePBX->setText(mapa.value("pbx_nombre",""));
+void CRUD_PBX::inicializar(QMap<QString,QString> mapa) {    
+    QString pbx_nombre = mapa.value("pbx_nombre","");
+    if(pbx_nombre.compare("")!=0)
+        widget.lineEditNombrePBX->setEnabled(false);
+    else
+        widget.lineEditNombrePBX->setEnabled(true);
+    widget.lineEditNombrePBX->setText(pbx_nombre);
     widget.lineEditAnoI->setText(mapa.value("ano_inicio",""));
     widget.lineEditAnoL->setText(mapa.value("ano_largo",""));
     widget.lineEditMesI->setText(mapa.value("mes_inicio",""));

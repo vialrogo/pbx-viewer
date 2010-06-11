@@ -37,6 +37,7 @@ GUIDesktop::GUIDesktop() {
     connect(widget.boton_nuevo, SIGNAL(clicked()), this, SLOT(nuevoPerfil()));
     connect(widget.boton_editar, SIGNAL(clicked()), this, SLOT(clickEditar()));
     connect(widget.boton_eliminar, SIGNAL(clicked()), this, SLOT(clickEliminar()));
+    connect(widget.comboB_pbxs, SIGNAL(currentIndexChanged (QString)), this, SLOT(cambioCombo(QString)));
     connect(objCrud->widget.pushButtonAceptar, SIGNAL(clicked()), this, SLOT(botonAceptar()));
     connect(objCrud->widget.pushButtonCancelar, SIGNAL(clicked()), this, SLOT(botonCancelar()));
     cargarListaPBX();
@@ -90,6 +91,7 @@ void GUIDesktop::clickDetener(){
 
  void GUIDesktop::actualizarInterfaz(){
      widget.retranslateUi(this);
+     objCrud->widget.retranslateUi(objCrud);
      widget.statusbar->showMessage(tr("Idioma cambiado"),2000);
  }
 
@@ -159,8 +161,7 @@ void GUIDesktop::cargarListaPBX(){
     else{
         widget.boton_editar->setEnabled(false);
         widget.boton_eliminar->setEnabled(false);
-    }
-
+    }    
 }
 
 void GUIDesktop::clickEliminar(){
@@ -171,9 +172,9 @@ void GUIDesktop::clickEliminar(){
         opcion = true;
     if(opcion){
         if(objDesktop->eliminarPBX(widget.comboB_pbxs->currentText()))
-            widget.statusbar->showMessage(tr("erase ok"));
+            widget.statusbar->showMessage(tr("El perfil se ha eliminado exitosamente"));
         else
-            widget.statusbar->showMessage(tr("erase fail"));
+            widget.statusbar->showMessage(tr("Error en la eliminacion del perfil"));
     }
     cargarListaPBX();
 }
@@ -207,10 +208,16 @@ void GUIDesktop::nuevoPerfil(){
 void GUIDesktop::botonAceptar(){    
     switch (estadoCrud){
         case 1:            
-            objDesktop->insertarPBX(objCrud->obtenerDatos());
+            if(objDesktop->insertarPBX(objCrud->obtenerDatos()))
+                 widget.statusbar->showMessage(tr("Perfil creado exitosamente"));
+            else
+                widget.statusbar->showMessage(tr("Error en la creacion del perfil"));
         break;
         case 2:
-            objDesktop->actualizarPBX(objCrud->obtenerDatos());
+            if(objDesktop->actualizarPBX(objCrud->obtenerDatos()))
+                widget.statusbar->showMessage(tr("Perfil actualizado exitosamente"));
+            else
+                widget.statusbar->showMessage(tr("Error en la actualizacion del perfil"));
         break;
     }
     cargarListaPBX();
@@ -220,4 +227,8 @@ void GUIDesktop::botonAceptar(){
 void GUIDesktop::botonCancelar(){
     estadoCrud = 0;
     objCrud->hide();
+}
+
+void GUIDesktop::cambioCombo(QString pbx_nombre){
+    widget.texarea->setPlainText("Nombre Perfil: "+pbx_nombre);
 }
