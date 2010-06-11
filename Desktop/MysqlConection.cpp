@@ -97,3 +97,11 @@ bool MysqlConection::eliminacion(QString deletion,bool debug)
         qDebug() << "SQL=>" << deletion;
     return query->exec(deletion);
 }
+
+bool MysqlConection::actualizacion(QString insertion)
+{
+    insertion.replace(QString("''"), QString("NULL"));
+//    qDebug(qPrintable(insertion));
+
+    return query->exec(insertion);
+}

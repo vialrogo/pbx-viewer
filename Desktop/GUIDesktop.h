@@ -56,6 +56,7 @@ private slots:
     void nuevoPerfil();
     void botonAceptar();
     void botonCancelar();
+    void cambioCombo(QString pbx_nombre);
 };
 
 #endif	/* _GUIDESKTOP_H */
