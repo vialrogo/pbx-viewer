@@ -282,7 +282,7 @@
      </property>
      <widget class="QPlainTextEdit" name="texarea">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -291,6 +291,9 @@
         <width>351</width>
         <height>141</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>

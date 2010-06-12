@@ -125,72 +125,117 @@
 <context>
     <name>GUIDesktop</name>
     <message>
-        <location filename="GUIDesktop.cpp" line="58"/>
+        <location filename="GUIDesktop.cpp" line="61"/>
         <source>El puerto debe ser mayor a </source>
         <translation>The port must be greater than </translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="63"/>
+        <location filename="GUIDesktop.cpp" line="66"/>
         <source>Ingrese el puerto</source>
         <translation>Insert the port</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="72"/>
+        <location filename="GUIDesktop.cpp" line="75"/>
+        <location filename="GUIDesktop.cpp" line="76"/>
         <source>Error, iniciando el servidor</source>
         <translation>Error: starting the server</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="76"/>
         <source>corriendo</source>
-        <translation>running</translation>
+        <translation type="obsolete">running</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="88"/>
+        <location filename="GUIDesktop.cpp" line="82"/>
+        <location filename="GUIDesktop.cpp" line="83"/>
+        <source>Iniciado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="85"/>
+        <location filename="GUIDesktop.cpp" line="86"/>
+        <source>Puerto Abierto exitosamente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="98"/>
+        <location filename="GUIDesktop.cpp" line="99"/>
         <source>Se ha detenido exitosamente</source>
         <translation>stopped successfully</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="94"/>
+        <location filename="GUIDesktop.cpp" line="107"/>
         <source>Idioma cambiado</source>
         <translation>Language changed</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="167"/>
+        <location filename="GUIDesktop.cpp" line="132"/>
+        <source>&lt;h3&gt;PBX Viewer: Desktop&lt;/h3&gt;&lt;br&gt;Una aplicaciÃ³n de supervisiÃ³n y gestiÃ³n de llamadas en redes administradas por un sistema PBX, escrita en Qt.&lt;br&gt;&lt;br&gt;GNU Lesser General Public License&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;http://www.gnu.org/licenses/lgpl.html&lt;/a&gt;&lt;br&gt;&lt;br&gt;Creado por :&lt;br&gt;Victor Alberto Romero Gonzalez&lt;br&gt;&lt;br&gt;Escuela de IngenierÃ­a ElÃ©ctrica Y ElectrÃ³nica&lt;br&gt;Universidad del Valle&lt;br&gt;2010</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="141"/>
+        <source>&lt;h3&gt;Bienvenido a la ayuda de PBX Viewer: Desktop&lt;/h3&gt;&lt;h4&gt;Ayuda&lt;/h4&gt;&lt;p&gt;Esta aplicaciÃ³n permite recibir tramas a travÃ©s de un socket y guardarlas en una base de datos.Para esto facilita una interfaz de gestiÃ³n de diferentes tipos de PBXs soportados,los cuales se encuentran tambiÃ©n almacenados en la base de datos.&lt;/p&gt;&lt;p&gt;Si presenta problemas de conexion con el socket,por favor consulte al administrador del sistema.&lt;/p&gt;&lt;h4&gt;Contribuye al proyecto&lt;/h4&gt;&lt;p&gt;El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.&lt;/p&gt;&lt;h4&gt;Contacto&lt;/h4&gt;&lt;p&gt;Victor Alberto Romero Gonzalez&lt;br&gt;varg04444@gmail.com&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="194"/>
         <source>Confirmacion</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="167"/>
+        <location filename="GUIDesktop.cpp" line="194"/>
         <source>Esta seguro de eliminar el perfil </source>
         <translation>Are you sure to delete the profile </translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="174"/>
-        <source>El perfil se ha eliminado exitosamente</source>
-        <translation>The profile deleted successfully</translation>
+        <location filename="GUIDesktop.cpp" line="201"/>
+        <source>El perfil fue eliminado exitosamente</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="176"/>
+        <location filename="GUIDesktop.cpp" line="238"/>
+        <source>El perfil fue creado exitosamente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="244"/>
+        <source>El perfil fue actualizado exitosamente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="260"/>
+        <source>PBX en uso: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="263"/>
+        <source>Longitud de trama: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El perfil se ha eliminado exitosamente</source>
+        <translation type="obsolete">The profile deleted successfully</translation>
+    </message>
+    <message>
+        <location filename="GUIDesktop.cpp" line="203"/>
         <source>Error en la eliminacion del perfil</source>
         <translation>Error deleting profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="211"/>
         <source>Perfil creado exitosamente</source>
-        <translation>Profile created succesfully</translation>
+        <translation type="obsolete">Profile created succesfully</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="213"/>
+        <location filename="GUIDesktop.cpp" line="240"/>
         <source>Error en la creacion del perfil</source>
         <translation>Error creating profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="217"/>
         <source>Perfil actualizado exitosamente</source>
-        <translation>Profile updated succesfully</translation>
+        <translation type="obsolete">Profile updated succesfully</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="219"/>
+        <location filename="GUIDesktop.cpp" line="246"/>
         <source>Error en la actualizacion del perfil</source>
         <translation>Error updating profile</translation>
     </message>
@@ -205,7 +250,7 @@
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="70"/>
-        <location filename="GUIDesktop.ui" line="332"/>
+        <location filename="GUIDesktop.ui" line="335"/>
         <source>PBX</source>
         <translation>PBX</translation>
     </message>
@@ -221,19 +266,19 @@
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="147"/>
-        <location filename="GUIDesktop.ui" line="428"/>
+        <location filename="GUIDesktop.ui" line="431"/>
         <source>Iniciar</source>
         <translation>Start</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="168"/>
-        <location filename="GUIDesktop.ui" line="436"/>
+        <location filename="GUIDesktop.ui" line="439"/>
         <source>Parar</source>
         <translation>Stop</translation>
     </message>
     <message>
         <location filename="GUIDesktop.ui" line="186"/>
-        <location filename="GUIDesktop.ui" line="354"/>
+        <location filename="GUIDesktop.ui" line="357"/>
         <source>Salir</source>
         <translation>Exit</translation>
     </message>
@@ -253,75 +298,70 @@
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="310"/>
+        <location filename="GUIDesktop.ui" line="313"/>
         <source>Archivo</source>
         <translation>File</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="318"/>
+        <location filename="GUIDesktop.ui" line="321"/>
         <source>Edición</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="322"/>
+        <location filename="GUIDesktop.ui" line="325"/>
         <source>Idioma</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="359"/>
+        <location filename="GUIDesktop.ui" line="362"/>
         <source>Nuevo Perfil</source>
         <translation>New Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="367"/>
+        <location filename="GUIDesktop.ui" line="370"/>
         <source>Modificar Perfil</source>
         <translation>Edit Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="378"/>
+        <location filename="GUIDesktop.ui" line="381"/>
         <source>Eliminar Perfil</source>
         <translation>Delete Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="386"/>
-        <location filename="GUIDesktop.cpp" line="116"/>
+        <location filename="GUIDesktop.ui" line="389"/>
+        <location filename="GUIDesktop.cpp" line="133"/>
         <source>Acerca de</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="391"/>
+        <location filename="GUIDesktop.ui" line="394"/>
         <source>Acerca de Qt</source>
         <translation>About Qt</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="402"/>
+        <location filename="GUIDesktop.ui" line="405"/>
         <source>Español</source>
         <translation>Spanish</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="410"/>
+        <location filename="GUIDesktop.ui" line="413"/>
         <source>Inglés</source>
         <translation>English</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="418"/>
+        <location filename="GUIDesktop.ui" line="421"/>
         <source>Portugués</source>
         <translation>Portuguese</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="340"/>
-        <location filename="GUIDesktop.ui" line="423"/>
-        <location filename="GUIDesktop.cpp" line="120"/>
+        <location filename="GUIDesktop.ui" line="343"/>
+        <location filename="GUIDesktop.ui" line="426"/>
+        <location filename="GUIDesktop.cpp" line="142"/>
         <source>Ayuda</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.cpp" line="120"/>
-        <source>texto de Ayuda</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="GUIDesktop.cpp" line="146"/>
+        <location filename="GUIDesktop.cpp" line="169"/>
         <source>Se han guardado </source>
         <translation>Saved</translation>
     </message>

@@ -53,7 +53,8 @@ int main(int argc, char *argv[]) {
 //    cout<<"Salida: "<<duracion<<endl;
 
     QApplication app(argc, argv);
-
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     GUIDesktop* aplicacion = new GUIDesktop();
     aplicacion->show();
     
