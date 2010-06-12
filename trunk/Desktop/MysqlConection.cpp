@@ -76,11 +76,12 @@ QVector<QString*> MysqlConection::consulta(QString consulta,bool debug)
     
     return vector;
 }
-bool MysqlConection::insercion(QString insertion)
+bool MysqlConection::insercion(QString insertion,bool debug)
 {
     insertion.replace(QString("''"), QString("NULL"));
 //    qDebug(qPrintable(insertion));
-   
+   if(debug)
+        qDebug() << "SQL=>" << insertion;
     return query->exec(insertion);
 }
 
@@ -98,10 +99,11 @@ bool MysqlConection::eliminacion(QString deletion,bool debug)
     return query->exec(deletion);
 }
 
-bool MysqlConection::actualizacion(QString insertion)
+bool MysqlConection::actualizacion(QString insertion,bool debug)
 {
     insertion.replace(QString("''"), QString("NULL"));
 //    qDebug(qPrintable(insertion));
-
+    if(debug)
+        qDebug() << "SQL=>" << insertion;
     return query->exec(insertion);
 }

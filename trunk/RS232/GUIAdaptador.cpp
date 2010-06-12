@@ -204,8 +204,7 @@ void GUIAdaptador::clickDetener(){
      acercaDe->setIconPixmap(QPixmap::fromImage(logo));
      acercaDe->setText(tr("<h3>PBX Viewer: Adaptador RS232 a Socket 1.0</h3><br>Un adaptador de RS232 a Socket escrito en Qt.<br><br>GNU Lesser General Public License<br><a href=\"http://www.gnu.org/licenses/lgpl.html\">http://www.gnu.org/licenses/lgpl.html</a><br><br>Creado por :<br>Victor Alberto Romero Gonzalez<br><br>Escuela de Ingeniería Eléctrica Y Electrónica<br>Universidad del Valle<br>2010"));
      acercaDe->setWindowTitle(tr("Acerca de"));
-     acercaDe->show();
-     
+     acercaDe->show();     
  }
 
  void GUIAdaptador::ayuda(){

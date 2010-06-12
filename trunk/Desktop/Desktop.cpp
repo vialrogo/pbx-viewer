@@ -300,7 +300,9 @@ bool Desktop::actualizarPBX(QMap<QString,QString> mapa){
     for (int i = 0; i < list.size(); ++i) {
         llave = list.at(i);
         valor = mapa.value(llave,"");
-        QVector<QString*> vector = myconection->consulta("SELECT true FROM `configuraciones` WHERE con_pbx_id = 1 AND con_con_id = (SELECT con_id FROM concepto WHERE con_nombre =  '"+llave+"')");
+        qDebug() << "llave" << llave;
+        QVector<QString*> vector = myconection->consulta("SELECT true FROM `configuraciones` WHERE con_pbx_id = "+id+" AND con_con_id = (SELECT con_id FROM concepto WHERE con_nombre =  '"+llave+"')");
+        qDebug() << "vector.size()" << vector.size();
         if(vector.size()>0)
            ok = ok && myconection->actualizacion("UPDATE configuraciones SET con_con_valor = "+valor+" WHERE con_pbx_id = "+id+" AND con_con_id = (SELECT con_id FROM  `concepto` WHERE  `con_nombre` =  '"+llave+"')");
         else if(valor.compare("")!=0)

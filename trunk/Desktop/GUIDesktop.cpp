@@ -18,6 +18,7 @@ GUIDesktop::GUIDesktop() {
     validadorPuerto = new QIntValidator(5000,65536,this);
     objDesktop = new Desktop("localhost", "pbxviewer", "pbxviewer", "pbxviewer");
     widget.lineEdit_puerto->setValidator(validadorPuerto);
+    widget.texarea->setPlainText("PBX-Viewer: Desktop");
     actionGroup = new QActionGroup(this);
     actionGroup->addAction(widget.actionEspanol);
     actionGroup->addAction(widget.actionIngles);
@@ -35,6 +36,8 @@ GUIDesktop::GUIDesktop() {
     connect(widget.actionAyuda, SIGNAL(triggered()), this, SLOT(ayuda()));
     connect(widget.menuNuevoPerfil, SIGNAL(triggered()), this, SLOT(nuevoPerfil()));
     connect(widget.boton_nuevo, SIGNAL(clicked()), this, SLOT(nuevoPerfil()));
+    connect(widget.menuModificarPerfil, SIGNAL(triggered()), this, SLOT(clickEditar()));
+    connect(widget.menuEliminarPerfil, SIGNAL(triggered()), this, SLOT(clickEliminar()));
     connect(widget.boton_editar, SIGNAL(clicked()), this, SLOT(clickEditar()));
     connect(widget.boton_eliminar, SIGNAL(clicked()), this, SLOT(clickEliminar()));
     connect(widget.comboB_pbxs, SIGNAL(currentIndexChanged (QString)), this, SLOT(cambioCombo(QString)));
@@ -70,10 +73,17 @@ void GUIDesktop::clickIniciar(){
 
         if (!tcpServer->listen(QHostAddress::Any,quint16(puertoSocket.toInt()))) {
             widget.statusbar->showMessage(tr("Error, iniciando el servidor"));
+            widget.texarea->appendPlainText(tr("Error, iniciando el servidor"));
         }
 
         activarInterfaz(false);
-        widget.statusbar->showMessage(tr("corriendo"));
+
+
+        widget.statusbar->showMessage(tr("Iniciado"));
+        widget.texarea->appendPlainText(tr("Iniciado"));
+        widget.texarea->appendPlainText("---------------------------");
+        widget.statusbar->showMessage(tr("Puerto Abierto exitosamente"));
+        widget.texarea->appendPlainText(tr("Puerto Abierto exitosamente"));
         estaCorriendo = true;
     }
 }
@@ -86,6 +96,8 @@ void GUIDesktop::clickDetener(){
         widget.menuParar->setDisabled(true);
         activarInterfaz(true);
         widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
+        widget.texarea->appendPlainText(tr("Se ha detenido exitosamente"));
+        widget.texarea->appendPlainText("---------------------------");
     }
 }
 
@@ -114,11 +126,21 @@ void GUIDesktop::clickDetener(){
  }
 
  void GUIDesktop::acercaDe(){
-    QMessageBox::about(this,tr("Acerca de"),tr(""));
+    QMessageBox *acercaDe = new QMessageBox();
+     QImage logo("logo.png");
+     acercaDe->setIconPixmap(QPixmap::fromImage(logo));
+     acercaDe->setText(tr("<h3>PBX Viewer: Desktop</h3><br>Una aplicación de supervisión y gestión de llamadas en redes administradas por un sistema PBX, escrita en Qt.<br><br>GNU Lesser General Public License<br><a href=\"http://www.gnu.org/licenses/lgpl.html\">http://www.gnu.org/licenses/lgpl.html</a><br><br>Creado por :<br>Victor Alberto Romero Gonzalez<br><br>Escuela de Ingeniería Eléctrica Y Electrónica<br>Universidad del Valle<br>2010"));
+     acercaDe->setWindowTitle(tr("Acerca de"));
+     acercaDe->show();
  }
 
  void GUIDesktop::ayuda(){
-    QMessageBox::about(this,tr("Ayuda"),tr("texto de Ayuda"));
+    QMessageBox *ayuda = new QMessageBox();
+    QImage logo("logo.png");
+    ayuda->setIconPixmap(QPixmap::fromImage(logo));
+    ayuda->setText(tr("<h3>Bienvenido a la ayuda de PBX Viewer: Desktop</h3><h4>Ayuda</h4><p>Esta aplicación permite recibir tramas a través de un socket y guardarlas en una base de datos.Para esto facilita una interfaz de gestión de diferentes tipos de PBXs soportados,los cuales se encuentran también almacenados en la base de datos.</p><p>Si presenta problemas de conexion con el socket,por favor consulte al administrador del sistema.</p><h4>Contribuye al proyecto</h4><p>El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.</p><h4>Contacto</h4><p>Victor Alberto Romero Gonzalez<br>varg04444@gmail.com</p>"));
+    ayuda->setWindowTitle(tr("Ayuda"));
+    ayuda->show();
  }
 
  void GUIDesktop::activarInterfaz(bool activar,bool completa){
@@ -157,10 +179,14 @@ void GUIDesktop::cargarListaPBX(){
     if(pbxs.size()>0){
         widget.boton_editar->setEnabled(true);
         widget.boton_eliminar->setEnabled(true);
+        widget.menuModificarPerfil->setEnabled(true);
+        widget.menuEliminarPerfil->setEnabled(true);
     }
     else{
         widget.boton_editar->setEnabled(false);
         widget.boton_eliminar->setEnabled(false);
+        widget.menuModificarPerfil->setEnabled(false);
+        widget.menuEliminarPerfil->setEnabled(false);
     }    
 }
 
@@ -172,7 +198,7 @@ void GUIDesktop::clickEliminar(){
         opcion = true;
     if(opcion){
         if(objDesktop->eliminarPBX(widget.comboB_pbxs->currentText()))
-            widget.statusbar->showMessage(tr("El perfil se ha eliminado exitosamente"));
+            widget.statusbar->showMessage(tr("El perfil fue eliminado exitosamente"));
         else
             widget.statusbar->showMessage(tr("Error en la eliminacion del perfil"));
     }
@@ -209,13 +235,13 @@ void GUIDesktop::botonAceptar(){
     switch (estadoCrud){
         case 1:            
             if(objDesktop->insertarPBX(objCrud->obtenerDatos()))
-                 widget.statusbar->showMessage(tr("Perfil creado exitosamente"));
+                 widget.statusbar->showMessage(tr("El perfil fue creado exitosamente"));
             else
                 widget.statusbar->showMessage(tr("Error en la creacion del perfil"));
         break;
         case 2:
             if(objDesktop->actualizarPBX(objCrud->obtenerDatos()))
-                widget.statusbar->showMessage(tr("Perfil actualizado exitosamente"));
+                widget.statusbar->showMessage(tr("El perfil fue actualizado exitosamente"));
             else
                 widget.statusbar->showMessage(tr("Error en la actualizacion del perfil"));
         break;
@@ -230,5 +256,11 @@ void GUIDesktop::botonCancelar(){
 }
 
 void GUIDesktop::cambioCombo(QString pbx_nombre){
-    widget.texarea->setPlainText("Nombre Perfil: "+pbx_nombre);
+    widget.texarea->appendPlainText("===========================");
+    widget.texarea->appendPlainText(tr("PBX en uso: ")+pbx_nombre);
+    QMap<QString,QString> mapa;
+    mapa = objDesktop->obtenerPBX(pbx_nombre);
+    widget.texarea->appendPlainText(tr("Longitud de trama: ")+mapa.value("longitud_trama",""));
+    widget.texarea->appendPlainText("===========================");    
+    
 }

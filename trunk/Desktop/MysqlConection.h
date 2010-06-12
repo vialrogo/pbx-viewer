@@ -20,8 +20,8 @@ class MysqlConection
         bool conectar(QString hostname, QString Database, QString username, QString passwd);
         void desconectar();
         QVector<QString*> consulta(QString consulta,bool debug=false);
-        bool insercion(QString insertion);
-        bool actualizacion(QString insertion);
+        bool insercion(QString insertion,bool debug=false);
+        bool actualizacion(QString insertion,bool debug=false);
         bool eliminacion(QString deletion,bool debug=false);
         QString ultimoId();
     private:
