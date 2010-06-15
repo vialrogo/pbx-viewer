@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>370</width>
-    <height>522</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>370</width>
-    <height>522</height>
+    <height>550</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>370</width>
-    <height>522</height>
+    <height>550</height>
    </size>
   </property>
   <property name="font">
@@ -37,9 +37,9 @@
    <widget class="QLabel" name="label_Socket">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>120</x>
       <y>20</y>
-      <width>101</width>
+      <width>121</width>
       <height>21</height>
      </rect>
     </property>
@@ -51,13 +51,16 @@
     <property name="text">
      <string>SOCKET</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_PBX">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>140</x>
       <y>120</y>
-      <width>51</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -68,6 +71,9 @@
     </property>
     <property name="text">
      <string>PBX</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="Line" name="linea_arriba">
@@ -87,13 +93,16 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>70</y>
-      <width>77</width>
-      <height>19</height>
+      <y>58</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Puerto: </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_puerto">
@@ -109,14 +118,17 @@
    <widget class="QLabel" name="label_tipoPBX">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>170</y>
-      <width>91</width>
-      <height>21</height>
+      <x>40</x>
+      <y>160</y>
+      <width>121</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Tipo PBX: </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QComboBox" name="comboB_pbxs">
@@ -133,7 +145,7 @@
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>420</y>
+      <y>450</y>
       <width>113</width>
       <height>31</height>
      </rect>
@@ -154,7 +166,7 @@
     <property name="geometry">
      <rect>
       <x>133</x>
-      <y>420</y>
+      <y>450</y>
       <width>113</width>
       <height>31</height>
      </rect>
@@ -172,7 +184,7 @@
     <property name="geometry">
      <rect>
       <x>253</x>
-      <y>420</y>
+      <y>450</y>
       <width>113</width>
       <height>31</height>
      </rect>
@@ -190,7 +202,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>400</y>
+      <y>430</y>
       <width>341</width>
       <height>20</height>
      </rect>
@@ -265,7 +277,7 @@
       <x>10</x>
       <y>250</y>
       <width>351</width>
-      <height>141</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="widgetResizable">
@@ -277,7 +289,7 @@
        <x>0</x>
        <y>0</y>
        <width>349</width>
-       <height>139</height>
+       <height>169</height>
       </rect>
      </property>
      <widget class="QPlainTextEdit" name="texarea">
@@ -289,8 +301,13 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>141</height>
+        <height>171</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -305,7 +322,7 @@
      <x>0</x>
      <y>0</y>
      <width>370</width>
-     <height>24</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">

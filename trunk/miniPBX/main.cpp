@@ -16,7 +16,7 @@ int main() {
     cout<<"Esperando cualquier cosa";
     cin>>a;
 
-    RS232_Conection *conection = new RS232_Conection("/dev/ttyUSB0", BAUD19200, FLOW_OFF, PAR_NONE, DATA_8, STOP_1);
+    RS232_Conection *conection = new RS232_Conection("/dev/ttyS0", BAUD19200, FLOW_OFF, PAR_NONE, DATA_8, STOP_1);
     conection->openPort();
 
     QString *msg =new QString("145900139                   1833 926592296                        1068   0   602 1      000         ");

@@ -5,9 +5,6 @@
  * Created on 12 de mayo de 2010, 04:42 PM
  */
 
-#include <qt4/QtNetwork/qnetworkreply.h>
-#include <qt4/QtCore/qdebug.h>
-
 #include "MysqlConection.h"
 
 MysqlConection::MysqlConection()

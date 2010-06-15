@@ -5,9 +5,6 @@
  * Created on 2 de Junho de 2010, 12:23
  */
 
-#include <qt4/QtCore/qdebug.h>
-#include <qt4/QtNetwork/qnetworkcookie.h>
-
 #include "Desktop.h"
 
 Desktop::Desktop(QString host_in, QString database_in, QString username_in, QString password_in) {
