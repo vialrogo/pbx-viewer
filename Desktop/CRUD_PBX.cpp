@@ -5,8 +5,6 @@
  * Created on 9 de Junho de 2010, 19:59
  */
 
-#include <qt4/QtCore/qdebug.h>
-
 #include "CRUD_PBX.h"
 
 CRUD_PBX::CRUD_PBX() {

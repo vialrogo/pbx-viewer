@@ -5,9 +5,6 @@
  * Created on 1 de Junho de 2010, 20:34
  */
 
-#include <QtGui/qvalidator.h>
-#include <QtGui/qfontmetrics.h>
-
 #include "GUIAdaptador.h"
 
 GUIAdaptador::GUIAdaptador() {    

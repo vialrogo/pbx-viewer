@@ -8,11 +8,9 @@
 #ifndef _ADAPTADOR_H
 #define	_ADAPTADOR_H
 
-
 #include <iostream>
 #include "RS232_Conection.h"
 #include <QtNetwork>
-
 
 class QTcpSocket;
 

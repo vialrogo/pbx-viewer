@@ -10,19 +10,19 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>500</height>
+    <height>540</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>300</width>
-    <height>500</height>
+    <height>540</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>300</width>
-    <height>500</height>
+    <height>540</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -40,8 +40,8 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>281</width>
-      <height>241</height>
+      <width>285</width>
+      <height>266</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -50,12 +50,18 @@
        <property name="text">
         <string>Velocidad : </string>
        </property>
+       <property name="margin">
+        <number>10</number>
+       </property>
       </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Tipo de Flujo : </string>
+       </property>
+       <property name="margin">
+        <number>10</number>
        </property>
       </widget>
      </item>
@@ -64,12 +70,18 @@
        <property name="text">
         <string>Paridad : </string>
        </property>
+       <property name="margin">
+        <number>10</number>
+       </property>
       </widget>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Bits : </string>
+       </property>
+       <property name="margin">
+        <number>10</number>
        </property>
       </widget>
      </item>
@@ -208,6 +220,9 @@
        <property name="text">
         <string>Puerto : </string>
        </property>
+       <property name="margin">
+        <number>10</number>
+       </property>
       </widget>
      </item>
      <item row="1" column="1">
@@ -244,6 +259,9 @@
        <property name="text">
         <string>Bit de Parada : </string>
        </property>
+       <property name="margin">
+        <number>10</number>
+       </property>
       </widget>
      </item>
     </layout>
@@ -251,21 +269,29 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>280</y>
-      <width>62</width>
+      <x>100</x>
+      <y>320</y>
+      <width>101</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>SOCKET</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>300</y>
+      <y>340</y>
       <width>281</width>
       <height>93</height>
      </rect>
@@ -332,7 +358,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>400</y>
+      <y>440</y>
       <width>281</width>
       <height>51</height>
      </rect>
@@ -367,21 +393,29 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>110</x>
       <y>10</y>
-      <width>41</width>
+      <width>71</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>RS232</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>260</y>
+      <y>290</y>
       <width>281</width>
       <height>20</height>
      </rect>
@@ -394,7 +428,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>390</y>
+      <y>430</y>
       <width>280</width>
       <height>20</height>
      </rect>
@@ -410,7 +444,7 @@
      <x>0</x>
      <y>0</y>
      <width>300</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
