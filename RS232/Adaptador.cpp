@@ -45,6 +45,7 @@ QString* Adaptador::leerRS232(){
     
     conectionR232->receiveMsg();
     QString *msg_rec = conectionR232->getReceived_msg();
+//    qDebug(qPrintable(*msg_rec));
     //msg_rec->append(*);
     return msg_rec;
 }
