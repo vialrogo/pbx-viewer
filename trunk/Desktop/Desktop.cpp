@@ -32,14 +32,14 @@ int Desktop::procesarFlujoLlamada(QString flujollamadaS, QString pbxSelected)
         return 0;
     }
     myconection->desconectar();
-    int numerollamadas = (int)(flujollamadaS.length()/longitud_Trama);
+    int numerollamadas = (int)(flujollamadaS.length()/(longitud_Trama+1));
     qDebug()<<"numerollamadas: "<<numerollamadas;
     int cantidadProcesadas=0;
 //    qDebug()<<"Longitud flujollamadaS: "<<flujollamadaS.length();
 
     for (int i = 0; i < numerollamadas; i++)
     {
-        if(procesarLlamada(flujollamadaS.mid(longitud_Trama*i, longitud_Trama),pbxSelected))
+        if(procesarLlamada(flujollamadaS.mid((longitud_Trama+1)*i,(longitud_Trama+1)),pbxSelected))
             cantidadProcesadas++;
         //qDebug(qPrintable(flujollamadaS.left(5)));
     }
