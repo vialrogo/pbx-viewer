@@ -2,10 +2,10 @@
 -- version 3.3.3
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jun 08, 2010 at 11:47 AM
--- Server version: 5.1.47
--- PHP Version: 5.3.2
+-- Servidor: localhost
+-- Tiempo de generación: 27-06-2010 a las 23:45:48
+-- Versión del servidor: 5.1.47
+-- Versión de PHP: 5.3.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `pbxviewer`
+-- Base de datos: `pbxviewer`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `concepto`
+-- Estructura de tabla para la tabla `concepto`
 --
 
 CREATE TABLE IF NOT EXISTS `concepto` (
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `concepto` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
--- Dumping data for table `concepto`
+-- Volcar la base de datos para la tabla `concepto`
 --
 
 INSERT INTO `concepto` (`con_id`, `con_nombre`) VALUES
@@ -62,7 +62,7 @@ INSERT INTO `concepto` (`con_id`, `con_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuraciones`
+-- Estructura de tabla para la tabla `configuraciones`
 --
 
 CREATE TABLE IF NOT EXISTS `configuraciones` (
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `configuraciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `configuraciones`
+-- Volcar la base de datos para la tabla `configuraciones`
 --
 
 INSERT INTO `configuraciones` (`con_pbx_id`, `con_con_id`, `con_con_valor`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `configuraciones` (`con_pbx_id`, `con_con_id`, `con_con_valor`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `llamada`
+-- Estructura de tabla para la tabla `llamada`
 --
 
 CREATE TABLE IF NOT EXISTS `llamada` (
@@ -109,105 +109,44 @@ CREATE TABLE IF NOT EXISTS `llamada` (
   `lla_duracion` int(4) NOT NULL,
   PRIMARY KEY (`lla_id`),
   KEY `lla_idTipo` (`lla_idTipo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=136 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=145 ;
 
 --
--- Dumping data for table `llamada`
+-- Volcar la base de datos para la tabla `llamada`
 --
 
 INSERT INTO `llamada` (`lla_id`, `lla_hora`, `lla_origen`, `lla_destino`, `lla_codigocuenta`, `lla_idTipo`, `lla_duracion`) VALUES
-(69, '0000-00-00 00:00:00', '1261', '0515414030', '34457', 4, 1),
-(70, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(71, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(72, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(73, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(74, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(75, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(76, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(77, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(78, '2010-06-06 15:04:00', '1261', '0515414030', '34457', 4, 1),
-(79, '2010-06-06 14:59:00', '926592296', '1833', '', 1, 1),
-(80, '2010-06-06 14:59:00', '926592296', '1833', '', 1, 1),
-(81, '2010-06-06 14:59:00', '926592296', '1833', '', 1, 1),
-(82, '2010-06-06 14:59:00', '926592296', '1833', NULL, 1, 1),
-(83, '2010-06-06 14:59:00', '926592296', '1833', NULL, 1, 1),
-(84, '2010-06-06 14:59:00', '926592296', '1833', NULL, 1, 1),
-(85, '2010-06-07 14:59:35', '926592296', '1833', NULL, 1, 1),
-(86, '2010-06-07 14:59:55', '926592296', '1833', NULL, 1, 1),
-(87, '2010-06-07 14:59:12', '926592296', '1833', NULL, 1, 1),
-(88, '2010-06-07 14:59:23', '926592296', '1833', NULL, 1, 1),
-(89, '2010-06-07 14:59:37', '926592296', '1833', NULL, 1, 1),
-(90, '2010-06-07 14:59:44', '926592296', '1833', NULL, 1, 1),
-(91, '2010-06-07 14:59:46', '926592296', '1833', NULL, 1, 1),
-(92, '2010-06-07 14:59:20', '926592296', '1833', NULL, 1, 1),
-(93, '2010-06-07 14:59:37', '926592296', '1833', NULL, 1, 1),
-(94, '2010-06-07 14:59:49', '926592296', '1833', NULL, 1, 1),
-(95, '2010-06-07 14:59:10', '926592296', '1833', NULL, 1, 1),
-(96, '2010-06-07 14:59:24', '926592296', '1833', NULL, 1, 1),
-(97, '2010-06-07 14:59:48', '926592296', '1833', NULL, 1, 1),
-(98, '2010-06-07 14:59:21', '926592296', '1833', NULL, 1, 1),
-(99, '2010-06-07 14:59:32', '926592296', '1833', NULL, 1, 1),
-(100, '2010-06-07 01:45:32', '3 92659229', '183', NULL, 5, 151),
-(101, '2010-06-07 01:45:32', '3 92659229', '183', NULL, 5, 151),
-(102, '2010-06-07 14:59:17', '926592296', '1833', NULL, 1, 1),
-(103, '2010-06-07 14:59:22', '926592296', '1833', NULL, 1, 1),
-(104, '2010-06-07 14:59:33', '926592296', '1833', NULL, 1, 1),
-(105, '2010-06-07 01:45:33', '3 92659229', '183', NULL, 5, 151),
-(106, '2010-06-07 01:45:33', '3 92659229', '183', NULL, 5, 151),
-(107, '2010-06-07 01:45:33', '3 92659229', '183', NULL, 5, 151),
-(108, '2010-06-07 14:59:09', '926592296', '1833', NULL, 1, 1),
-(109, '2010-06-07 01:45:09', '3 92659229', '183', NULL, 5, 151),
-(110, '2010-06-07 01:45:09', '3 92659229', '183', NULL, 5, 151),
-(111, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(112, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(113, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(114, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(115, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(116, '2010-06-07 01:45:10', '3 92659229', '183', NULL, 5, 151),
-(117, '2010-06-07 14:59:45', '926592296', '1833', NULL, 1, 1),
-(118, '2010-06-07 14:59:56', '926592296', '1833', NULL, 1, 1),
-(119, '2010-06-07 14:59:01', '926592296', '1833', NULL, 1, 1),
-(120, '2010-06-07 01:45:01', '3 92659229', '183', NULL, 5, 151),
-(121, '2010-06-07 14:59:39', '926592296', '1833', NULL, 1, 1),
-(122, '2010-06-07 14:59:44', '926592296', '1833', NULL, 1, 1),
-(123, '2010-06-07 01:45:44', '3 92659229', '183', NULL, 5, 151),
-(124, '2010-06-07 14:59:51', '926592296', '1833', NULL, 1, 1),
-(125, '2010-06-07 01:45:51', '3 92659229', '183', NULL, 5, 151),
-(126, '2010-06-07 01:45:51', '3 92659229', '183', NULL, 5, 151),
-(127, '2010-06-07 14:59:18', '926592296', '1833', NULL, 1, 1),
-(128, '2010-06-07 01:45:18', '3 92659229', '183', NULL, 5, 151),
-(129, '2010-06-07 14:59:25', '926592296', '1833', NULL, 1, 1),
-(130, '2010-06-07 01:45:25', '3 92659229', '183', NULL, 5, 151),
-(131, '2010-06-07 14:59:37', '926592296', '1833', NULL, 1, 1),
-(132, '2010-06-07 14:59:10', '926592296', '1833', NULL, 1, 1),
-(133, '2010-06-07 14:59:19', '926592296', '1833', NULL, 1, 1),
-(134, '2010-06-07 14:59:19', '926592296', '1833', NULL, 1, 1),
-(135, '2010-06-07 14:59:19', '926592296', '1833', NULL, 1, 1);
+(138, '2010-06-15 14:59:09', '926592296', '1833', NULL, 1, 1),
+(139, '2010-06-15 14:59:50', '926592296', '1833', NULL, 1, 1),
+(140, '2010-06-15 14:59:00', '926592296', '1833', NULL, 1, 1),
+(141, '2010-06-15 14:59:00', '926592296', '1833', NULL, 1, 1),
+(142, '2010-06-15 14:59:00', '926592296', '1833', NULL, 1, 1),
+(143, '2010-06-15 14:59:00', '926592296', '1833', NULL, 1, 1),
+(144, '2010-06-15 14:59:00', '926592296', '1833', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pbx`
+-- Estructura de tabla para la tabla `pbx`
 --
 
 CREATE TABLE IF NOT EXISTS `pbx` (
   `pbx_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `pbx_nombre` varchar(20) NOT NULL,
   UNIQUE KEY `pbx_id` (`pbx_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `pbx`
+-- Volcar la base de datos para la tabla `pbx`
 --
 
 INSERT INTO `pbx` (`pbx_id`, `pbx_nombre`) VALUES
-(1, 'PBX_prueba'),
-(2, 'otroPBX');
+(1, 'PBX_prueba');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_llamada`
+-- Estructura de tabla para la tabla `tipo_llamada`
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_llamada` (
@@ -218,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `tipo_llamada` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `tipo_llamada`
+-- Volcar la base de datos para la tabla `tipo_llamada`
 --
 
 INSERT INTO `tipo_llamada` (`tip_id`, `tip_tarifa`, `tip_Nombre`) VALUES
@@ -229,18 +168,18 @@ INSERT INTO `tipo_llamada` (`tip_id`, `tip_tarifa`, `tip_Nombre`) VALUES
 (5, 100, 'Local');
 
 --
--- Constraints for dumped tables
+-- Filtros para las tablas descargadas (dump)
 --
 
 --
--- Constraints for table `configuraciones`
+-- Filtros para la tabla `configuraciones`
 --
 ALTER TABLE `configuraciones`
   ADD CONSTRAINT `configuraciones_ibfk_1` FOREIGN KEY (`con_pbx_id`) REFERENCES `pbx` (`pbx_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `configuraciones_ibfk_2` FOREIGN KEY (`con_con_id`) REFERENCES `concepto` (`con_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `llamada`
+-- Filtros para la tabla `llamada`
 --
 ALTER TABLE `llamada`
   ADD CONSTRAINT `llamada_ibfk_1` FOREIGN KEY (`lla_idTipo`) REFERENCES `tipo_llamada` (`tip_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
