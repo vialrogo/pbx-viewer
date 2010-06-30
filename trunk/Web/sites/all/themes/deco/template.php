@@ -77,7 +77,7 @@ function phptemplate_preprocess_page(&$vars) {
   $vars['site_title_html'] = implode(' ', $site_fields);
 
 	// convert primary links to lowercase and secondary links to uppercase
-	if ($vars['primary_links']) {
+/*	if ($vars['primary_links']) {
 		foreach ($vars['primary_links'] as $key => $link) {
 			$vars['primary_links'][$key]['title'] = strtolower($link['title']);
 		}
@@ -86,7 +86,7 @@ function phptemplate_preprocess_page(&$vars) {
 		foreach ($vars['secondary_links'] as $key => $link) {
 			$vars['secondary_links'][$key]['title'] = strtoupper($link['title']);
 		}
-	}
+	}*/
 }
 
 /**
