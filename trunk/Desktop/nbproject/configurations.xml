@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="62">
+<configurationDescriptor version="69">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de cabeçalho"
@@ -13,8 +13,10 @@
       <itemPath>CRUD_PBX.ui</itemPath>
       <itemPath>Desktop.cpp</itemPath>
       <itemPath>Desktop.h</itemPath>
-      <itemPath>/srv/http/www_vialrogo/pbx-viewer/Desktop/Desktop_en.ts</itemPath>
-      <itemPath>/srv/http/www_vialrogo/pbx-viewer/Desktop/Desktop_pt.ts</itemPath>
+      <itemPath>Desktop_en.qm</itemPath>
+      <itemPath>Desktop_en.ts</itemPath>
+      <itemPath>Desktop_pt.qm</itemPath>
+      <itemPath>Desktop_pt.ts</itemPath>
       <itemPath>GUIDesktop.cpp</itemPath>
       <itemPath>GUIDesktop.h</itemPath>
       <itemPath>GUIDesktop.ui</itemPath>
@@ -46,10 +48,6 @@
         <modules>core gui network sql</modules>
       </qt>
       <compileType>
-        <linkerTool>
-          <linkerLibItems>
-          </linkerLibItems>
-        </linkerTool>
       </compileType>
     </conf>
     <conf name="Release" type="4">
@@ -72,10 +70,6 @@
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
         </fortranCompilerTool>
-        <linkerTool>
-          <linkerLibItems>
-          </linkerLibItems>
-        </linkerTool>
       </compileType>
     </conf>
   </confs>

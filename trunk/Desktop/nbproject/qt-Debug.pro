@@ -1,3 +1,5 @@
+# This file is generated automatically. Do not edit.
+# Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
 DESTDIR = dist/Debug/GNU-Linux-x86
 TARGET = Desktop
@@ -5,11 +7,11 @@ VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
 QT = core gui network sql
-SOURCES += MysqlConection.cpp main.cpp GUIDesktop.cpp Desktop.cpp Llamada.cpp CRUD_PBX.cpp
-HEADERS += MysqlConection.h Llamada.h Desktop.h CRUD_PBX.h GUIDesktop.h
-FORMS += CRUD_PBX.ui GUIDesktop.ui
+SOURCES += main.cpp MysqlConection.cpp GUIDesktop.cpp Llamada.cpp CRUD_PBX.cpp Desktop.cpp
+HEADERS += Llamada.h GUIDesktop.h CRUD_PBX.h Desktop.h MysqlConection.h
+FORMS += GUIDesktop.ui CRUD_PBX.ui
 RESOURCES +=
-TRANSLATIONS += /srv/http/www_vialrogo/pbx-viewer/Desktop/Desktop_en.ts /srv/http/www_vialrogo/pbx-viewer/Desktop/Desktop_pt.ts
+TRANSLATIONS += Desktop_en.ts Desktop_pt.ts
 OBJECTS_DIR = build/Debug/GNU-Linux-x86
 MOC_DIR = 
 RCC_DIR = 
