@@ -10,6 +10,8 @@
 # Environment
 MKDIR=mkdir
 CP=cp
+GREP=grep
+NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
 CC=gcc
@@ -32,6 +34,7 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES=
+
 
 # C Compiler Flags
 CFLAGS=
@@ -57,7 +60,10 @@ FORCE:
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk
-	${MAKE} -f nbproject/qt-${CND_CONF}.mk dist/Release/GNU-Linux-x86/Desktop
+	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk dist/Release/GNU-Linux-x86/Desktop
+
+build/Release/%.o: nbproject/qt-Release.mk
+	$(MAKE) -f nbproject/qt-Release.mk "$@"
 
 # Subprojects
 .build-subprojects:

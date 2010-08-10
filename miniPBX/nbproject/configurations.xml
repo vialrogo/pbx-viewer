@@ -23,6 +23,12 @@
       <itemPath>GUIMiniPBX.cpp</itemPath>
       <itemPath>GUIMiniPBX.h</itemPath>
       <itemPath>GUIMiniPBX.ui</itemPath>
+      <itemPath>MiniPBX.cpp</itemPath>
+      <itemPath>MiniPBX.h</itemPath>
+      <itemPath>MiniPBX_en.qm</itemPath>
+      <itemPath>MiniPBX_en.ts</itemPath>
+      <itemPath>MiniPBX_pt.qm</itemPath>
+      <itemPath>MiniPBX_pt.ts</itemPath>
       <itemPath>RS232_Conection.cpp</itemPath>
       <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
