@@ -12,8 +12,6 @@ GUIMiniPBX::GUIMiniPBX() {
     objMiniPBX = new MiniPBX();
     traductorEN = new QTranslator(this);
     traductorPT = new QTranslator(this);
-    validadorPuerto = new QIntValidator(5000,65536,this);
-    widget.lineEditPuerto->setValidator(validadorPuerto);
     actionGroup = new QActionGroup(this);
     actionGroup->addAction(widget.actionEspanol);
     actionGroup->addAction(widget.actionIngles);
