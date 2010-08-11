@@ -51,8 +51,8 @@ int main(int argc, char *argv[]) {
 //    conection->closePort();
 
     QApplication app(argc, argv);
-    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+//    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     GUIMiniPBX* aplicacion = new GUIMiniPBX();
     aplicacion->show();
 

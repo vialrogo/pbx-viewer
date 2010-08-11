@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUIMiniPBX.ui'
 **
-** Created: Mon Aug 9 18:42:30 2010
+** Created: Wed Aug 11 17:38:09 2010
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,6 +15,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
@@ -60,12 +61,6 @@ public:
     QComboBox *comboPuerto;
     QLabel *label_7;
     QLabel *label_8;
-    QWidget *gridLayoutWidget_2;
-    QGridLayout *gridLayout_2;
-    QLabel *label_10;
-    QLineEdit *lineEditPuerto;
-    QLineEdit *lineEditServidor;
-    QLabel *label_9;
     QWidget *gridLayoutWidget_3;
     QGridLayout *gridLayout_3;
     QPushButton *pushButtonIniciar;
@@ -74,6 +69,10 @@ public:
     QLabel *label;
     QFrame *line;
     QFrame *line_2;
+    QLabel *labelArchivo;
+    QCheckBox *checkBoxCiclico;
+    QLineEdit *lineEditArchivo;
+    QPushButton *pushButtonArchivo;
     QMenuBar *menubar;
     QMenu *menuArchivo;
     QMenu *menuEdici_n;
@@ -227,43 +226,11 @@ public:
 
         label_8 = new QLabel(centralwidget);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(100, 320, 101, 17));
+        label_8->setGeometry(QRect(90, 320, 131, 21));
         QFont font;
         font.setPointSize(12);
         label_8->setFont(font);
         label_8->setAlignment(Qt::AlignCenter);
-        gridLayoutWidget_2 = new QWidget(centralwidget);
-        gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(10, 340, 281, 93));
-        gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        gridLayout_2->setSizeConstraint(QLayout::SetDefaultConstraint);
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(gridLayoutWidget_2);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-
-        gridLayout_2->addWidget(label_10, 2, 0, 1, 1);
-
-        lineEditPuerto = new QLineEdit(gridLayoutWidget_2);
-        lineEditPuerto->setObjectName(QString::fromUtf8("lineEditPuerto"));
-        lineEditPuerto->setMinimumSize(QSize(100, 0));
-        lineEditPuerto->setMaximumSize(QSize(100, 16777215));
-
-        gridLayout_2->addWidget(lineEditPuerto, 2, 1, 1, 1);
-
-        lineEditServidor = new QLineEdit(gridLayoutWidget_2);
-        lineEditServidor->setObjectName(QString::fromUtf8("lineEditServidor"));
-        lineEditServidor->setMinimumSize(QSize(100, 0));
-        lineEditServidor->setMaximumSize(QSize(100, 16777215));
-
-        gridLayout_2->addWidget(lineEditServidor, 1, 1, 1, 1);
-
-        label_9 = new QLabel(gridLayoutWidget_2);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-
-        gridLayout_2->addWidget(label_9, 1, 0, 1, 1);
-
         gridLayoutWidget_3 = new QWidget(centralwidget);
         gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
         gridLayoutWidget_3->setGeometry(QRect(10, 440, 281, 51));
@@ -301,6 +268,19 @@ public:
         line_2->setGeometry(QRect(11, 430, 280, 20));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
+        labelArchivo = new QLabel(centralwidget);
+        labelArchivo->setObjectName(QString::fromUtf8("labelArchivo"));
+        labelArchivo->setGeometry(QRect(20, 361, 57, 20));
+        checkBoxCiclico = new QCheckBox(centralwidget);
+        checkBoxCiclico->setObjectName(QString::fromUtf8("checkBoxCiclico"));
+        checkBoxCiclico->setGeometry(QRect(120, 400, 71, 20));
+        lineEditArchivo = new QLineEdit(centralwidget);
+        lineEditArchivo->setObjectName(QString::fromUtf8("lineEditArchivo"));
+        lineEditArchivo->setGeometry(QRect(90, 360, 171, 25));
+        lineEditArchivo->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        pushButtonArchivo = new QPushButton(centralwidget);
+        pushButtonArchivo->setObjectName(QString::fromUtf8("pushButtonArchivo"));
+        pushButtonArchivo->setGeometry(QRect(260, 360, 25, 25));
         GUIMiniPBX->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GUIMiniPBX);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -369,13 +349,14 @@ public:
         );
         label_2->setText(QApplication::translate("GUIMiniPBX", "Puerto : ", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("GUIMiniPBX", "Bit de Parada : ", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("GUIMiniPBX", "SOCKET", 0, QApplication::UnicodeUTF8));
-        label_10->setText(QApplication::translate("GUIMiniPBX", "Puerto", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("GUIMiniPBX", "Servidor : ", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("GUIMiniPBX", "FLUJO DE DATOS", 0, QApplication::UnicodeUTF8));
         pushButtonIniciar->setText(QApplication::translate("GUIMiniPBX", "Iniciar", 0, QApplication::UnicodeUTF8));
         pushButtonDetener->setText(QApplication::translate("GUIMiniPBX", "Detener", 0, QApplication::UnicodeUTF8));
         pushButtonSalir->setText(QApplication::translate("GUIMiniPBX", "Salir", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("GUIMiniPBX", "Mini PBX", 0, QApplication::UnicodeUTF8));
+        labelArchivo->setText(QApplication::translate("GUIMiniPBX", "Archivo :", 0, QApplication::UnicodeUTF8));
+        checkBoxCiclico->setText(QApplication::translate("GUIMiniPBX", "C\303\255clico", 0, QApplication::UnicodeUTF8));
+        pushButtonArchivo->setText(QApplication::translate("GUIMiniPBX", "...", 0, QApplication::UnicodeUTF8));
         menuArchivo->setTitle(QApplication::translate("GUIMiniPBX", "Archivo", 0, QApplication::UnicodeUTF8));
         menuEdici_n->setTitle(QApplication::translate("GUIMiniPBX", "Edici\303\263n", 0, QApplication::UnicodeUTF8));
         menuIdioma->setTitle(QApplication::translate("GUIMiniPBX", "Idioma", 0, QApplication::UnicodeUTF8));
