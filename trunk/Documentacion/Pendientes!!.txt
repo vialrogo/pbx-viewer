@@ -1,0 +1,9 @@
+* En Desktop falta traducción al inglés y portugués para "Iniciado" y "Puerto Abierto exitosamente"
+
+*En RS232 es "Stop Bit" no "Stop Bits"
+
+*Revisar si ya funciona lo de los saltos de linea
+
+*Interfaz mini pbx???
+
+
