@@ -5,3 +5,11 @@ R// Quite el chulo de propiedades de proyecto, perfil, "mostrar los indicadores 
 2 - Sale un error al intentar ejecutar el cual dice que "no se puede crear el proceso hijo"
 
 R// Darle permisos de ejecucion al archivo ~/.netbeans/6.8/bin/dorun.sh
+
+3 - Como traducir un proyecto de Qt (parte consola)
+
+R// ya habiendo hecho todo el código en el directorio ejecutamos:
+
+	lupdate x.cpp y.cpp ... -ts salida.ts
+
+lleno eso con QtLinguist y luego de guardar todo lo traducido (con shift + enter), le doy file / relase para que saque el .qm y listo

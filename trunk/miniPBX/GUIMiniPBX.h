@@ -8,6 +8,11 @@
 #ifndef _GUIMINIPBX_H
 #define	_GUIMINIPBX_H
 #include <QMessageBox>
+#include <QTranslator>
+#include <QDebug>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 #include "ui_GUIMiniPBX.h"
 #include "MiniPBX.h"
 class GUIMiniPBX : public QMainWindow {
@@ -16,6 +21,7 @@ public:
     GUIMiniPBX();
     virtual ~GUIMiniPBX();
 private:
+    QString rutaArchivo;
     Ui::GUIMiniPBX widget;
     MiniPBX *objMiniPBX;
     QTranslator *traductorEN;
@@ -33,6 +39,7 @@ private slots:
     void idiomaPortugues();
     void acercaDe();
     void ayuda();
+    void clickBuscarArchivo();
 };
 
 #endif	/* _GUIMINIPBX_H */

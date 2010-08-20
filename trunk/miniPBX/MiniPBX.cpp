@@ -5,53 +5,56 @@
  * Created on 1 de Junho de 2010, 19:06
  */
 
-#include "MiniPBX.h"
+#include <QtGui/qwindowdefs.h>
 
+#include "MiniPBX.h"
 using namespace std;
 
 MiniPBX::MiniPBX() {
     estaCorriendo = false;    
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(convertir()));
-    mensaje = new QString("");
+    connect(timer, SIGNAL(timeout()), this, SLOT(enviarLlamada()));
 }
 
 MiniPBX::~MiniPBX() {
 }
 
+void MiniPBX::enviarLlamada(){
 
+     QFile file(rutaArchivo);
+     QString *line = new QString();
 
-void MiniPBX::convertir(){
-    mensaje = leerRS232();
-    if(mensaje->compare("")!=0){
-//        qDebug() << "<->";
-        cout<<">leerRS232()>"<<qPrintable(*mensaje)<<endl;
-//        qDebug() << ">-<";
-//        escribirTcp();
-    }
+     if ( file.open(QIODevice::ReadOnly) ) {
+
+         QTextStream stream( &file );
+
+         while ( !stream.atEnd() ) {
+             *line = stream.readLine();         // line of text excluding '\n'
+             escribirRS232(line);
+         }
+         file.close();
+     }
+     else
+     {
+         qDebug()<<"No se pudo abrir el archivo :(";
+     }
 }
-
-//void MiniPBX::escribirTcp(){
-//
-//    tcpSocket->write(mensaje->toAscii());
-//}
 
 bool MiniPBX::crearConexionRS232(const QString &name, BaudRateType brt, FlowType fc, ParityType pt, DataBitsType dbt, StopBitsType sbt){
     conectionR232 = new RS232_Conection(name, brt, fc, pt, dbt, sbt);
     return true;
 }
 
-QString* MiniPBX::leerRS232(){
+void MiniPBX::escribirRS232(QString * llamadaTrasmitir){ //Arreglar
     
-    conectionR232->receiveMsg();
-    QString *msg_rec = conectionR232->getReceived_msg();
-//    qDebug(qPrintable(*msg_rec));
-    //msg_rec->append(*);
-    return msg_rec;
+    qDebug(qPrintable(*llamadaTrasmitir));
+    conectionR232->setMessage(llamadaTrasmitir);
+    conectionR232->transmitMsg();
 }
 
-void MiniPBX::correr(){
+void MiniPBX::correr(QString rutaArchivo_in){
     if(!estaCorriendo){
+        rutaArchivo = rutaArchivo_in;
         conectionR232->openPort();        
         estaCorriendo = true;
         timer->start(10);
@@ -63,7 +66,6 @@ void MiniPBX::parar(){
         estaCorriendo = false;
         timer->stop();
         conectionR232->closePort();
-        
     }
 }
 
@@ -71,25 +73,3 @@ bool MiniPBX::probarR232(){
     return conectionR232->openPort() && conectionR232->closePort();
 }
 
-/*
-bool MiniPBX::crearSocket(QString direccion, QString puerto){
-    tcpServer = new QTcpServer(this);
-        if (!tcpServer->listen())
-            return false;
-    connect(tcpServer, SIGNAL(newConnection()), this, SLOT(escribirTcp()));
-    qDebug() << "PUERTO:" <<tcpServer->serverPort();
-    return true;
-}
-*/
-
-//bool MiniPBX::crearSocket(QString direccion, QString puerto){
-//    tcpSocket = new QTcpSocket(this);
-//    blockSize = 0;
-//    tcpSocket->abort();
-//    tcpSocket->connectToHost(direccion,puerto.toInt());
-//    //connect(tcpSocket, SIGNAL(connected()), this, SLOT(escribirTcp()));
-//    //tcpSocket->connectToHost("127.0.0.1",QString("47348").toInt());
-//    //connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readFortune()));
-//    //connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)));
-//    return true;
-//}
