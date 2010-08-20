@@ -28,9 +28,13 @@ void MiniPBX::enviarLlamada(){
 
          QTextStream stream( &file );
 
-         while ( !stream.atEnd() ) {
+         while ( !stream.atEnd() ) { //Esta parada no está funcionando :(
              *line = stream.readLine();         // line of text excluding '\n'
-             escribirRS232(line);
+//             escribirRS232(line);
+             qDebug()<<*line;
+
+             if(*line == "varg")
+                 qDebug()<<"Entró linea 37";
          }
          file.close();
      }
