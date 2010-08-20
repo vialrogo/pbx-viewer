@@ -28,6 +28,7 @@ GUIMiniPBX::GUIMiniPBX() {
     connect(widget.actionAcerca_de_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(widget.actionAcerca_de, SIGNAL(triggered()), this, SLOT(acercaDe()));
     connect(widget.actionAyuda, SIGNAL(triggered()), this, SLOT(ayuda()));
+    connect(widget.pushButtonArchivo, SIGNAL(clicked()), this, SLOT(clickBuscarArchivo()));
 }
 
 GUIMiniPBX::~GUIMiniPBX() {
@@ -35,25 +36,11 @@ GUIMiniPBX::~GUIMiniPBX() {
 
 
 void GUIMiniPBX::clickIniciar(){
+
     
-    bool estaValidado = false;
     bool estaListoRS232 = false;
-    bool estaListoSocket = false;
-    QString puertoSocket = widget.lineEditPuerto->text();
-    QString direccionSocket = widget.lineEditServidor->text();
+    bool archivoValido = false;
 
-    if(direccionSocket.compare("") != 0 && puertoSocket.compare("") != 0){
-        
-        if(puertoSocket.toInt()<5000)
-            widget.statusbar->showMessage(tr("El puerto debe ser mayor a ")+"5000");
-        else
-            estaValidado = true;
-    }
-    else
-        widget.statusbar->showMessage(tr("Ingrese correctamente los datos"));
-
-
-    if(estaValidado){      
     QString puertoRS232 = widget.comboPuerto->currentText();
     QString velocidadRS232 = widget.comboVelocidad->currentText();
     QString flujoRS232 = widget.comboTipo->currentText();
@@ -137,27 +124,28 @@ void GUIMiniPBX::clickIniciar(){
           widget.statusbar->showMessage(tr("Error creando Conexion RS232"));
       }
 
-      /// Crear y probar Socket
-      if(objMiniPBX->crearSocket(direccionSocket,puertoSocket)){
-        qDebug() << "Socket Creado";
-        estaListoSocket = true;
+      QFile file(rutaArchivo);
+
+      if(file.exists())
+      {
+          archivoValido=true;
       }
-      else{
-        qDebug() << "Socket NO Creado";
-        widget.statusbar->showMessage(tr("Error probando comunicacion con Socket"));
+      else
+      {
+          qDebug() << "Archivo no existe";
+          widget.statusbar->showMessage(tr("El archivo especificado no existe"));
       }
 
       /// Iniciar proceso
-      if(estaListoRS232 && estaListoSocket){
+      if(estaListoRS232 && archivoValido){
         widget.pushButtonIniciar->setDisabled(true);
         widget.actionIniciar->setDisabled(true);
         widget.pushButtonDetener->setDisabled(false);
         widget.actionDetener->setDisabled(false);
-        objMiniPBX->correr();
+        objMiniPBX->correr(rutaArchivo);
         activarInterfaz(false);
         widget.statusbar->showMessage(tr("MiniPBX corriendo"));
       }
-    }
 }
 
 void GUIMiniPBX::clickDetener(){
@@ -176,7 +164,7 @@ void GUIMiniPBX::clickDetener(){
  }
 
  void GUIMiniPBX::idiomaIngles(){
-     traductorEN->load("MiniPBX_en");
+     traductorEN->load("miniPBX_en");
      qApp->installTranslator(traductorEN);
      actualizarInterfaz();
  }
@@ -188,7 +176,7 @@ void GUIMiniPBX::clickDetener(){
  }
 
  void GUIMiniPBX::idiomaPortugues(){
-     traductorPT->load("MiniPBX_pt");
+     traductorPT->load("miniPBX_pt");
      qApp->installTranslator(traductorPT);
      actualizarInterfaz();
  }
@@ -213,12 +201,21 @@ void GUIMiniPBX::clickDetener(){
 
 
  void GUIMiniPBX::activarInterfaz(bool activar){
-     widget.lineEditPuerto->setEnabled(activar);
-     widget.lineEditServidor->setEnabled(activar);
+//     widget.lineEditPuerto->setEnabled(activar);
+//     widget.lineEditServidor->setEnabled(activar);
      widget.comboData->setEnabled(activar);
      widget.comboParidad->setEnabled(activar);
      widget.comboPuerto->setEnabled(activar);
      widget.comboStop->setEnabled(activar);
      widget.comboTipo->setEnabled(activar);
      widget.comboVelocidad->setEnabled(activar);
+ }
+
+ void GUIMiniPBX::clickBuscarArchivo(){
+
+     
+     rutaArchivo = QFileDialog::getOpenFileName(this, "Choose a file to open", QString::null, QString::null);
+     widget.lineEditArchivo->setText(rutaArchivo);
+     
+     qDebug()<<""<<rutaArchivo;
  }
