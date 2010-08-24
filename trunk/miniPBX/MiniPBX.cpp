@@ -12,8 +12,8 @@ using namespace std;
 
 MiniPBX::MiniPBX() {
     estaCorriendo = false;    
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(enviarLlamada()));
+//    timer = new QTimer(this);
+//    connect(timer, SIGNAL(timeout()), this, SLOT(enviarLlamada()));
 }
 
 MiniPBX::~MiniPBX() {
@@ -28,13 +28,11 @@ void MiniPBX::enviarLlamada(){
 
          QTextStream stream( &file );
 
-         while ( !stream.atEnd() ) { //Esta parada no está funcionando :(
-             *line = stream.readLine();         // line of text excluding '\n'
+         while ( !stream.atEnd() ) {
+             *line = stream.readLine() + "\n";
 //             escribirRS232(line);
-             qDebug()<<*line;
-
-             if(*line == "varg")
-                 qDebug()<<"Entró linea 37";
+             qDebug(qPrintable(*line));
+             usleep(100000);
          }
          file.close();
      }
@@ -61,14 +59,15 @@ void MiniPBX::correr(QString rutaArchivo_in){
         rutaArchivo = rutaArchivo_in;
         conectionR232->openPort();        
         estaCorriendo = true;
-        timer->start(10);
+        enviarLlamada();
+//        timer->start(10);
     }
 }
 
 void MiniPBX::parar(){
     if(estaCorriendo){
         estaCorriendo = false;
-        timer->stop();
+//        timer->stop();
         conectionR232->closePort();
     }
 }

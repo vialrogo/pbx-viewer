@@ -30,6 +30,8 @@ public:
     void parar();
     bool probarR232();
 private:
+    QFile file;
+    QTextStream stream;
     QString rutaArchivo;
 //    QTcpSocket *tcpSocket;
     bool estaCorriendo;
