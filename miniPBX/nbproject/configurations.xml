@@ -23,6 +23,7 @@
       <itemPath>GUIMiniPBX.cpp</itemPath>
       <itemPath>GUIMiniPBX.h</itemPath>
       <itemPath>GUIMiniPBX.ui</itemPath>
+      <itemPath>HiloLecturaArchivo.cpp</itemPath>
       <itemPath>MiniPBX.cpp</itemPath>
       <itemPath>MiniPBX.h</itemPath>
       <itemPath>MiniPBX_en.qm</itemPath>

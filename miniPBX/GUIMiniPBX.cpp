@@ -142,7 +142,9 @@ void GUIMiniPBX::clickIniciar(){
         widget.actionIniciar->setDisabled(true);
         widget.pushButtonDetener->setDisabled(false);
         widget.actionDetener->setDisabled(false);
-        objMiniPBX->correr(rutaArchivo);
+        widget.lineEditArchivo->setDisabled(true);
+        widget.checkBoxCiclico->setDisabled(true);
+        objMiniPBX->correr(rutaArchivo, widget.checkBoxCiclico->isChecked());
         activarInterfaz(false);
         widget.statusbar->showMessage(tr("MiniPBX corriendo"));
       }
@@ -153,6 +155,8 @@ void GUIMiniPBX::clickDetener(){
     widget.actionIniciar->setDisabled(false);
     widget.pushButtonDetener->setDisabled(true);
     widget.actionDetener->setDisabled(true);
+    widget.lineEditArchivo->setDisabled(false);
+    widget.checkBoxCiclico->setDisabled(false);
     activarInterfaz(true);
     objMiniPBX->parar();
     widget.statusbar->showMessage(tr("Se ha detenido exitosamente"));
