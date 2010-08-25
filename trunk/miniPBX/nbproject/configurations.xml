@@ -24,15 +24,16 @@
       <itemPath>GUIMiniPBX.h</itemPath>
       <itemPath>GUIMiniPBX.ui</itemPath>
       <itemPath>HiloLecturaArchivo.cpp</itemPath>
+      <itemPath>HiloLecturaArchivo.h</itemPath>
       <itemPath>MiniPBX.cpp</itemPath>
       <itemPath>MiniPBX.h</itemPath>
-      <itemPath>MiniPBX_en.qm</itemPath>
-      <itemPath>MiniPBX_en.ts</itemPath>
-      <itemPath>MiniPBX_pt.qm</itemPath>
-      <itemPath>MiniPBX_pt.ts</itemPath>
       <itemPath>RS232_Conection.cpp</itemPath>
       <itemPath>RS232_Conection.h</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>miniPBX_en.qm</itemPath>
+      <itemPath>miniPBX_en.ts</itemPath>
+      <itemPath>miniPBX_pt.qm</itemPath>
+      <itemPath>miniPBX_pt.ts</itemPath>
       <itemPath>ui_GUIMiniPBX.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"

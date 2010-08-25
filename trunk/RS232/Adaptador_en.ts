@@ -96,7 +96,7 @@
     <message>
         <location filename="GUIAdaptador.ui" line="245"/>
         <source>Bit de Parada : </source>
-        <translation>Stop Bits: </translation>
+        <translation>Stop Bit: </translation>
     </message>
     <message>
         <location filename="GUIAdaptador.ui" line="261"/>
@@ -174,22 +174,22 @@
     <message>
         <location filename="GUIAdaptador.cpp" line="58"/>
         <source>Ingrese correctamente los datos</source>
-        <translation></translation>
+        <translation>Enter data correctly</translation>
     </message>
     <message>
         <location filename="GUIAdaptador.cpp" line="136"/>
         <source>Error probando Conexion RS232</source>
-        <translation>Error, checking RS232 Connection</translation>
+        <translation>Error checking RS232 Connection</translation>
     </message>
     <message>
         <location filename="GUIAdaptador.cpp" line="142"/>
         <source>Error creando Conexion RS232</source>
-        <translation></translation>
+        <translation>Error creating Connection RS232</translation>
     </message>
     <message>
         <location filename="GUIAdaptador.cpp" line="152"/>
         <source>Error probando comunicacion con Socket</source>
-        <translation>Error, cheking Socket connection</translation>
+        <translation>Error cheking Socket connection</translation>
     </message>
     <message>
         <location filename="GUIAdaptador.cpp" line="163"/>

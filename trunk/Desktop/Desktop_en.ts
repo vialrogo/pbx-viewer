@@ -4,122 +4,84 @@
 <context>
     <name>CRUD_PBX</name>
     <message>
-        <location filename="CRUD_PBX.ui" line="14"/>
         <source>Configuracion de perfiles de PBX</source>
-        <translation>PBX Profile configuration</translation>
+        <translation type="obsolete">PBX Profile configuration</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="26"/>
         <source>Fecha Llamada</source>
-        <translation>Call Data</translation>
+        <translation type="obsolete">Call Data</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="41"/>
-        <location filename="CRUD_PBX.ui" line="228"/>
-        <location filename="CRUD_PBX.ui" line="238"/>
-        <location filename="CRUD_PBX.ui" line="248"/>
-        <location filename="CRUD_PBX.ui" line="258"/>
-        <location filename="CRUD_PBX.ui" line="268"/>
-        <location filename="CRUD_PBX.ui" line="493"/>
-        <location filename="CRUD_PBX.ui" line="503"/>
-        <location filename="CRUD_PBX.ui" line="513"/>
-        <location filename="CRUD_PBX.ui" line="523"/>
         <source>Inicio : </source>
-        <translation>Start : </translation>
+        <translation type="obsolete">Start : </translation>
     </message>
     <message utf8="true">
-        <location filename="CRUD_PBX.ui" line="180"/>
         <source>Año</source>
-        <translation>Year</translation>
+        <translation type="obsolete">Year</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="193"/>
         <source>Mes</source>
-        <translation>Month</translation>
+        <translation type="obsolete">Month</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="200"/>
         <source>Dia</source>
-        <translation>Day</translation>
+        <translation type="obsolete">Day</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="207"/>
         <source>Hora</source>
-        <translation>Hour</translation>
+        <translation type="obsolete">Hour</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="214"/>
         <source>Minuto</source>
-        <translation>Minute</translation>
+        <translation type="obsolete">Minute</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="221"/>
         <source>Segundo</source>
-        <translation>Second</translation>
+        <translation type="obsolete">Second</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="278"/>
-        <location filename="CRUD_PBX.ui" line="288"/>
-        <location filename="CRUD_PBX.ui" line="298"/>
-        <location filename="CRUD_PBX.ui" line="308"/>
-        <location filename="CRUD_PBX.ui" line="318"/>
-        <location filename="CRUD_PBX.ui" line="328"/>
-        <location filename="CRUD_PBX.ui" line="533"/>
-        <location filename="CRUD_PBX.ui" line="543"/>
-        <location filename="CRUD_PBX.ui" line="553"/>
-        <location filename="CRUD_PBX.ui" line="563"/>
         <source>Largo : </source>
-        <translation>Lenght : </translation>
+        <translation type="obsolete">Lenght : </translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="351"/>
         <source>Nombre del PBX : </source>
-        <translation>PBX name : </translation>
+        <translation type="obsolete">PBX name : </translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="370"/>
         <source>Datos Llamada</source>
-        <translation>Call Data</translation>
+        <translation type="obsolete">Call Data</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="465"/>
         <source>Codigo de Cuenta</source>
-        <translation>Count code</translation>
+        <translation type="obsolete">Count code</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="472"/>
         <source>Destino</source>
-        <translation>Sink Phone</translation>
+        <translation type="obsolete">Sink Phone</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="479"/>
         <source>Origen</source>
-        <translation>Source Phone</translation>
+        <translation type="obsolete">Source Phone</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="486"/>
         <source>Duracion</source>
-        <translation>Duration</translation>
+        <translation type="obsolete">Duration</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="586"/>
         <source>Aceptar</source>
-        <translation>Accept</translation>
+        <translation type="obsolete">Accept</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="593"/>
         <source>Cancelar</source>
-        <translation>Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="612"/>
         <source>Longitud de la trama : </source>
-        <translation>Frame lenght : </translation>
+        <translation type="obsolete">Frame lenght : </translation>
     </message>
     <message>
-        <location filename="CRUD_PBX.ui" line="639"/>
         <source>Longitud telefono interno:</source>
-        <translation>Internal number lenght : </translation>
+        <translation type="obsolete">Internal number lenght : </translation>
     </message>
 </context>
 <context>
@@ -148,13 +110,13 @@
         <location filename="GUIDesktop.cpp" line="82"/>
         <location filename="GUIDesktop.cpp" line="83"/>
         <source>Iniciado</source>
-        <translation type="unfinished"></translation>
+        <translation>Started</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="85"/>
         <location filename="GUIDesktop.cpp" line="86"/>
         <source>Puerto Abierto exitosamente</source>
-        <translation type="unfinished"></translation>
+        <translation>Port open succesfully</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="98"/>
@@ -170,12 +132,12 @@
     <message>
         <location filename="GUIDesktop.cpp" line="132"/>
         <source>&lt;h3&gt;PBX Viewer: Desktop&lt;/h3&gt;&lt;br&gt;Una aplicaciÃ³n de supervisiÃ³n y gestiÃ³n de llamadas en redes administradas por un sistema PBX, escrita en Qt.&lt;br&gt;&lt;br&gt;GNU Lesser General Public License&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;http://www.gnu.org/licenses/lgpl.html&lt;/a&gt;&lt;br&gt;&lt;br&gt;Creado por :&lt;br&gt;Victor Alberto Romero Gonzalez&lt;br&gt;&lt;br&gt;Escuela de IngenierÃ­a ElÃ©ctrica Y ElectrÃ³nica&lt;br&gt;Universidad del Valle&lt;br&gt;2010</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;PBX Viewer: Desktop&lt;/h3&gt;&lt;br&gt;A PBX network administred calls manager a supervision aplication, powererd by Qt.&lt;br&gt;&lt;br&gt;GNU Lesser General Public License&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;http://www.gnu.org/licenses/lgpl.html&lt;/a&gt;&lt;br&gt;&lt;br&gt;Written by :&lt;br&gt;Victor Alberto Romero Gonzalez&lt;br&gt;&lt;br&gt;Escuela de Ingenierí­a Eléctrica Y Electrónica&lt;br&gt;Universidad del Valle&lt;br&gt;2010</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="141"/>
         <source>&lt;h3&gt;Bienvenido a la ayuda de PBX Viewer: Desktop&lt;/h3&gt;&lt;h4&gt;Ayuda&lt;/h4&gt;&lt;p&gt;Esta aplicaciÃ³n permite recibir tramas a travÃ©s de un socket y guardarlas en una base de datos.Para esto facilita una interfaz de gestiÃ³n de diferentes tipos de PBXs soportados,los cuales se encuentran tambiÃ©n almacenados en la base de datos.&lt;/p&gt;&lt;p&gt;Si presenta problemas de conexion con el socket,por favor consulte al administrador del sistema.&lt;/p&gt;&lt;h4&gt;Contribuye al proyecto&lt;/h4&gt;&lt;p&gt;El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.&lt;/p&gt;&lt;h4&gt;Contacto&lt;/h4&gt;&lt;p&gt;Victor Alberto Romero Gonzalez&lt;br&gt;varg04444@gmail.com&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;Welcome to PBX Viewer: MiniPBX Help&lt;/h3&gt;&lt;h4&gt;Help&lt;/h4&gt;&lt;p&gt;This aplication allows to transmit frames through the Sacket and save it in a Data Base.For this provides an interface for managing different types of supported PBXs, which are also stored in the database.&lt;/p&gt;&lt;p&gt;If it presents problems of connection with the port and/or socket,please consult to the administrator of the system.&lt;/p&gt;&lt;h4&gt;Contribute to the project&lt;/h4&gt;&lt;p&gt;The project find  under licence LGPL. To know like contributing to this project, please contact to the author.&lt;/p&gt;&lt;h4&gt;Contact&lt;/h4&gt;&lt;p&gt;Victor Alberto Romero Gonzalez&lt;br&gt;varg04444@gmail.com&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="194"/>
@@ -190,27 +152,27 @@
     <message>
         <location filename="GUIDesktop.cpp" line="201"/>
         <source>El perfil fue eliminado exitosamente</source>
-        <translation type="unfinished"></translation>
+        <translation>The profile deleted successfully</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="238"/>
         <source>El perfil fue creado exitosamente</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile created succesfully</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="244"/>
         <source>El perfil fue actualizado exitosamente</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile updated succesfully</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="260"/>
         <source>PBX en uso: </source>
-        <translation type="unfinished"></translation>
+        <translation>PBX in use:</translation>
     </message>
     <message>
         <location filename="GUIDesktop.cpp" line="263"/>
         <source>Longitud de trama: </source>
-        <translation type="unfinished"></translation>
+        <translation>Frame Length:</translation>
     </message>
     <message>
         <source>El perfil se ha eliminado exitosamente</source>
@@ -249,113 +211,113 @@
         <translation>SOCKET</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="70"/>
-        <location filename="GUIDesktop.ui" line="335"/>
+        <location filename="GUIDesktop.ui" line="73"/>
+        <location filename="GUIDesktop.ui" line="352"/>
         <source>PBX</source>
         <translation>PBX</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="96"/>
+        <location filename="GUIDesktop.ui" line="102"/>
         <source>Puerto: </source>
         <translation>Port: </translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="119"/>
+        <location filename="GUIDesktop.ui" line="128"/>
         <source>Tipo PBX: </source>
         <translation>PBX Name: </translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="147"/>
-        <location filename="GUIDesktop.ui" line="431"/>
+        <location filename="GUIDesktop.ui" line="159"/>
+        <location filename="GUIDesktop.ui" line="448"/>
         <source>Iniciar</source>
         <translation>Start</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="168"/>
-        <location filename="GUIDesktop.ui" line="439"/>
+        <location filename="GUIDesktop.ui" line="180"/>
+        <location filename="GUIDesktop.ui" line="456"/>
         <source>Parar</source>
         <translation>Stop</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="186"/>
-        <location filename="GUIDesktop.ui" line="357"/>
+        <location filename="GUIDesktop.ui" line="198"/>
+        <location filename="GUIDesktop.ui" line="374"/>
         <source>Salir</source>
         <translation>Exit</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="217"/>
+        <location filename="GUIDesktop.ui" line="229"/>
         <source>Nuevo</source>
         <translation>New</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="238"/>
+        <location filename="GUIDesktop.ui" line="250"/>
         <source>Editar</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="259"/>
+        <location filename="GUIDesktop.ui" line="271"/>
         <source>Eliminar</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="313"/>
+        <location filename="GUIDesktop.ui" line="330"/>
         <source>Archivo</source>
         <translation>File</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="321"/>
+        <location filename="GUIDesktop.ui" line="338"/>
         <source>Edición</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="325"/>
+        <location filename="GUIDesktop.ui" line="342"/>
         <source>Idioma</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="362"/>
+        <location filename="GUIDesktop.ui" line="379"/>
         <source>Nuevo Perfil</source>
         <translation>New Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="370"/>
+        <location filename="GUIDesktop.ui" line="387"/>
         <source>Modificar Perfil</source>
         <translation>Edit Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="381"/>
+        <location filename="GUIDesktop.ui" line="398"/>
         <source>Eliminar Perfil</source>
         <translation>Delete Profile</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="389"/>
+        <location filename="GUIDesktop.ui" line="406"/>
         <location filename="GUIDesktop.cpp" line="133"/>
         <source>Acerca de</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="394"/>
+        <location filename="GUIDesktop.ui" line="411"/>
         <source>Acerca de Qt</source>
         <translation>About Qt</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="405"/>
+        <location filename="GUIDesktop.ui" line="422"/>
         <source>Español</source>
         <translation>Spanish</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="413"/>
+        <location filename="GUIDesktop.ui" line="430"/>
         <source>Inglés</source>
         <translation>English</translation>
     </message>
     <message utf8="true">
-        <location filename="GUIDesktop.ui" line="421"/>
+        <location filename="GUIDesktop.ui" line="438"/>
         <source>Portugués</source>
         <translation>Portuguese</translation>
     </message>
     <message>
-        <location filename="GUIDesktop.ui" line="343"/>
-        <location filename="GUIDesktop.ui" line="426"/>
+        <location filename="GUIDesktop.ui" line="360"/>
+        <location filename="GUIDesktop.ui" line="443"/>
         <location filename="GUIDesktop.cpp" line="142"/>
         <source>Ayuda</source>
         <translation>Help</translation>
