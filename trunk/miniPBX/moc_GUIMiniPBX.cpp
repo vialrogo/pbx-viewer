@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GUIMiniPBX.h'
 **
-** Created: Mon Aug 23 21:12:05 2010
+** Created: Tue Aug 24 20:31:59 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
