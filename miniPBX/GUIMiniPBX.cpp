@@ -189,7 +189,7 @@ void GUIMiniPBX::clickDetener(){
      QMessageBox *acercaDe = new QMessageBox();
      QImage logo("logo.png");
      acercaDe->setIconPixmap(QPixmap::fromImage(logo));
-     acercaDe->setText(tr("<h3>PBX Viewer: MiniPBX RS232 a Socket 1.0</h3><br>Un MiniPBX de RS232 a Socket escrito en Qt.<br><br>GNU Lesser General Public License<br><a href=\"http://www.gnu.org/licenses/lgpl.html\">http://www.gnu.org/licenses/lgpl.html</a><br><br>Creado por :<br>Victor Alberto Romero Gonzalez<br><br>Escuela de Ingeniería Eléctrica Y Electrónica<br>Universidad del Valle<br>2010"));
+     acercaDe->setText(tr("<h3>PBX Viewer: MiniPBX 1.0</h3><br>Un simulador de PBX escrito en Qt.<br><br>GNU Lesser General Public License<br><a href=\"http://www.gnu.org/licenses/lgpl.html\">http://www.gnu.org/licenses/lgpl.html</a><br><br>Creado por :<br>Victor Alberto Romero Gonzalez<br><br>Escuela de Ingeniería Eléctrica Y Electrónica<br>Universidad del Valle<br>2010"));
      acercaDe->setWindowTitle(tr("Acerca de"));
      acercaDe->show();     
  }
@@ -198,7 +198,7 @@ void GUIMiniPBX::clickDetener(){
     QMessageBox *ayuda = new QMessageBox();
     QImage logo("logo.png");
     ayuda->setIconPixmap(QPixmap::fromImage(logo));
-    ayuda->setText(tr("<h3>Bienvenido a la ayuda de PBX Viewer: MiniPBX RS232 a Socket</h3><h4>Ayuda</h4><p>Esta aplicación permite recibir tramas a través del puerto RS232 y retransmitirlas a un puerto de red.La aplicación consta de 2 secciones,RS232 y Socket,las cuales contienen las configuraciones de cada una respectivamente.</p><p>Si presenta problemas de conexion con el puerto y/o socket,por favor consulte al administrador del sistema.</p><h4>Contribuye al proyecto</h4><p>El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.</p><h4>Contacto</h4><p>Victor Alberto Romero Gonzalez<br>varg04444@gmail.com</p>"));
+    ayuda->setText(tr("<h3>Bienvenido a la ayuda de PBX Viewer: MiniPBX</h3><h4>Ayuda</h4><p>Esta aplicación permite trasmitir tramas PBX (guardadas en un archivo) a través del puerto RS232. La aplicación consta de 2 secciones, RS232 y Archivo, las cuales contienen las configuraciones de cada una respectivamente.</p><p>Si presenta problemas de conexion con el puerto y/o lectura del archivo, por favor consulte al administrador del sistema.</p><h4>Contribuye al proyecto</h4><p>El proyecto se encuentra bajo licencia LGPL. Para saber como contribuir a este proyecto, por favor contacte al autor.</p><h4>Contacto</h4><p>Victor Alberto Romero Gonzalez<br>varg04444@gmail.com</p>"));
     ayuda->setWindowTitle(tr("Ayuda"));
     ayuda->show();
  }

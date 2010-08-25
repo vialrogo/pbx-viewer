@@ -12,4 +12,4 @@ R// ya habiendo hecho todo el código en el directorio ejecutamos:
 
 	lupdate x.cpp y.cpp ... -ts salida.ts
 
-lleno eso con QtLinguist y luego de guardar todo lo traducido (con shift + enter), le doy file / relase para que saque el .qm y listo
+lleno eso con QtLinguist y luego de guardar todo lo traducido (con ctrl + enter), le doy file / relase para que saque el .qm y listo

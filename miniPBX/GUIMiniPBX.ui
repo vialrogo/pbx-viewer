@@ -29,7 +29,7 @@
    <enum>Qt::TabFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Adaptador R232 - Socket</string>
+   <string>MiniPBX</string>
   </property>
   <property name="locale">
    <locale language="Spanish" country="Colombia"/>
@@ -270,8 +270,8 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>320</y>
-      <width>131</width>
+      <y>330</y>
+      <width>121</width>
       <height>21</height>
      </rect>
     </property>
@@ -281,7 +281,7 @@
      </font>
     </property>
     <property name="text">
-     <string>FLUJO DE DATOS</string>
+     <string>ARCHIVO</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -338,7 +338,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Mini PBX</string>
+     <string>RS232</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
