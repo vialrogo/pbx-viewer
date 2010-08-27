@@ -1,0 +1,13 @@
+INPUT(
+./build/Debug/MinGW-Windows/MiniPBX.o
+./build/Debug/MinGW-Windows/main.o
+./build/Debug/MinGW-Windows/RS232_Conection.o
+./build/Debug/MinGW-Windows/win_qextserialport.o
+./build/Debug/MinGW-Windows/qextserialport.o
+./build/Debug/MinGW-Windows/HiloLecturaArchivo.o
+./build/Debug/MinGW-Windows/GUIMiniPBX.o
+./build/Debug/MinGW-Windows/qextserialbase.o
+./build/Debug/MinGW-Windows/moc_GUIMiniPBX.o
+./build/Debug/MinGW-Windows/moc_MiniPBX.o
+./build/Debug/MinGW-Windows/moc_HiloLecturaArchivo.o
+);
